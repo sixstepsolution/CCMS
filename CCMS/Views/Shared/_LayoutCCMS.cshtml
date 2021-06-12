@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ccmsApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CCMS</title>
+    <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/fontawesome-free/css/all.min.css">
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    @*<link rel="stylesheet" href="~/Content/dashboardNew/plugins/jqvmap/jqvmap.min.css">*@
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/summernote/summernote-bs4.min.css">
+
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/Scripts/paginationUi.js"></script>
+    <script src="~/Content/autocomplete/angucomplete-alt.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/AngularJs/ccmsApp.js"></script>
+    <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
+    <style>
+        .bg-green-custom {
+            background-color: #057a52 !important
+        }
+
+        .skin-green .main-header .logo {
+            background-color: #057a52 !important;
+            color: #fff;
+            border-bottom: 0 solid transparent;
+        }
+
+        .skin-green .sidebar-menu > li:hover > a, .skin-green .sidebar-menu > li.active > a {
+            color: #ccc !important;
+            background: #1e282c;
+            border-left-color: #00a65a;
+        }
+
+        .btn-green-custom {
+            background-color: #1E8449 !important
+        }
+
+        .sidebar-dark-success .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-success .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: #a8ce38 !important;
+            color: #fff;
+        }
+
+            .sidebar-dark-success .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-success .nav-sidebar > .nav-item > .nav-link.active a:hover {
+                /*background-color: #a8ce38 !important;*/
+                color: #fff !important;
+            }
+
+        .brand-link {
+            display: block;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            padding: .1rem .5rem;
+            transition: width .3s ease-in-out;
+            white-space: nowrap;
+        }
+        /*.nav-sidebar .nav-icon .nav-link p {
+            display: inline-block;
+            margin: 0;
+            color: #fff !important;
+        }
+            .nav-sidebar .nav-icon .nav-link p:hover {
+                display: inline-block;
+                margin: 0;
+                color: #fff !important;
+            }*/
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: #3c3e3d !important;
+            background-color: #b8d75c;
+        }
+
+        .nav-pills .nav-link:not(.active):hover {
+            color: #007bff;
+        }
+
+        .main-sidebar .brand-text, .main-sidebar .logo-xl, .main-sidebar .logo-xs, .sidebar .nav-link p, .sidebar .user-panel .info {
+            transition: margin-left .3s linear,opacity .3s ease,visibility .3s ease;
+            color: #3c3e3d !important
+        }
+
+        /*[class*=sidebar-dark-] .sidebar a {
+            color: #3c3e3d;
+        }
+
+            [class*=sidebar-dark-] .sidebar a:hover {
+                color: #3c3e3d !important;
+            }*/
+        [class*=sidebar-dark-] {
+            background-color: #b8d75c !important;
+            color: #3c3e3d !important;
+        }
+
+        [class*=sidebar-dark] .brand-link {
+            border-bottom: 0px solid #9c1225;
+        }
+
+        .nav-icon {
+            color: #3c3e3d !important;
+        }
+
+        .card-header {
+            padding: 5px !important;
+            font-size: 11pt !important;
+        }
+
+        .card-gray:not(.card-outline) > .card-header {
+            background-color: #6c757de6;
+        }
+
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 0.5rem !important;
+            font-size: 11pt !important
+        }
+    </style>
+    <style>
+        .btn-success-custom {
+            color: #fff !important;
+            background-color: #057a52 !important;
+            border-color: #057a52 !important;
+            box-shadow: none;
+        }
+
+            .btn-success-custom:hover {
+                color: #fff !important;
+                background-color: #b8d75c !important;
+                border-color: #b8d75c !important;
+                box-shadow: none;
+            }
+
+        .btn-danger-custom {
+            color: #fff !important;
+            background-color: #b8d75c !important;
+            border-color: #b8d75c !important;
+            box-shadow: none;
+        }
+
+            .btn-danger-custom:hover {
+                color: #fff !important;
+                background-color: #057a52 !important;
+                border-color: #057a52 !important;
+                box-shadow: none;
+            }
+        .fg-custom {
+            color:#94b62f !important
+        }
+    </style>
+    @*<style>
+            .btn-success-custom {
+                color: #fff;
+                background-color: #28a745;
+                border-color: #28a745;
+                box-shadow: none;
+            }
+        </style>*@
+</head>
+<body class="hold-transition sidebar-mini skin-green">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-light" style="height:70px!important;background: #057a52!important">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
+                </li>
+            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center border">
+                        <div class="dropdown-divider"></div>
+                        <h5 class="p-5">Hello <br />Admin</h5>
+                        <div class="dropdown-divider"></div>
+
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item dropdown-footer">
+                            <a href="#" ng-click="logOut()" class="btn btn-warning" style="color:#000">
+                                Sign out
+                            </a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-success">
+            <!-- Brand Logo -->
+            <a href="../Home/Dashboard" class="brand-link logo" style="background-color:#057a52 !important;height:70px!important">
+                @*<span class="logo-mini" style="font-size:15px;z-index:99999!important;border:1px solid red"><img src="~/Content/assets/images/Tshiamiso_logo.svg" /></span>*@
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg" style="z-index: 99999!important;border:0px solid red;"><img src="~/Content/assets/images/Tshiamiso_logo.svg" height="65" width="100%" style="margin-top: -10px !important" /></span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="background-color:#a8ce38!important">
+                                <i class="nav-icon fa fa-handshake"></i>
+                                <p>
+                                    Trust
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../Home/QueryByPerson" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-success"></i>
+                                        <p>Query by Person</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-hand-holding-heart"></i>
+                                <p>
+                                    Trust Lodgement
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-chart-line"></i>
+                                <p>
+                                    Reports
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-headset"></i>
+                                <p>
+                                    Call Centre
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-user"></i>
+                                <p>
+                                    User Info
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-stethoscope"></i>
+                                <p>
+                                    Medical Hub
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>#2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+            <strong>Copyright &copy; 2021 <a href="#">CCMS</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 0.01
+            </div>
+        </footer>*@
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+    <script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Content/dashboardNew/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button)</script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/Content/dashboardNew/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    @*<script src="~/Content/dashboardNew/plugins/sparklines/sparkline.js"></script>*@
+    <!-- JQVMap -->
+    @*<script src="~/Content/dashboardNew/plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="~/Content/dashboardNew/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>*@
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/dashboardNew/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Content/dashboardNew/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/dashboardNew/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Content/dashboardNew/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Content/dashboardNew/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Content/dashboardNew/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/dashboardNew/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    @*<script src="~/Content/dashboardNew/dist/js/demo.js"></script>*@
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    @*<script src="~/Content/dashboardNew/dist/js/pages/dashboard.js"></script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

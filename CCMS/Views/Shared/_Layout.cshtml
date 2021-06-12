@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html ng-app="ccmsApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <title>CCMS</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Content/dashboard/Content/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- iCheck 1.0.1 -->
+    <script src="~/Content/dashboard/Content/plugins/iCheck/icheck.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Content/dashboard/Content/plugins/fastclick/fastclick.js"></script>
+    <!-- fullCalendar -->
+    <script src="~/Content/dashboard/bower_components/moment/moment.js"></script>
+    <script src="~/Content/dashboard/bower_components/fullcalendar/fullcalendar.js"></script>
+    <script src="~/Content/dashboard/Scripts/ScrollBar/main.js"></script>
+    <script src="~/Content/dashboard/Content/dist/js/app.min.js"></script>
+    <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
+
+    <link href="~/Content/dashboard/Content/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Content/dashboard/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- daterange picker -->
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link href="~/Content/dashboard/Content/plugins/iCheck/all.css" rel="stylesheet" />
+    <!-- Bootstrap Color Picker -->
+    <link href="~/Content/dashboard/Content/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <!-- Bootstrap time Picker -->
+    <link href="~/Content/dashboard/Content/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="~/Content/dashboard/Content/plugins/select2/select2.min.css" rel="stylesheet" />
+    <!-- fullCalendar -->
+    <link href="~/Content/dashboard/bower_components/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/dashboard/bower_components/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+    <!-- Theme style -->
+    @*<link href="~/Content/dashboard/Content/dist/css/AdminLTE.css" rel="stylesheet" />*@
+    <link href="~/Content/dashboard/Content/dist/css/AdminLTE.min.css" rel="stylesheet" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="~/Content/dashboard/Content/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/dashboard/Content/Timeline_New.css" rel="stylesheet" />
+    <link href="~/Content/dashboard/Scripts/ScrollBar/style.css" rel="stylesheet" />
+
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <!-- Load calender ui js and css -->
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
+    <!-- Load toastr css -->
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />*@
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            if (localStorage.expandedMenu == 0) {
+                $("body").addClass('sidebar-collapse');
+            }
+
+            $('body').bind('expanded.pushMenu', function () {
+                localStorage.expandedMenu = 1;
+            });
+
+            $('body').bind('collapsed.pushMenu', function () {
+                localStorage.expandedMenu = 0;
+            });
+            var scroll_top_duration = 10;
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    </script>
+
+    <style>
+        a.active {
+            color: #fff;
+            background: #00337f;
+        }
+
+        .ggb-menu-icon {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .control-sidebar-subheading {
+            font-size: 12px;
+        }
+
+
+        .btn-header {
+            margin: 5px;
+            margin-top: 14px;
+        }
+
+        .ggb-menu-icon {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .control-sidebar-subheading {
+            font-size: 12px;
+        }
+
+        span {
+            height: 24px !important;
+            font-size: 14px !important;
+        }
+
+        .btn-success {
+            background-color: #d2930b !important;
+            color: #fff !important;
+            border: 1px solid #d2930b !important;
+        }
+
+        .has-error {
+            border: 1px solid red !important;
+        }
+
+        .btn-success {
+            background-color: #d2930b !important;
+            color: #fff !important;
+            border: 1px solid #d2930b !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+        });
+        $(document).ready(function () {
+            var navs = $('.right-pane-inv');
+
+            // Add class .active to current link
+            navs.find('a').each(function (s) {
+
+                var cUrl = String(window.location).split('?')[0];
+                var ss = $($(this))[0].href;
+                cUrl = cUrl.split('#')[0];
+                if (cUrl.substr(cUrl.length - 1) === '#') {
+                    cUrl = cUrl.slice(0, -1);
+                }
+                //alert(cUrl + "=" + ss);
+                //if (ss.substr(cUrl.length - 1) === '#') {
+                //    ss = ss.slice(0, -1);
+                //}
+
+                if ($($(this))[0].href === cUrl) {
+                    $(this).addClass('active');
+                    $(this).parents('ul').add(this).each(function () {
+                        console.log($(this).parent())
+                        $(this).parent().addClass('menu-open');
+                        $(this).parent().children().addClass('active');
+
+                    });
+                }
+
+            });
+        });
+    </script>
+
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/Scripts/paginationUi.js"></script>
+    <script src="~/Content/autocomplete/angucomplete-alt.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/AngularJs/ccmsApp.js"></script>
+    <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
+    <style>
+        .bg-green-custom {
+            background-color: #057a52 !important
+        }
+
+        .skin-green .main-header .logo {
+            background-color: #057a52 !important;
+            color: #fff;
+            border-bottom: 0 solid transparent;
+        }
+
+        .skin-green .sidebar-menu > li:hover > a, .skin-green .sidebar-menu > li.active > a {
+            color: #ccc !important;
+            background: #1e282c;
+            border-left-color: #00a65a;
+        }
+
+        .btn-green-custom {
+            background-color: #1E8449 !important
+        }
+    </style>
+</head>
+
+<body id="pagewrap" class="hold-transition skin-green" style="background-color:#ccc!important">
+    <div class="wrapper">
+        <!--header content-->
+        <header class="main-header" style="height:90px!important;background: #057a52!important">
+            <a class="logo" style="height:90px!important">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini" style="font-size:15px;z-index:99999!important;border:1px solid red"><img src="~/Content/assets/images/Tshiamiso_logo.svg" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg" style="z-index: 99999!important;border:0px solid red;margin-top:-1px!important"><img src="~/Content/assets/images/Tshiamiso_logo.svg" height="90" width="100%" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top bg-green-custom">
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu right-pane">
+                            <a href="#" class="dropdown-toggle" title="User profile" data-toggle="dropdown" style="border:0px solid red;height:50px">
+                                @*<img src="~/Content/dashboard/Images/User_Logo.png" class="user-image" style="color:#fff!important" alt="User Image" />*@
+                                <i class="fa fa-user" style="font-size:15pt!important"></i>
+                                <span class="hidden-xs"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header" style="background-color:#fff !important">
+                                    <img src="~/Content/dashboard/Images/User_Logo.png" class="img-circle" alt="User Image" />
+
+                                    <div>
+                                        <!-- <b style="font-weight:100;text-transform:capitalize"> Test</b> -->
+                                        <div style="color:#000;font-weight:100">
+
+                                            {{CurrentUserName}}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <!-- <b style="font-weight:100;text-transform:capitalize"> Test</b> -->
+                                        <div style="color:#000;font-weight:100">
+                                            <a href="#" style="color:#00a65a" ng-click="ViewAccount()"> View Account</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="user-footer bg-green-custom">
+                                    <div class="pull-left">
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" ng-click="logOut()" class="btn btn-warning" style="color:#fff">
+                                            Sign out
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar" style="background-color:#ccc !important;margin-top:70px!important">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar" style="height: auto;background-color: #ccc!important;">
+                <!-- Sidebar user panel -->
+                <ul class="sidebar-menu tree" data-widget="tree" style="height: 400px;margin-top:-20px!important">
+                    <li class="treeview">
+                        <ul class="control-sidebar-menu" style="margin: 0;margin-top: 5px; background-color: #ccc;padding: 0;">
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;Trust</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;Trust Lodgement</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;Reports</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;Call Centre</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;User Info</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="right-pane-inv">
+                                <a class="right-pane-inv" href="#">
+
+                                    <div class="menu-info" style="padding:15px!important;">
+                                        <h3 class="control-sidebar-subheading"><i class="fa fa-user"></i> &nbsp;Medical Hub</h3>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- /.sidebar -->
+        </aside>
+
+        <!--right slider menu-->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark Isrightmenu">
+            <ul class="control-sidebar-menu" style="margin: 0; background-color: #7f1933;">
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-h-square bg-red ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Leave</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-transgender-alt bg-light-blue ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Traning</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-plane bg-purple  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Travel</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-cubes bg-maroon-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Inventory</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-money bg-purple-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Budget</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-home bg-green-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Asset</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-bullhorn bg-light-blue  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">FM OPS</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-bug bg-maroon-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Risk</h4>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-dollar bg-maroon-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Remuneration</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-file-sound-o bg-maroon-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding:4px;">
+                            <h4 class="control-sidebar-subheading">Disciplinary</h4>
+                        </div>
+                    </a>
+                </li>
+                <li class="right-pane-inv" style="border-bottom: 1px solid #b59b5a;">
+                    <a class="right-pane-inv">
+                        <i class="menu-icon fa fa-bank bg-maroon-active  ggb-menu-icon"></i>
+
+                        <div class="menu-info" style="padding: 4px;">
+                            <h4 class="control-sidebar-subheading">Orginazation Structure</h4>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="wrapper" style="background-color:#e0e0e0 !important;height: auto !important;min-height: 0px !important;">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" style="background-color:#e0e0e0 !important;min-height: 0 !important;height: auto !important;">
+                <!-- Content Header (Page header) -->
+                <!-- <section class="content-header"></section> -->
+                <!-- Main content -->
+                <section class="content">
+                    <!--router links for all components-->
+                    @RenderBody()
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <div class="control-sidebar-bg" style="background-color: #7f1933;"></div>
+        </div>
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <a href="#0" class="cd-top">Top</a>
+    <script src="~/Content/dashboard/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/dashboard/Content/dist/js/adminlte.min.js"></script>
+    <script src="~/Content/dashboard/Content/bootstrap/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
