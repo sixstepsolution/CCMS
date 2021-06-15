@@ -168,8 +168,9 @@
                 border-color: #057a52 !important;
                 box-shadow: none;
             }
+
         .fg-custom {
-            color:#94b62f !important
+            color: #94b62f !important
         }
     </style>
     @*<style>
@@ -180,8 +181,63 @@
                 box-shadow: none;
             }
         </style>*@
+
+    <style>
+        .breadcrumb-item a {
+            color: #125e1d !important;
+        }
+
+        .nav-item a {
+            color: #000;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 11pt !important
+        }
+
+            .nav-item a:hover {
+                color: #000;
+                text-decoration: none;
+                background-color: transparent;
+                font-size: 11pt !important
+            }
+
+        label {
+            font-weight: 400 !important;
+            /*font-size: 10pt !important;*/
+            margin-bottom: -5px !important;
+            margin-top: -10px !important;
+        }
+
+        .form-control {
+            /*font-size: 10pt !important*/
+        }
+
+        .content-header .breadcrumb {
+            background-color: transparent;
+            line-height: 0.7rem !important;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .card-title {
+            float: left;
+            font-size: 0.9rem !important;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .table td, .table th {
+            padding: 0.1rem !important;
+            vertical-align: top;
+            /*border-top: 1px solid #dee2e6;*/
+        }
+
+        .text-success-custom {
+            color: #057a52 !important;
+        }
+    </style>
 </head>
-<body class="hold-transition sidebar-mini skin-green">
+<body class="hold-transition sidebar-mini skin-green" style="height:auto;zoom:0.9!important">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-light" style="height:70px!important;background: #057a52!important">
@@ -253,7 +309,7 @@
                                         <p>#2</p>
                                     </a>
                                 </li>
-                            </ul>lp,l[lp,[jgn,
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -282,21 +338,21 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-chart-line"></i>
                                 <p>
-                                    Reports
+                                    Application Forms
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="../home/form517" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
+                                        <p>517</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="../home/form217" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
+                                        <p>217</p>
                                     </a>
                                 </li>
                             </ul>
@@ -378,17 +434,17 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="zoom:1 !important">
             @RenderBody()
         </div>
         <!-- /.content-wrapper -->
         @*<footer class="main-footer">
-            <strong>Copyright &copy; 2021 <a href="#">CCMS</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 0.01
-            </div>
-        </footer>*@
+                <strong>Copyright &copy; 2021 <a href="#">CCMS</a>.</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b> 0.01
+                </div>
+            </footer>*@
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

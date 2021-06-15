@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PolicceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5685,6 +5686,7 @@
     <Content Include="Views\Home\CCMSDashboard.cshtml" />
     <Content Include="Views\Home\QueryByPerson.cshtml" />
     <Content Include="Uploads\Inspection.pdf" />
+    <Content Include="Views\Policce\E517.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AngularJs\services\" />

@@ -1,0 +1,2167 @@
+﻿
+@{
+    ViewBag.Title = "E517";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+
+
+<div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row m-b-0">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;License</a></li>
+                        <li class="breadcrumb-item active">Form517</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Default box -->
+                    <div class="card card-success card-outline">
+                        <div class="card-header">
+                            <div class="card-tools" style="float:left !important">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">TYPE OF COMPETENCY CERTIFICATE</h3>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="row mt-2">
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary1">
+                                            <label for="checkboxPrimary1">
+                                                A - To trade in firearms
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary2">
+                                            <label for="checkboxPrimary2">
+                                                B- To manufacture firearms
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary3">
+                                            <label for="checkboxPrimary3">
+                                                C - To conduct business as a gunsmith
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary4">
+                                            <label for="checkboxPrimary4">
+                                                D - To possess a firearm
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary5">
+                                            <label for="checkboxPrimary5">
+                                                Handgun
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary6">
+                                            <label for="checkboxPrimary6">
+                                                Rifle
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary7">
+                                            <label for="checkboxPrimary7">
+                                                Shotgun
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-success card-outline collapsed-card">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <h3 class="card-title ml-2  font-weight-bold" style="padding: 3px;">
+                                    PARTICULARS OF APPLICANT
+                                </h3>
+                            </div>
+                            <div class="card-body">
+
+                                <div>
+                                    <div class="row mt-2">
+                                        <div class="col-lg-4">
+                                            <div class="icheck-primary d-inline">
+                                                <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                    TYPE OF CITIZENSHIP :
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-1">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="CITIZENSHIP_CHK">
+                                                <label for="checkboxPrimary1">
+                                                    SA citizen
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-1">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="CITIZENSHIP_CHK2">
+                                                <label for="checkboxPrimary2">
+                                                    Non-SA citizen with permanent residence*
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- Default box -->
+                                            <div class="card-outline">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Identity number of applicant </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <select class="form-control form-control-sm">
+                                                                    <option value="RSA ID Type">Identity number of applicant</option>
+                                                                    <option></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label></label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-sm">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Surname</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-user"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Intials</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-alpha-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Full names</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-user"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Age</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-up"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Gender</label>
+                                                            <div class="input-group" style="margin-top:8px">
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="GENDER_CHK1">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Male
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline">
+                                                                    <input type="checkbox" id="GENDER_CHK2">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Female
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Date of birth</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-9 mb-1">
+                                                            <label>
+                                                                Residential address
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-globe"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Postal Code</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-9 mb-1">
+                                                            <label>
+                                                                Postal address
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-globe"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Postal Code</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-12 mb-1">
+                                                            <label>
+                                                                Description of type of residence (eg shack, flat, caravan, cottage, house, hostel or homeless)
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-alpha-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>
+                                                                Trade or profession
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-alpha-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>If self-employed, specify</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-alpha-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-6 mb-1">
+                                                            <label>Name of employer/company</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-user"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-9 mb-1">
+                                                            <label>
+                                                                Business address
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-globe"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Postal Code</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-numeric-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>
+                                                                Telephone number (Home)
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-phone"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Telephone number (Work)</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-phone"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Cellphone number</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-mobile"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Fax</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-fax"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>E-mail address</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-envelope"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-lg-7 mb-1">
+                                                            <label>Marital status</label>
+                                                            <div class="input-group" style="margin-top:8px">
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="MARITAL_CHK1">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Single
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="MARITAL_CHK2">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Married
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="MARITAL_CHK3">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Divorced
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="MARITAL_CHK4">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Widow
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="MARITAL_CHK5">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Widower
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline">
+                                                                    <input type="checkbox" id="GENDER_CHK6">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Other (specify)
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-2 mb-1">
+                                                            <label>Other (specify)</label>
+                                                            <div class="input-group">
+
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>PARTICULARS OF SPOUSE/PARTNER</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-sort-alpha-down"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <select class="form-control form-control-sm">
+                                                                    <option value="">PARTICULARS OF SPOUSE/PARTNER</option>
+                                                                    <option></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Type of identification</label>
+                                                            <div class="input-group" style="margin-top:8px">
+                                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                                    <input type="checkbox" id="IDENTIFICATION_CHK1">
+                                                                    <label for="checkboxPrimary2">
+                                                                        SA ID
+                                                                    </label>
+                                                                </div>
+                                                                <div class="icheck-primary d-inline">
+                                                                    <input type="checkbox" id="IDENTIFICATION_CHK2">
+                                                                    <label for="checkboxPrimary2">
+                                                                        Passport
+                                                                    </label>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Identity number of spouse/partner</label>
+                                                            <div class="input-group">
+
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-lg-3 mb-1">
+                                                            <label>Passport number of spouse/partnerr</label>
+                                                            <div class="input-group">
+
+                                                                <input type="text" class="form-control form-control-sm" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <p>* In case of a non-SA citizen proof of permanent residence must be submitted.</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card card-success card-outline collapsed-card">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <h3 class="card-title ml-2  font-weight-bold" style="padding: 3px;">
+                                    APPLICATION FOR A COMPETENCY CERTIFICATE TO TRADE IN FIREARMS AND/OR
+                                    AMMUNITION, OR TO MANUFACTURE FIREARMS AND/OR AMMUNITION, OR TO CONDUCT
+                                    BUSINESS AS A GUNSMITH
+                                </h3>
+                                <h3 class="card-title ml-2">(THIS APPLIES TO FIREARM DEALERS, MANUFACTURERS AND GUNSMITHS ONLY.)</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-2">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                Have you successfully completed the prescribed test on the knowledge of this Act? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                Have you successfully completed the prescribed training and practical test for dealers, manufacturers or gunsmiths? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>
+                                            In the case of dealers, manufacturers or gunsmiths, submit details of relevant qualifications/experience
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <textarea class="form-control form-control-sm" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="card card-success card-outline collapsed-card">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <h3 class="card-title ml-2  font-weight-bold" style="padding: 3px;">
+                                    APPLICATION FOR A COMPETENCY CERTIFICATE TO POSSESS A FIREARM
+                                </h3>
+                                <h3 class="card-title ml-2">(THIS APPLIES TO PRIVATE PERSONS ONLY.)</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-2" style="margin-top:10px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                Have you successfully completed the prescribed test on this Act? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:10px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                Have you successfully completed the prescribed training and practical tests on the safe and efficient handling of a firearm? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    
+
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>For which firearm(s) did you receive the prescribed training?</label>
+                                        <div class="input-group" style="margin-top:8px">
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK1">
+                                                <label for="checkboxPrimary2">
+                                                    Pistol
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK2">
+                                                <label for="checkboxPrimary2">
+                                                    Revolver
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK3">
+                                                <label for="checkboxPrimary2">
+                                                    Rifle
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK4">
+                                                <label for="checkboxPrimary2">
+                                                    Shotgun
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="GENDER_CHK6">
+                                                <label for="checkboxPrimary2">
+                                                    Other (specify)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Other (specify)</label>
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card card-success card-outline collapsed-card">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <h3 class="card-title ml-2  font-weight-bold" style="padding: 3px;">
+                                    OTHER INFORMATION
+
+                                </h3>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-2" style="margin-top: 20px !important;">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important; ">
+                                                DO YOU HAVE A TRAINING CERTIFICATE ISSUED BY AN ACCREDITED TRAINING INSTITUTION? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 mb-1">
+                                        <label>Name of accredited training institution</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 mb-1">
+                                        <label>Serial number on training certificate issued</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 mb-1">
+                                        <label>Date issued</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                HAVE YOU EVER BEEN CONVICTED OF AN OFFENCE COMMITTED INSIDE OR OUTSIDE THE BORDERS OF THE RSA? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                ARE THERE ANY CASES PENDING AGAINST YOU? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Offence</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Offence</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                HAVE ANY OF YOUR FIREARM(S) EVER BEEN LOST/STOLEN?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Circumstances</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Details of firearm</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Circumstances</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Details of firearm</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                WAS A CASE OF NEGLIGENCE OPENED AND INVESTIGATED REGARDING THE STOLEN/LOST FIREARM? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                HAVE YOU EVER BEEN DECLARED UNFIT TO POSSESS A FIREARM? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Date from</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Period</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Charge</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Date from</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Period</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                HAS A FIREARM IN YOUR POSSESSION BEEN CONFISCATED? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station1</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Circumstances</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Police station2</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>CAS/Case number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-1">
+                                        <label>Circumstances</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Outcome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-bottom: 10px; margin-top: 20px !important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IN THE PAST FIVE YEARS HAVE YOU BEEN SERVED WITH A PROTECTION ORDER, OR VISITED BY A POLICE OFFICIAL
+                                                CONCERNING ALLEGATIONS OF VIOLENCE OR OTHER CONFLICT IN YOUR HOME OR ELSEWHERE? :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IN THE PAST FIVE YEARS HAVE YOU BEEN DENIED A LICENCE, PERMIT OR AUTHORIZATION REGARDING A FIREARM?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-bottom: 10px; margin-top: 20px !important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IN THE PAST FIVE YEARS DID YOU THREATEN OR ATTEMPT SUICIDE, SUFFERED FROM MAJOR DEPRESSION OR EMOTIONAL
+                                                PROBLEMS, OR ENGAGED IN INTOXICATING OR NARCOTIC SUBSTANCE ABUSE?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-bottom: 10px; margin-top: 20px !important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IN THE PAST FIVE YEARS HAVE YOU BEEN DIAGNOSED OR TREATED BY A MEDICAL PRACTITIONER FOR DEPRESSION, DRUG,
+                                                INTOXICATING OR NARCOTIC SUBSTANCE ABUSE, BEHAVIOURIAL PROBLEMS OR EMOTIONAL PROBLEMS?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-bottom: 10px; margin-top: 20px !important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IN THE PAST TWO YEARS DID YOU EXPERIENCE A DIVORCE OR SEPARATION FROM AN INTIMATE PARTNER WITH WHOM YOU
+                                                RESIDED AND WHERE THERE WERE WRITTEN ALLEGATIONS OF VIOLENCE?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-8">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                                IN THE PAST TWO YEARS HAVE YOU EXPERIENCED ANY FORCED JOB LOSS?  :
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK">
+                                            <label for="checkboxPrimary1">
+                                                YES
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mb-1">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="ACT_CHK2">
+                                            <label for="checkboxPrimary2">
+                                                NO
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2" style="margin-bottom:10px;margin-top:20px!important">
+                                    <div class="col-lg-12">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style=" margin-left: -23px !important;">
+                                                IF YOU ARE UNDER THE AGE OF 21 YEARS, COMPELLING REASONS WHICH REQUIRE YOU TO OBTAIN A COMPETENCY
+                                                CERTIFICATE MUST BE SUBMITTED.
+
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>*Compelling reasons</label>
+                                        <div class="input-group" style="margin-top:8px">
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK1">
+                                                <label for="checkboxPrimary2">
+                                                    Conduct a business
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK2">
+                                                <label for="checkboxPrimary2">
+                                                    Gainfully employed
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK3">
+                                                <label for="checkboxPrimary2">
+                                                    Dedicated hunter
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK4">
+                                                <label for="checkboxPrimary2">
+                                                    Dedicated sports person
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK4">
+                                                <label for="checkboxPrimary2">
+                                                    Private collector
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                <input type="checkbox" id="MARITAL_CHK4">
+                                                <label for="checkboxPrimary2">
+                                                    Public collector
+                                                </label>
+                                            </div>
+
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="GENDER_CHK6">
+                                                <label for="checkboxPrimary2">
+                                                    Other
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 mb-1">
+                                        <label>Other</label>
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label>Submit full details</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <textarea class="form-control form-control-sm" rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-2" style="margin-top:20px!important">
+                                    <div class="col-lg-12">
+                                        <div class="icheck-primary d-inline">
+                                            <label class="card-title ml-2" style="margin-left: -20px !important;">
+                                                DECLARATION BY APPLICANT
+
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <p>
+                                            I am aware that it is an offence in terms of section 120 (9)(f) of the Firearms Control Act, 2000 (Act No 60 of 2000), to make a false statement in
+                                            this application.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-success card-outline collapsed-card">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <h3 class="card-title ml-2  font-weight-bold" style="padding: 3px;">
+                                    SIGNATURE OF APPLICANT
+
+                                </h3>
+                                <h3 class="card-title ml-2 "> (Sign only if applicable)</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-8 mb-1">
+                                        <label>Note:</label>
+                                        <ul>
+                                            <li>
+                                                The photograph must be in colour and may not exceed the border.
+                                            </li>
+                                            <li>
+                                                The photo must be the size of a standard passport photograph.
+                                            </li>
+                                            <li>
+                                                The photo must be a full front view of the head and shoulders of the applicant.
+
+                                            </li>
+                                            <li>
+                                                The background of the photo must be plain.
+                                            </li>
+                                            <li>
+                                                The applicant may not be wearing a hat or sunglasses on the photograph.
+                                            </li>
+                                            <li>
+                                                The applicant’s name and identification number must be written on the back of the photograph before it is affixed on the application form.
+                                            </li>
+                                            <li>
+                                                The applicant must sign in black ink.
+                                            </li>
+                                            <li>
+                                                The signature may not exceed the border.
+
+                                            </li>
+                                            <li>
+                                                The whole finger must be pressed down on the sheet.
+                                            </li>
+                                            <li>
+                                                The fingerprint should not be rolled and must be a flat impression.
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-12 col-lg-4 mb-1">
+                                        <div class="" style="border:1px solid #808080;height:200px;width:150px">
+                                            <h5 class="text-md-center">PHOTO</h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-8 mb-1">
+                                        <div class="" style="border:1px solid #808080;height:150px;width:100%">
+                                            <h5 class="text-md-center">Signature</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 mb-1">
+
+                                        <div class="" style="border:1px solid #808080; height:150px;width:150px">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 mb-1">
+                                        <div class="" style="border:1px solid #808080;margin-top:30px; height:100px;width:150px">
+                                            <h5 class="text-md-center">Fingerprint</h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:50px">
+                                    <div class="col-lg-4">
+
+
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm text-capitalize" type="text">
+                                        </div>
+                                        <label>
+                                            Name of applicant in block letters
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm" type="text">
+                                        </div>
+                                        <label>Date</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm" type="text">
+                                        </div>
+                                        <label>Place</label>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12"><h6>PARTICULARS OF POLICE OFFICIAL DEALING WITH APPLICATION</h6></div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm text-capitalize" type="text">
+                                        </div>
+                                        <label>
+                                            Name of police official in block letters
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm" type="text">
+                                        </div>
+                                        <label>
+                                            Persal number of police official
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm text-capitalize" type="text">
+                                        </div>
+                                        <label>
+                                            Rank of police official in block letters
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+
+                                            ---------------------------------
+                                        </div>
+                                        <label>
+                                            Signature of police official
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h6>PARTICULARS OF WITNESS</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm text-capitalize" type="text">
+                                        </div>
+                                        <label>
+                                            Name of witness in block letters
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm" type="text">
+                                        </div>
+                                        <label>
+                                            Persal number of witness
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                </span>
+                                            </div>
+                                            <input class="form-control form-control-sm text-capitalize" type="text">
+                                        </div>
+                                        <label>
+                                            Rank of witness in block letters
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+
+                                            ---------------------------------
+                                        </div>
+                                        <label>
+                                            Signature of witness
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-footer">
+                            <div class="col-12 col-lg-3 mb-1 text-center">
+                                <label></label>
+                                <div class="input-group">
+                                    <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-save"></i>&nbsp;Submit</button>&nbsp;
+                                    <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-footer-->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
