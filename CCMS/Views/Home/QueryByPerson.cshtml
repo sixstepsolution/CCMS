@@ -35,21 +35,24 @@
 
     .content-header .breadcrumb {
         background-color: transparent;
-        line-height: 0.7rem!important;
+        line-height: 0.7rem !important;
         margin-bottom: 0;
         padding: 0;
     }
+
     .card-title {
         float: left;
-        font-size: 0.9rem!important;
+        font-size: 0.9rem !important;
         font-weight: 400;
         margin: 0;
     }
+
     .table td, .table th {
-        padding: 0.1rem!important;
+        padding: 0.1rem !important;
         vertical-align: top;
         /*border-top: 1px solid #dee2e6;*/
     }
+
     .text-success-custom {
         color: #057a52 !important;
     }
@@ -68,11 +71,11 @@
                 <div class="col-sm-8" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
                     <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
                     <span ng-show="ShowPersonDetails" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;CCMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>                                                                                                                                                                                                 
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;CCMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>
                     </span>
                 </div><!-- /.col -->
                 <div class="col-sm-4">
-                    <ol class="breadcrumb float-sm-right">                        
+                    <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Trust</a></li>
                         <li class="breadcrumb-item active">Query by Person</li>
                     </ol>
@@ -182,7 +185,7 @@
                                             <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
 
@@ -254,7 +257,7 @@
                                         <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">Documents</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-CallCentre-tab" data-toggle="pill" href="#custom-tabs-three-CallCentre" role="tab" aria-controls="custom-tabs-three-CallCentre" aria-selected="false">Call Centre</a>
+                                        <a class="nav-link" id="custom-tabs-three-CallCentre-tab" data-toggle="pill" href="#custom-tabs-three-CallCentre" role="tab" aria-controls="custom-tabs-three-CallCentre" aria-selected="false">Call Center</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Bookings-tab" data-toggle="pill" href="#custom-tabs-three-Bookings" role="tab" aria-controls="custom-tabs-three-Bookings" aria-selected="false">Bookings</a>
@@ -279,160 +282,172 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-three-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Personal Details</h4>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Personal Details</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>First Names</td>
+                                                                            <td>MACHASE</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Surname</td>
+                                                                            <td>HOPO</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Date of Birth</td>
+                                                                            <td>1952-06-10</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Gender</td>
+                                                                            <td>Male</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Living Status</td>
+                                                                            <td><b class="text-success">Living</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Age</td>
+                                                                            <td>68</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Date of Death</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Marital Status</td>
+                                                                            <td>No</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Language</td>
+                                                                            <td>Sepedi (Northern Sotho)</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Nationality</td>
+                                                                            <td>South Africa</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-12 col-lg-12">
-                                                        <table border="0" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>First Names</td>
-                                                                    <td>MACHASE</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Surname</td>
-                                                                    <td>HOPO</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Date of Birth</td>
-                                                                    <td>1952-06-10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Gender</td>
-                                                                    <td>Male</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Living Status</td>
-                                                                    <td><b class="text-success">Living</b></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Age</td>
-                                                                    <td>68</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Date of Death</td>
-                                                                    <td></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Marital Status</td>
-                                                                    <td>No</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Language</td>
-                                                                    <td>Sepedi (Northern Sotho)</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Nationality</td>
-                                                                    <td>South Africa</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Work Summary</h4>
+                                                    </div>
+                                                    <div class="card-body" style="height:247px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12 mb-3">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Declared Occupation</td>
+                                                                            <td>MACHASE</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Declared Service Years </td>
+                                                                            <td>1952</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Service Years </td>
+                                                                            <td>1984-03-27 to 2009-04-15 <br /><b class="text-red">25.05 Years</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Active Service Years </td>
+                                                                            <td><b class="text-red">14.63 Years</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Start Office</td>
+                                                                            <td>Lesotho </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA End Office</td>
+                                                                            <td>Free State</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border" style="width:100%!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Scheduled Exclusions</h4>
+                                                    </div>
+                                                    <div class="card-body" style="height:100px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Blom Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Opt-out Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Q(h)ubeka Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card card-gray border">
+                                                    <div class="card-header" style="margin-top: -12px !important;">
+                                                        <h5 class="card-title">Eligibility</h5>
+                                                    </div>
+                                                    <div class="card-body" style="height:114px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Risk class(Self-declared)</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Risk class(TEBA / Mines)</td>
+                                                                            <td>Risk</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Tshiamiso Trust Eligible</td>
+                                                                            <td><b class="text-success">Yes, risk work at QM/QP</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card card-gray border" style="width:35%!important;float:left!important">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Work Summary</h4>
-                                            </div>
-                                            <div class="card-body" style="height:247px!important">
-                                                <div class="row">
-                                                    <div class="col-12 col-lg-12 mb-3">
-                                                        <table border="0" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Declared Occupation</td>
-                                                                    <td>MACHASE</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Declared Service Years </td>
-                                                                    <td>1952</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TEBA Service Years </td>
-                                                                    <td>1984-03-27 to 2009-04-15 <br /><b class="text-red">25.05 Years</b></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TEBA Active Service Years </td>
-                                                                    <td><b class="text-red">14.63 Years</b></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TEBA Start Office</td>
-                                                                    <td>Lesotho </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TEBA End Office</td>
-                                                                    <td>Free State</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card card-gray border" style="width:35%!important;float:left!important">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Scheduled Exclusions</h4>
-                                            </div>
-                                            <div class="card-body" style="height:100px!important">
-                                                <div class="row">
-                                                    <div class="col-12 col-lg-12">
-                                                        <table border="0" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Blom Claimant</td>
-                                                                    <td><b class="text-success">No</b></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Opt-out Claimant</td>
-                                                                    <td><b class="text-success">No</b></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Q(h)ubeka Claimant</td>
-                                                                    <td><b class="text-success">No</b></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card card-gray border" style="width:35%!important;">
-                                            <div class="card-header" style="margin-top: -12px !important;">
-                                                <h5 class="card-title">Eligibility</h5>
-                                            </div>
-                                            <div class="card-body" style="height:114px!important">
-                                                <div class="row">
-                                                    <div class="col-12 col-lg-12">
-                                                        <table border="0" width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Risk class(Self-declared)</td>
-                                                                    <td>-</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Risk class(TEBA / Mines)</td>
-                                                                    <td>Risk</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tshiamiso Trust Eligible</td>
-                                                                    <td><b class="text-success">Yes, risk work at QM/QP</b></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+
+
+
 
                                         <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
                                             <b>Industry Number(s)</b>
@@ -844,7 +859,88 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-CallCentre" role="tabpanel" aria-labelledby="custom-tabs-three-CallCentre-tab">
-
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Current Ticket</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Ticket Ref</th>
+                                                                    <th>Ticket Status</th>
+                                                                    <th>Ticket date</th>
+                                                                    <th class="text-center">Add Documents <i class="fa fa-plus-circle text-white"></i></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>C-EC2550A2BC2</td>
+                                                                    <td>Open</td>
+                                                                    <td>2021-06-04 06:26:49</td>
+                                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom-sm"><i class="fa fa-eye"></i>&nbsp;View</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4">
+                                                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                                            <div class="card-header">
+                                                                                <h4 class="card-title">Conversation Notes (C-EC2550A2BC2):</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Previous Closed Tickets</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Ticket Ref</th>
+                                                                    <th>Ticket Status</th>
+                                                                    <th>Ticket date</th>
+                                                                    <th class="text-center">Available Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-red">21-03-05-TM-29</td>
+                                                                    <td class="text-red">Closed</td>
+                                                                    <td class="text-red">2021-03-05 15:15:44</td>
+                                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom-sm"><i class="fa fa-eye"></i>&nbsp;View</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4">
+                                                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                                            <div class="card-header">
+                                                                                <h4 class="card-title">Conversation Notes (21-03-05-TM-29):</h4>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <h5 class="pl-1">2021-03-05 15:15:44</h5>
+                                                                                </div>
+                                                                                <a href="#">Booking made for mine worker</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Bookings" role="tabpanel" aria-labelledby="custom-tabs-three-Bookings-tab">
                                         <div class="card card-gray border" style="width:100%!important;float:left!important">
@@ -898,10 +994,281 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-ServiceHist" role="tabpanel" aria-labelledby="custom-tabs-three-ServiceHist-tab">
+                                        <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="custom-tabs-three-Consolidated-tab" data-toggle="pill" href="#custom-tabs-three-Consolidated" role="tab" aria-controls="custom-tabs-three-Consolidated" aria-selected="true">Consolidated</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="custom-tabs-three-ScheduleFCons-tab" data-toggle="pill" href="#custom-tabs-three-ScheduleFCons" role="tab" aria-controls="custom-tabs-three-ScheduleFCons" aria-selected="false">Schedule F Cons</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="custom-tabs-three-TEBAPdf-tab" data-toggle="pill" href="#custom-tabs-three-TEBAPdf" role="tab" aria-controls="custom-tabs-three-TEBAPdf" aria-selected="false">TEBA Pdf</a>
+                                            </li>
+                                            <li></li>
+                                            <li style="float:right!important">
+                                                <select class="form-control form-control-sm" style="margin-right:20px!important">
+                                                    <option selected value="">Available Versions</option>
+                                                </select>
+                                            </li>
+                                            <li style="float:right!important">
+                                                <b class="text-danger">Conflict</b> Not Conflict <a href="#">3288</a> Ignore <a href="#">0</a> Risk <a href="#">0</a>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="btn btn-success-custom" style="padding-left:10px!important">
+                                                    <i class="fa fa-download"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="custom-tabs-three-tabContentSub">
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-Consolidated" role="tabpanel" aria-labelledby="custom-tabs-three-Consolidated-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title"></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">                                                                
+                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">                                                                  
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Underground</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td></td>
+                                                                            <td>Ashanti</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-846</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Underground</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td></td>
+                                                                            <td>Ashanti</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-angle-down"></i>&nbsp;1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                    </tbody>                                                                   
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-ScheduleFCons" role="tabpanel" aria-labelledby="custom-tabs-three-ScheduleFCons-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
 
+                                            </div>
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-TEBAPdf" role="tabpanel" aria-labelledby="custom-tabs-three-TEBAPdf-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-ServiceSummary" role="tabpanel" aria-labelledby="custom-tabs-three-ServiceSummary-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title"></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <div>
+                                                            <select class="form-control form-control-sm" style="float:left!important;width:50%!important">
+                                                                <option selected value="">Available Versions</option>
+                                                                <option value="Prep">Prep</option>
+                                                            </select>
+                                                            <button type="button" ng-click="SearchbyPerson()" style="width:50%!important;float:right!important" class="btn btn-sm btn-success-custom"><i class="fa fa-calendar"></i>&nbsp;Years</button>&nbsp;
+                                                        </div>
+                                                        <table class="table table-bordered" width="100%" style="margin-top:-10px!important">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Description</th>
+                                                                    <th class="text-center">Total</th>
+                                                                    <th class="text-center">Risk</th>
+                                                                    <th class="text-center">Non Risk</th>
+                                                                    <th class="text-center">Unknown</th>
+                                                                    <th class="text-center">Founder</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Qualifying Mine and Qualifying Period</td>
+                                                                    <td class="text-center">18.24</td>
+                                                                    <td class="text-center">17.24</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">1.00</td>
+                                                                    <td class="text-center"><b class="text-success">17.24</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Period</td>
+                                                                    <td class="text-center">1.55</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">1.55</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Gold Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
 
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non-Mining Related / Not a Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <td><b>Total</b></td>
+                                                                    <td class="text-center"><b>19.79</b></td>
+                                                                    <td class="text-center"><b>17.24</b></td>
+                                                                    <td class="text-center"><b>0.00</b></td>
+                                                                    <td class="text-center"><b>2.55</b></td>
+                                                                    <td class="text-center"><b>17.24</b></td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Claims" role="tabpanel" aria-labelledby="custom-tabs-three-Claims-tab">
                                         <div class="card card-gray border" style="width:100%!important;float:left!important">
@@ -1044,21 +1411,11 @@
 <script>
     $(function () {
         //alert();
-        $.noConflict();
+        $.noConflict();/////
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        
-        //$('#example1').DataTable({
-        //    "paging": true,
-        //    "lengthChange": false,
-        //    "searching": false,
-        //    "ordering": true,
-        //    "info": true,
-        //    "autoWidth": false,
-        //    "responsive": true,
-        //});
     });
 </script>
 

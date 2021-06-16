@@ -91,11 +91,12 @@
             }*/
         .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
             color: #3c3e3d !important;
-            background-color: #b8d75c;
+            background: rgba(213, 239, 137, 0.48) !important;
         }
 
         .nav-pills .nav-link:not(.active):hover {
-            color: #007bff;
+            background: rgba(213, 239, 137, 0.48) !important;
+            color: #b8d75c!important;
         }
 
         .main-sidebar .brand-text, .main-sidebar .logo-xl, .main-sidebar .logo-xs, .sidebar .nav-link p, .sidebar .user-panel .info {
@@ -149,6 +150,23 @@
         }
 
             .btn-success-custom:hover {
+                color: #fff !important;
+                background-color: #b8d75c !important;
+                border-color: #b8d75c !important;
+                box-shadow: none;
+            }
+
+        .btn-success-custom-sm {
+            color: #fff !important;
+            background-color: #057a52 !important;
+            border-color: #057a52 !important;
+            box-shadow: none;
+            width:70px!important;
+            height:20px!important;font-size:9pt!important;
+            line-height:0.7 !important;
+        }
+
+            .btn-success-custom-sm:hover {
                 color: #fff !important;
                 background-color: #b8d75c !important;
                 border-color: #b8d75c !important;
@@ -230,51 +248,141 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link" style="background-color:#a8ce38!important">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-handshake"></i>
                                 <p>
                                     Trust
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../Home/QueryByPerson" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-success"></i>
-                                        <p>Query by Person</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
+                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
+                                        <p>
+                                            Query
+                                            <i class="right"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="../Home/QueryByPerson" class="nav-link">
+                                                <p>Query by Person</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                            </ul>lp,l[lp,[jgn,
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            PERSON
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>DECEASED REGISTER</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>MAINTAIN PERSON DOC</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>UPDATE PERSON</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            ADMINISTRATOR
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>PREPARE CLAIM</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>RESOLVE CALL CENTER TICKET</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            CERTIFICATION
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>BME BOOKING</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-hand-holding-heart"></i>
                                 <p>
                                     Trust Lodgement
-                                    <i class="fas fa-angle-left right"></i>
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
+                                        <p>
+                                            Query
+                                            <i class="right"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="../Home/QueryByPerson" class="nav-link">
+                                                <p>Query by Person</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
+                                        <p>
+                                            PERSON
+                                            <i class="right"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>DECEASED REGISTER</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>MAINTAIN PERSON DOC</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <p>UPDATE PERSON</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -286,40 +394,78 @@
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        </li>                        
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-headset"></i>
+                                <i class="nav-icon fa fa fa-headset"></i>
                                 <p>
-                                    Call Centre
-                                    <i class="fas fa-angle-left right"></i>
+                                    Call Center
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;font-size:9pt!important">
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
+                                        <p>
+                                            RECEIVE INBOUND CALLS
+                                            <i class="right"></i>
+                                        </p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
+                                        <p>
+                                            LOG ON OUTBOUND CALLS
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            ADD LODGEMENT BOOKING
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            CHANGE LODGEMENT BOOKING
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            VIEW LODGMENT BOOKING
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            ADD DOCUMENTS TO TICKET
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            BME BOOKING
+                                            <i class="right"></i>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            QUERY BY PERSON
+                                            <i class="right"></i>
+                                        </p>
                                     </a>
                                 </li>
                             </ul>
@@ -332,20 +478,6 @@
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -355,20 +487,14 @@
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>#2</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-power-off"></i>
+                                <p>
+                                    Signout
+                                </p>
+                            </a>
                         </li>
                     </ul>
                 </nav>
