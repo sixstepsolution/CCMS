@@ -876,6 +876,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dashboardNew\dist\AdminLTE.css" />
     <Content Include="Content\dashboardNew\dist\css\adminlte.css" />
     <Content Include="Content\dashboardNew\dist\css\adminlte.min.css" />
     <Content Include="Content\dashboardNew\dist\css\alt\adminlte.components.css" />
@@ -4273,6 +4274,7 @@
     <Content Include="Content\dashboard\Images\AA.png" />
     <Content Include="Content\dashboard\Images\AAA.png" />
     <Content Include="Content\dashboard\Images\ADDD.jpg" />
+    <Content Include="Content\dashboard\Images\appoinments.png" />
     <Content Include="Content\dashboard\Images\Asset 37%404x.png" />
     <Content Include="Content\dashboard\Images\Asset 38%404x.png" />
     <Content Include="Content\dashboard\Images\AT.jpg" />
@@ -4297,14 +4299,17 @@
     <Content Include="Content\dashboard\Images\light_gray.png" />
     <Content Include="Content\dashboard\Images\light_green.png" />
     <Content Include="Content\dashboard\Images\loader1.gif" />
+    <Content Include="Content\dashboard\Images\lodgements.png" />
     <Content Include="Content\dashboard\Images\login.png" />
     <Content Include="Content\dashboard\Images\mail_close.png" />
     <Content Include="Content\dashboard\Images\mail_open.png" />
     <Content Include="Content\dashboard\Images\orange_flag.png" />
     <Content Include="Content\dashboard\Images\Picture1.png" />
+    <Content Include="Content\dashboard\Images\population.png" />
     <Content Include="Content\dashboard\Images\red_flag.png" />
     <Content Include="Content\dashboard\Images\requred-icon.png" />
     <Content Include="Content\dashboard\Images\SAMap.PNG" />
+    <Content Include="Content\dashboard\Images\service.png" />
     <Content Include="Content\dashboard\Images\up-scroll-arrow.png" />
     <Content Include="Content\dashboard\Images\user.png" />
     <Content Include="Content\dashboard\Images\User_Logo.png" />
@@ -5685,6 +5690,7 @@
     <Content Include="Views\Home\CCMSDashboard.cshtml" />
     <Content Include="Views\Home\QueryByPerson.cshtml" />
     <Content Include="Uploads\Inspection.pdf" />
+    <Content Include="Views\Home\Trust.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AngularJs\services\" />

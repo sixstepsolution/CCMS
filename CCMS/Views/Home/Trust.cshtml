@@ -1,0 +1,1422 @@
+﻿
+@{
+    ViewBag.Title = "QueryByPerson";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+<style>
+    .breadcrumb-item a {
+        color: #125e1d !important;
+    }
+
+    .nav-item a {
+        color: #000;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 11pt !important
+    }
+
+        .nav-item a:hover {
+            color: #000;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 11pt !important
+        }
+
+    label {
+        font-weight: 400 !important;
+        /*font-size: 10pt !important;*/
+        margin-bottom: -5px !important;
+        margin-top: -10px !important;
+    }
+
+    .form-control {
+        /*font-size: 10pt !important*/
+    }
+
+    .content-header .breadcrumb {
+        background-color: transparent;
+        line-height: 0.7rem !important;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .card-title {
+        float: left;
+        font-size: 0.9rem !important;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .table td, .table th {
+        padding: 0.1rem !important;
+        vertical-align: top;
+        /*border-top: 1px solid #dee2e6;*/
+    }
+
+    .text-success-custom {
+        color: #057a52 !important;
+    }
+</style>
+<script src="~/AngularJs/controllers/QuerybyPersonCntrl.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+<div ng-controller="QuerybyPersonCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row m-b-0">
+                <div class="col-sm-8" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
+                    <span ng-show="ShowPersonDetails" style="font-weight:500">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;CCMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>
+                    </span>
+                </div><!-- /.col -->
+                <div class="col-sm-4">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Home</a></li>
+                        <li class="breadcrumb-item active">Trust</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form ng-hide="ShowPersonDetails">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-success card-outline">
+                            @*<div class="card-header">
+                                    <h3 class="card-title">Query by Person</h3>
+                                </div>*@
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>ID Type</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm">
+                                                <option value="RSA ID Type">RSA ID Number</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Surname</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Bureau No</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Person Reference</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>First Name</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Year of Birth</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1 text-center">
+                                        <label></label>
+                                        <div class="input-group">
+                                            <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-search"></i>&nbsp;Filter</button>&nbsp;
+                                            <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" ng-show="IsShowSearchdata">
+                            <div class="card-header">
+                                <h3 class="card-title"></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered">
+                                    <thead>
+                                        <tr style="background:#057a528c!important">
+                                            <th>#</th>
+                                            <th>Industry No</th>
+                                            <th>RSA ID No</th>
+                                            <th>Passport No</th>
+                                            <th>First Names</th>
+                                            <th>Surname</th>
+                                            <th>Date of Birth</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>W1085979</td>
+                                            <td><a href="#" >5206105264186</a></td>
+                                            <td></td>
+                                            <td>MACHASE</td>
+                                            <td>HOPO</td>
+                                            <td>1952-06-10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>W1085987</td>
+                                            <td><a href="#" >5206105264186</a></td>
+                                            <td></td>
+                                            <td>MACHASE</td>
+                                            <td>HOPO</td>
+                                            <td>1952-06-10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div ng-show="ShowPersonDetails">
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <div class="card card-success card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-Summary-tab" data-toggle="pill" href="#custom-tabs-three-Summary" role="tab" aria-controls="custom-tabs-three-Summary" aria-selected="true">Summary</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">Address</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">Contacts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-AllContacts-tab" data-toggle="pill" href="#custom-tabs-three-AllContacts" role="tab" aria-controls="custom-tabs-three-AllContacts" aria-selected="false">All Contacts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">Documents</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-CallCentre-tab" data-toggle="pill" href="#custom-tabs-three-CallCentre" role="tab" aria-controls="custom-tabs-three-CallCentre" aria-selected="false">Call Center</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Bookings-tab" data-toggle="pill" href="#custom-tabs-three-Bookings" role="tab" aria-controls="custom-tabs-three-Bookings" aria-selected="false">Bookings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-X-Ray-tab" data-toggle="pill" href="#custom-tabs-three-X-Ray" role="tab" aria-controls="custom-tabs-three-X-Ray" aria-selected="false">X-Ray</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-ServiceHist-tab" data-toggle="pill" href="#custom-tabs-three-ServiceHist" role="tab" aria-controls="custom-tabs-three-ServiceHist" aria-selected="false">Service Hist</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-ServiceSummary-tab" data-toggle="pill" href="#custom-tabs-three-ServiceSummary" role="tab" aria-controls="custom-tabs-three-ServiceSummary" aria-selected="false">Service Summary</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Claims-tab" data-toggle="pill" href="#custom-tabs-three-Claims" role="tab" aria-controls="custom-tabs-three-Claims" aria-selected="false">Claims</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-PersonFlags-tab" data-toggle="pill" href="#custom-tabs-three-PersonFlags" role="tab" aria-controls="custom-tabs-three-PersonFlags" aria-selected="false">Person Flags</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Personal Details</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>First Names</td>
+                                                                            <td>MACHASE</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Surname</td>
+                                                                            <td>HOPO</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Date of Birth</td>
+                                                                            <td>1952-06-10</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Gender</td>
+                                                                            <td>Male</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Living Status</td>
+                                                                            <td><b class="text-success">Living</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Age</td>
+                                                                            <td>68</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Date of Death</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Marital Status</td>
+                                                                            <td>No</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Language</td>
+                                                                            <td>Sepedi (Northern Sotho)</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Nationality</td>
+                                                                            <td>South Africa</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Work Summary</h4>
+                                                    </div>
+                                                    <div class="card-body" style="height:247px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12 mb-3">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Declared Occupation</td>
+                                                                            <td>MACHASE</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Declared Service Years </td>
+                                                                            <td>1952</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Service Years </td>
+                                                                            <td>1984-03-27 to 2009-04-15 <br /><b class="text-red">25.05 Years</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Active Service Years </td>
+                                                                            <td><b class="text-red">14.63 Years</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA Start Office</td>
+                                                                            <td>Lesotho </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>TEBA End Office</td>
+                                                                            <td>Free State</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-6">
+                                                <div class="card card-gray border" style="width:100%!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Scheduled Exclusions</h4>
+                                                    </div>
+                                                    <div class="card-body" style="height:100px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Blom Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Opt-out Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Q(h)ubeka Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card card-gray border">
+                                                    <div class="card-header" style="margin-top: -12px !important;">
+                                                        <h5 class="card-title">Eligibility</h5>
+                                                    </div>
+                                                    <div class="card-body" style="height:114px!important">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Risk class(Self-declared)</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Risk class(TEBA / Mines)</td>
+                                                                            <td>Risk</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Tshiamiso Trust Eligible</td>
+                                                                            <td><b class="text-success">Yes, risk work at QM/QP</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
+                                            <b>Industry Number(s)</b>
+                                            <p>
+                                                <b class="text-success">W1085979</b>
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
+                                            <b>Bureau Number(s)</b>
+                                            <p>
+                                                <b class="text-success">B846301</b>
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-1 pb-1" style="width:30%!important;float:left!important">
+                                            <b>Company Number(s)</b>
+                                            <p>
+                                                <b class="text-success">BA175390</b>
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-1 pb-1" style="width:30%!important;float:left!important">
+                                            <b>Employee Number(s)</b>
+                                            <p>
+                                                <b class="text-success">BA175390</b>
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-1 pb-2" style="width:20%!important;float:left!important">
+                                            <b>South African ID(s)</b>
+                                            <p>
+                                                <b class="text-success">5206105264186</b><br />
+                                                <b class="text-success">5206105264087</b><br />
+                                                <b class="text-success">5206105264187</b>
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-1 pb-2" style="width:20%!important;float:left!important">
+                                            <b>Attorneys</b>
+                                            <p>
+                                                <b class="text-success">Richard Spoor</b><br />
+                                                <b class="text-success">Abraham Kiewitz</b><br /><br />
+                                            </p>
+                                        </div>
+                                        <div class="callout callout-info pt-0 pb-2" style="width:30%!important;float:left!important">
+                                            <b>Other Checks</b>
+                                            <table border="0">
+                                                <tr>
+                                                    <td>Home Affaires(RSA citizen / PR)</td>
+                                                    <td><b class="text-success right"> Not done</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TEBA fingerprint verification</td>
+                                                    <td><b class="text-success right"> Not done</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bank account validation</td>
+                                                    <td><b class="text-success right"> Not done</b></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="callout callout-info pt-2 pb-4" style="width:30%!important;float:left!important">
+                                            <b>Fraud Flagging</b>
+                                            <table border="0">
+                                                <tr>
+                                                    <td>Person record flagged as suspect</td>
+                                                    <td><b class="text-success right">&nbsp;&nbsp;No</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Person record investigated</td>
+                                                    <td><b class="text-success right">&nbsp;&nbsp;No</b></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 col-lg-12 text-center">
+                                                <button type="button" class="btn btn-success-custom"><i class="fas fa-cloud-download-alt"></i> Download Summary</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Address" role="tabpanel" aria-labelledby="custom-tabs-three-Address-tab">
+                                        <div class="card card-gray border" style="width:33%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Residential</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table border="0" width="80%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Road or Street</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Plot/Stand/House no</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Village</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Town</td>
+                                                                    <td><b class="text-success-custom">Odendaalsrus</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sub District</td>
+                                                                    <td><b class="text-success-custom">05785</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>District</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Province</td>
+                                                                    <td><b class="text-success-custom">Free State</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Country</td>
+                                                                    <td><b class="text-success-custom">South Africa</b></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:33%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Residential</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table border="0" width="80%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Road or Street</td>
+                                                                    <td><b class="text-success-custom">KUTLWANONG</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Plot/Stand/House no</td>
+                                                                    <td><b class="text-success-custom">750K10</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Village</td>
+                                                                    <td><b class="text-success-custom">ODENDAALSRUS</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Town</td>
+                                                                    <td><b class="text-success-custom">Odendaalsrus</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sub District</td>
+                                                                    <td><b class="text-success-custom">05787</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>District</td>
+                                                                    <td><b class="text-success-custom">MATJHABENG</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Province</td>
+                                                                    <td><b class="text-success-custom">Free State</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Country</td>
+                                                                    <td><b class="text-success-custom">South Africa</b></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:34%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Work</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table border="0" width="80%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Road or Street</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Plot/Stand/House no</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Village</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Town</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sub District</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>District</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Province</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Country</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Contacts" role="tabpanel" aria-labelledby="custom-tabs-three-Contacts-tab">
+                                        <div class="card card-gray border" style="width:50%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Contact Numbers</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important">
+                                                                    <th>Type</th>
+                                                                    <th>Number</th>
+                                                                    <th>Previous Verification Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Mobile 1</td>
+                                                                    <td>0838956937</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Mobile 2</td>
+                                                                    <td>0634467249</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Telephone 1</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Telephone 2</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Email</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:50%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Previous Numbers</h4>
+                                            </div>
+                                            <div class="card-body" style="height:186px!important">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important">
+                                                                    <th>Type</th>
+                                                                    <th>Number</th>
+                                                                    <th>Verification Date</th>
+                                                                    <th>Create Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Other</td>
+                                                                    <td>027733140146</td>
+                                                                    <td></td>
+                                                                    <td>2020-06-16</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-AllContacts" role="tabpanel" aria-labelledby="custom-tabs-three-AllContacts-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Contact Numbers</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important">
+                                                                    <th>#</th>
+                                                                    <th>Name</th>
+                                                                    <th>Surname</th>
+                                                                    <th>Relationship</th>
+                                                                    <th>Identification</th>
+                                                                    <th>Contact</th>
+                                                                    <th>Address</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>MATHABANG-MASEAKA</td>
+                                                                    <td>WIFE</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>MAKELETSO</td>
+                                                                    <td>MOTHER</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>MAJOALE</td>
+                                                                    <td>FATHER</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>JONG</td>
+                                                                    <td>HEADMAN</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>MATHABANG-MASEAKA</td>
+                                                                    <td>WIFE</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Documents" role="tabpanel" aria-labelledby="custom-tabs-three-Documents-tab">
+                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Available Documents</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
+                                                <div class="row">
+                                                    <b>Other</b>
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><a href="#" ng-click="showDocument()">Attorney Documentation</a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><a href="#" ng-click="showDocument()">Attorney Documentation</a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><a href="#" ng-click="showDocument()">Attorney Documentation</a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><a href="#" ng-click="showDocument()">Notice</a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:70%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Document View</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
+                                                <iframe src="~/Uploads/Inspection.pdf" width="100%" height="400px" ng-show="ShowIframe">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-CallCentre" role="tabpanel" aria-labelledby="custom-tabs-three-CallCentre-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Current Ticket</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Ticket Ref</th>
+                                                                    <th>Ticket Status</th>
+                                                                    <th>Ticket date</th>
+                                                                    <th class="text-center">Add Documents <i class="fa fa-plus-circle text-white"></i></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>C-EC2550A2BC2</td>
+                                                                    <td>Open</td>
+                                                                    <td>2021-06-04 06:26:49</td>
+                                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom-sm"><i class="fa fa-eye"></i>&nbsp;View</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4">
+                                                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                                            <div class="card-header">
+                                                                                <h4 class="card-title">Conversation Notes (C-EC2550A2BC2):</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Previous Closed Tickets</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Ticket Ref</th>
+                                                                    <th>Ticket Status</th>
+                                                                    <th>Ticket date</th>
+                                                                    <th class="text-center">Available Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-red">21-03-05-TM-29</td>
+                                                                    <td class="text-red">Closed</td>
+                                                                    <td class="text-red">2021-03-05 15:15:44</td>
+                                                                    <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom-sm"><i class="fa fa-eye"></i>&nbsp;View</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4">
+                                                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                                            <div class="card-header">
+                                                                                <h4 class="card-title">Conversation Notes (21-03-05-TM-29):</h4>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <h5 class="pl-1">2021-03-05 15:15:44</h5>
+                                                                                </div>
+                                                                                <a href="#">Booking made for mine worker</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Bookings" role="tabpanel" aria-labelledby="custom-tabs-three-Bookings-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Booking Details</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>#</th>
+                                                                    <th>BOOKING TYPE</th>
+                                                                    <th>BOOKING DATE</th>
+                                                                    <th>FIRST NAME</th>
+                                                                    <th>SURNAME</th>
+                                                                    <th>MOBILE NUMBER</th>
+                                                                    <th>BOOKING TIME</th>
+                                                                    <th>LODGEMENT SITE</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Manual booking (Active)</td>
+                                                                    <td>2020-08-13</td>
+                                                                    <td>MACHASE</td>
+                                                                    <td>HOPO</td>
+                                                                    <td>27735070622</td>
+                                                                    <td>Morning</td>
+                                                                    <td>TEBA WELKOM</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-X-Ray" role="tabpanel" aria-labelledby="custom-tabs-three-X-Ray-tab">
+                                        <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
+                                            <div class="card-header">
+                                                <h4 class="card-title text-red">CCMS: No studies found</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
+                                            <div class="card-header">
+                                                <h4 class="card-title text-red">AURUM: No studies found</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-ServiceHist" role="tabpanel" aria-labelledby="custom-tabs-three-ServiceHist-tab">
+                                        <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="custom-tabs-three-Consolidated-tab" data-toggle="pill" href="#custom-tabs-three-Consolidated" role="tab" aria-controls="custom-tabs-three-Consolidated" aria-selected="true">Consolidated</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="custom-tabs-three-ScheduleFCons-tab" data-toggle="pill" href="#custom-tabs-three-ScheduleFCons" role="tab" aria-controls="custom-tabs-three-ScheduleFCons" aria-selected="false">Schedule F Cons</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="custom-tabs-three-TEBAPdf-tab" data-toggle="pill" href="#custom-tabs-three-TEBAPdf" role="tab" aria-controls="custom-tabs-three-TEBAPdf" aria-selected="false">TEBA Pdf</a>
+                                            </li>
+                                            <li></li>
+                                            <li style="float:right!important">
+                                                <select class="form-control form-control-sm" style="margin-right:20px!important">
+                                                    <option selected value="">Available Versions</option>
+                                                </select>
+                                            </li>
+                                            <li style="float:right!important">
+                                                <b class="text-danger">Conflict</b> Not Conflict <a href="#">3288</a> Ignore <a href="#">0</a> Risk <a href="#">0</a>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="btn btn-success-custom" style="padding-left:10px!important">
+                                                    <i class="fa fa-download"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="custom-tabs-three-tabContentSub">
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-Consolidated" role="tabpanel" aria-labelledby="custom-tabs-three-Consolidated-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title"></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Underground</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td></td>
+                                                                            <td>Ashanti</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-846</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Underground</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td></td>
+                                                                            <td>Ashanti</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-angle-down"></i>&nbsp;1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-ScheduleFCons" role="tabpanel" aria-labelledby="custom-tabs-three-ScheduleFCons-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+
+                                            </div>
+                                            <div class="tab-pane fade show active" id="custom-tabs-three-TEBAPdf" role="tabpanel" aria-labelledby="custom-tabs-three-TEBAPdf-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-ServiceSummary" role="tabpanel" aria-labelledby="custom-tabs-three-ServiceSummary-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title"></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <div>
+                                                            <select class="form-control form-control-sm" style="float:left!important;width:50%!important">
+                                                                <option selected value="">Available Versions</option>
+                                                                <option value="Prep">Prep</option>
+                                                            </select>
+                                                            <button type="button" ng-click="SearchbyPerson()" style="width:50%!important;float:right!important" class="btn btn-sm btn-success-custom"><i class="fa fa-calendar"></i>&nbsp;Years</button>&nbsp;
+                                                        </div>
+                                                        <table class="table table-bordered" width="100%" style="margin-top:-10px!important">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>Description</th>
+                                                                    <th class="text-center">Total</th>
+                                                                    <th class="text-center">Risk</th>
+                                                                    <th class="text-center">Non Risk</th>
+                                                                    <th class="text-center">Unknown</th>
+                                                                    <th class="text-center">Founder</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Qualifying Mine and Qualifying Period</td>
+                                                                    <td class="text-center">18.24</td>
+                                                                    <td class="text-center">17.24</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">1.00</td>
+                                                                    <td class="text-center"><b class="text-success">17.24</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Period</td>
+                                                                    <td class="text-center">1.55</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">1.55</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Gold Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non Qualifying Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Non-Mining Related / Not a Mine</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center">0.00</td>
+                                                                    <td class="text-center"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <td><b>Total</b></td>
+                                                                    <td class="text-center"><b>19.79</b></td>
+                                                                    <td class="text-center"><b>17.24</b></td>
+                                                                    <td class="text-center"><b>0.00</b></td>
+                                                                    <td class="text-center"><b>2.55</b></td>
+                                                                    <td class="text-center"><b>17.24</b></td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Claims" role="tabpanel" aria-labelledby="custom-tabs-three-Claims-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">CCMS MBOD claims</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>#</th>
+                                                                    <th>Claim Id</th>
+                                                                    <th>Source</th>
+                                                                    <th>Claim Date</th>
+                                                                    <th>Status</th>
+                                                                    <th>Certification Date</th>
+                                                                    <th>Finding/Degree</th>
+                                                                    <th>Paid</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>FO7B5B80 MCS_008342745</td>
+                                                                    <td>MBOD Migration</td>
+                                                                    <td>2006-03-14</td>
+                                                                    <td>Medically Certified</td>
+                                                                    <td>2008-01-28</td>
+                                                                    <td>2nd Degree and TB</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">CCMS Tshiamiso claims</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>#</th>
+                                                                    <th>Claim Id</th>
+                                                                    <th>Source</th>
+                                                                    <th>Claim Date</th>
+                                                                    <th>Status</th>
+                                                                    <th>Certification Date</th>
+                                                                    <th>Finding/Degree</th>
+                                                                    <th>Paid</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-PersonFlags" role="tabpanel" aria-labelledby="custom-tabs-three-PersonFlags-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Person flag Details</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                    <th>#</th>
+                                                                    <th>Flag Name</th>
+                                                                    <th>Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Richard Spoor</td>
+                                                                    <td>2020-06-16 22:04:50</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>Abraham Kiewitz</td>
+                                                                    <td>2020-06-16 22:04:50</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<!-- DataTables  & Plugins -->
+@*<script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>*@
+<script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $(function () {
+        //alert();
+        $.noConflict();/////
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+

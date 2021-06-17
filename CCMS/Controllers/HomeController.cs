@@ -46,5 +46,10 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult Trust()
+        {
+            
+            return View();
+        }
     }
 }

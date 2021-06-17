@@ -24,7 +24,16 @@
     <!-- JQVMap -->
     @*<link rel="stylesheet" href="~/Content/dashboardNew/plugins/jqvmap/jqvmap.min.css">*@
     <!-- Theme style -->
-    <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+
+    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.css">
+    @*<link href="../Content/dashboardNew/dist/css/skins/_all-skins.min.css" rel="stylesheet" />*@
+
+    @*<link href="../Content/dashboardNew/plugins/select2/select2.min.css" rel="stylesheet" />*@
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -96,7 +105,7 @@
 
         .nav-pills .nav-link:not(.active):hover {
             background: rgba(213, 239, 137, 0.48) !important;
-            color: #b8d75c!important;
+            color: #b8d75c !important;
         }
 
         .main-sidebar .brand-text, .main-sidebar .logo-xl, .main-sidebar .logo-xs, .sidebar .nav-link p, .sidebar .user-panel .info {
@@ -161,9 +170,10 @@
             background-color: #057a52 !important;
             border-color: #057a52 !important;
             box-shadow: none;
-            width:70px!important;
-            height:20px!important;font-size:9pt!important;
-            line-height:0.7 !important;
+            width: 70px !important;
+            height: 20px !important;
+            font-size: 9pt !important;
+            line-height: 0.7 !important;
         }
 
             .btn-success-custom-sm:hover {
@@ -186,8 +196,9 @@
                 border-color: #057a52 !important;
                 box-shadow: none;
             }
+
         .fg-custom {
-            color:#94b62f !important
+            color: #94b62f !important
         }
     </style>
     @*<style>
@@ -250,85 +261,107 @@
                         <!-- Add icons to the links using the .nav-icon class
     with font-awesome or any other icon font library -->
                         <li class="nav-item">
+                            <a href="../Home/Dashboard" class="nav-link">
+                                <i class="nav-icon fa fa-tachometer-alt"></i>
+                                <p>
+                                    Dashbord
+                                    @*<i class="fas fa-angle-left right"></i>*@
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-handshake"></i>
                                 <p>
                                     Trust
-                                    <i class="right fas fa-angle-left"></i>
+                                    <i class="fa fa-angle-down right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
-                                        <p>
-                                            Query
-                                            <i class="right"></i>
+                                        <i class="nav-icon fa fa-question-circle"></i>
+                                        <p> Query
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="../Home/QueryByPerson" class="nav-link">
-                                                <p>Query by Person</p>
+                                                <i class="nav-icon fa fa-user-cog"></i>
+                                                <p>
+                                                    Query by Person
+                                                    @*<i class="fa fa-angle-right right"></i>*@
+                                                </p>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-user-circle"></i>
                                         <p>
-                                            PERSON
-                                            <i class="right"></i>
+                                            Person
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>DECEASED REGISTER</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-user-injured"></i>
+                                                <p>Deceased Register</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>MAINTAIN PERSON DOC</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-users-cog"></i>
+                                                <p>Maintain Peson Doc</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>UPDATE PERSON</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-user-edit"></i>
+                                                <p>Update Person</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-user-tie"></i>
                                         <p>
-                                            ADMINISTRATOR
-                                            <i class="right"></i>
+                                            Administrator
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>PREPARE CLAIM</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-clipboard-list"></i>
+                                                <p>Prepare Claim</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>RESOLVE CALL CENTER TICKET</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-cog"></i>
+                                                <p>Resolve Call Center Ticket</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;">
                                     <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-certificate"></i>
                                         <p>
-                                            CERTIFICATION
-                                            <i class="right"></i>
+                                            Certification
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>BME BOOKING</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-book-medical"></i>
+                                                <p>BME Booking</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -340,20 +373,22 @@
                                 <i class="nav-icon fa fa-hand-holding-heart"></i>
                                 <p>
                                     Trust Lodgement
-                                    <i class="right fas fa-angle-left"></i>
+                                    <i class="fa fa-angle-down right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-question-circle"></i>
                                         <p>
                                             Query
-                                            <i class="right"></i>
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="../Home/QueryByPerson" class="nav-link">
+                                                <i class="nav-icon fa fa-user-cog"></i>
                                                 <p>Query by Person</p>
                                             </a>
                                         </li>
@@ -361,25 +396,29 @@
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
                                     <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-user-circle"></i>
                                         <p>
-                                            PERSON
-                                            <i class="right"></i>
+                                            Person
+                                            <i class="fa fa-angle-down right"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>DECEASED REGISTER</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-user-injured"></i>
+                                                <p>Deceased Register</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>MAINTAIN PERSON DOC</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-users-cog"></i>
+                                                <p>Maintain Person Doc</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <p>UPDATE PERSON</p>
+                                            <a href="../Home/Trust" class="nav-link">
+                                                <i class="nav-icon fa fa-user-edit"></i>
+                                                <p>Update Person</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -391,79 +430,87 @@
                                 <i class="nav-icon fa fa-chart-line"></i>
                                 <p>
                                     Reports
-                                    <i class="fas fa-angle-left right"></i>
+                                    @*<i class="fas fa-angle-left right"></i>*@
                                 </p>
                             </a>
-                        </li>                        
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa fa-headset"></i>
                                 <p>
                                     Call Center
-                                    <i class="right fas fa-angle-left"></i>
+                                    <i class="fa fa-angle-down right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;font-size:9pt!important">
+                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-phone"></i>
                                         <p>
-                                            RECEIVE INBOUND CALLS
+                                            Receive Inbound Calls
+                                            @*<i class="right"></i>*@
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-phone"></i>
+                                        <p>
+                                            Log on Outbond Calls
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-address-card"></i>
                                         <p>
-                                            LOG ON OUTBOUND CALLS
+                                            Add Lodgement Booking
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-edit"></i>
                                         <p>
-                                            ADD LODGEMENT BOOKING
+                                            Change Lodgement Booking
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-street-view"></i>
                                         <p>
-                                            CHANGE LODGEMENT BOOKING
+                                            View Lodgement Booking
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-file-pdf"></i>
                                         <p>
-                                            VIEW LODGMENT BOOKING
+                                            Add Documents to Ticket
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/Trust" class="nav-link">
+                                        <i class="nav-icon fa fa-book-medical"></i>
                                         <p>
-                                            ADD DOCUMENTS TO TICKET
+                                            BME Booking
                                             <i class="right"></i>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
+                                    <a href="../Home/QueryByPerson" class="nav-link">
+                                        <i class="nav-icon fa fa-user-cog"></i>
                                         <p>
-                                            BME BOOKING
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <p>
-                                            QUERY BY PERSON
+                                            Query by Person
                                             <i class="right"></i>
                                         </p>
                                     </a>
@@ -475,7 +522,7 @@
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
                                     User Info
-                                    <i class="fas fa-angle-left right"></i>
+                                    @*<i class="fas fa-angle-left right"></i>*@
                                 </p>
                             </a>
                         </li>
@@ -484,7 +531,7 @@
                                 <i class="nav-icon fa fa-stethoscope"></i>
                                 <p>
                                     Medical Hub
-                                    <i class="fas fa-angle-left right"></i>
+                                    @*<i class="fas fa-angle-left right"></i>*@
                                 </p>
                             </a>
                         </li>
