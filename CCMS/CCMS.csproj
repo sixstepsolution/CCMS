@@ -142,6 +142,7 @@
   <ItemGroup>
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
     <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
+    <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
@@ -5691,6 +5692,7 @@
     <Content Include="Views\Home\QueryByPerson.cshtml" />
     <Content Include="Uploads\Inspection.pdf" />
     <Content Include="Views\Home\Trust.cshtml" />
+    <Content Include="Views\Home\ReceiveInnbondCall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AngularJs\services\" />

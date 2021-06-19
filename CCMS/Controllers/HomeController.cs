@@ -51,5 +51,10 @@ namespace CCMS.Controllers
             
             return View();
         }
+        public ActionResult ReceiveInnbondCall()
+        {
+
+            return View();
+        }
     }
 }
