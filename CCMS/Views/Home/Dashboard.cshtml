@@ -174,3 +174,204 @@
     <!-- /.content -->
 </div>
 
+
+
+
+<script src="~/AngularJs/controllers/HomeCntrl.js"></script>
+@*<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">*@
+
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css" />
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css" />
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+@*<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"
+    integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+    crossorigin="anonymous"></script>*@
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"></script>
+
+<div ng-controller="homeCntrl" ng-cloak style="zoom:0.9">
+    <div class="content-header" style="padding:10px !important">
+        <div class="row">
+            <div class="col-sm-6">
+                @*<h1 class="m-0">Dashboard</h1>*@
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div>
+    <!-- /.content-header -->
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">License Applications</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="~/Lorex/assets/images/employee_blue.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../HealthCare/MQList" style="color: #28a745;">
+                                        <h3 style="text-align:center;color: #28a745;"> 450</h3>
+                                    </a>
+
+
+                                </p>
+                                <h6 class="text-center;" style="">Total Licenses</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Compentency Application</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="~/Lorex/assets/images/examination_blue.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-8">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../Dashboard/ExamineCompleted" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">74</h3></a>
+
+                                </p>
+                                <h6 class="text-center;">Total Certifications</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Renewals</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="~/Lorex/assets/images/cert_blue.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../Fitness/GenerateCertificate" style="color: #28a745;"><h3 style="text-align:center;color: #28a745 !important;">243</h3></a>
+                                </p>
+                                <h6 class="text-center;">Total Renewal</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Transfers</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="~/Lorex/assets/images/due_blue.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../Dashboard/ExamineDue" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">90</h3></a>
+                                </p>
+                                <h6 class="text-center;">Total Transfers</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+
+
+        </div>
+
+
+
+        <div class="box card-success card-outline">
+            <!--<div class="box-header with-border">
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>-->
+            <!-- /.box-tools -->
+            <!--</div>-->
+            <!-- /.box-header -->
+            <div class="box-body" style="margin:0">
+                <div id="map" style="width: 100% !important; height: 500px !important"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+        <script type="text/javascript" src="~/maps/leaf-demo.js"></script>
+        <script type="text/javascript" src="~/maps/markers.js"></script>
+    </div>
+
+</div>
+
