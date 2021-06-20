@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TRUST_DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TRUST_DATA.dbo.T804' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="T804">
+          <Property Name="Lodgment_Site_Code" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lodgement_Site" Type="nvarchar" MaxLength="255" />
+          <Property Name="CITY_CD" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Province" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lodgement Latitude" Type="nvarchar" MaxLength="255" />
+          <Property Name="POSTAL_CODE" Type="nvarchar" MaxLength="255" />
+          <Property Name="IS_ACTIVE" Type="nvarchar" MaxLength="255" />
+          <Property Name="EFFECTIVE_D" Type="nvarchar" MaxLength="255" />
+          <Property Name="SITE_TYPE_CD" Type="nvarchar" MaxLength="255" />
+          <Property Name="Site Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Service Provider" Type="nvarchar" MaxLength="255" />
+          <Property Name="Region" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TRUST_DATA.dbo.TRUST_DETAIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TRUST_DETAIL">
+          <Key>
+            <PropertyRef Name="SRC_ID" />
+          </Key>
+          <Property Name="SRC_ID" Type="int" Nullable="false" />
+          <Property Name="SRC_ADDRESS_TYPE" Type="varchar(max)" />
+          <Property Name="SELECTED_COUNTRY" Type="varchar(max)" />
+          <Property Name="SOURCE_LINE" Type="varchar(max)" />
+          <Property Name="LATITUDE" Type="float" />
+          <Property Name="LONGITUDE" Type="float" />
+          <Property Name="TOWN_NAME" Type="varchar(max)" />
+          <Property Name="PROVINCE_CODE" Type="varchar(max)" />
+          <Property Name="MUNICIPALITY_NAME" Type="varchar(max)" />
+        </EntityType>
+        <Function Name="Sp_Trusted_804_Data_Search_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchKeyWord" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_TrustedData_Search_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchKeyWord" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TRUST_DATAModelStoreContainer">
+          <EntitySet Name="TRUST_DETAIL" EntityType="Self.TRUST_DETAIL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRUST_DETAIL].[SRC_ID] AS [SRC_ID], 
+    [TRUST_DETAIL].[SRC_ADDRESS_TYPE] AS [SRC_ADDRESS_TYPE], 
+    [TRUST_DETAIL].[SELECTED_COUNTRY] AS [SELECTED_COUNTRY], 
+    [TRUST_DETAIL].[SOURCE_LINE] AS [SOURCE_LINE], 
+    [TRUST_DETAIL].[LATITUDE] AS [LATITUDE], 
+    [TRUST_DETAIL].[LONGITUDE] AS [LONGITUDE], 
+    [TRUST_DETAIL].[TOWN_NAME] AS [TOWN_NAME], 
+    [TRUST_DETAIL].[PROVINCE_CODE] AS [PROVINCE_CODE], 
+    [TRUST_DETAIL].[MUNICIPALITY_NAME] AS [MUNICIPALITY_NAME]
+    FROM [dbo].[TRUST_DETAIL] AS [TRUST_DETAIL]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TRUST_DATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TRUST_DETAIL">
+          <Key>
+            <PropertyRef Name="SRC_ID" />
+          </Key>
+          <Property Name="SRC_ID" Type="Int32" Nullable="false" />
+          <Property Name="SRC_ADDRESS_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SELECTED_COUNTRY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SOURCE_LINE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Double" />
+          <Property Name="LONGITUDE" Type="Double" />
+          <Property Name="TOWN_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROVINCE_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MUNICIPALITY_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="TRUST_DATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TRUST_DETAIL" EntityType="Self.TRUST_DETAIL" />
+          <FunctionImport Name="Sp_TrustedData_Search_Info" ReturnType="Collection(TRUST_DATAModel.Sp_TrustedData_Search_Info_Result)">
+          <Parameter Name="searchKeyWord" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Trusted_804_Data_Search_Info" ReturnType="Collection(TRUST_DATAModel.Sp_Trusted_804_Data_Search_Info_Result)">
+          <Parameter Name="searchKeyWord" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Sp_TrustedData_Search_Info_Result">
+          <Property Type="Int32" Name="SRC_ID" Nullable="false" />
+          <Property Type="String" Name="SRC_ADDRESS_TYPE" Nullable="true" />
+          <Property Type="String" Name="SELECTED_COUNTRY" Nullable="true" />
+          <Property Type="String" Name="SOURCE_LINE" Nullable="true" />
+          <Property Type="Double" Name="LATITUDE" Nullable="true" />
+          <Property Type="Double" Name="LONGITUDE" Nullable="true" />
+          <Property Type="String" Name="TOWN_NAME" Nullable="true" />
+          <Property Type="String" Name="PROVINCE_CODE" Nullable="true" />
+          <Property Type="String" Name="MUNICIPALITY_NAME" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_Trusted_804_Data_Search_Info_Result">
+          <Property Type="String" Name="Lodgment_Site_Code" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Lodgement_Site" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CITY_CD" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Province" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Longitude" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Lodgement_Latitude" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="POSTAL_CODE" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="IS_ACTIVE" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EFFECTIVE_D" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="SITE_TYPE_CD" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Site_Type" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Service_Provider" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="255" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TRUST_DATAModelStoreContainer" CdmEntityContainer="TRUST_DATAEntities">
+          <EntitySetMapping Name="TRUST_DETAIL">
+            <EntityTypeMapping TypeName="TRUST_DATAModel.TRUST_DETAIL">
+              <MappingFragment StoreEntitySet="TRUST_DETAIL">
+                <ScalarProperty Name="SRC_ID" ColumnName="SRC_ID" />
+                <ScalarProperty Name="SRC_ADDRESS_TYPE" ColumnName="SRC_ADDRESS_TYPE" />
+                <ScalarProperty Name="SELECTED_COUNTRY" ColumnName="SELECTED_COUNTRY" />
+                <ScalarProperty Name="SOURCE_LINE" ColumnName="SOURCE_LINE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="TOWN_NAME" ColumnName="TOWN_NAME" />
+                <ScalarProperty Name="PROVINCE_CODE" ColumnName="PROVINCE_CODE" />
+                <ScalarProperty Name="MUNICIPALITY_NAME" ColumnName="MUNICIPALITY_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_TrustedData_Search_Info" FunctionName="TRUST_DATAModel.Store.Sp_TrustedData_Search_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TRUST_DATAModel.Sp_TrustedData_Search_Info_Result">
+                <ScalarProperty Name="SRC_ID" ColumnName="SRC_ID" />
+                <ScalarProperty Name="SRC_ADDRESS_TYPE" ColumnName="SRC_ADDRESS_TYPE" />
+                <ScalarProperty Name="SELECTED_COUNTRY" ColumnName="SELECTED_COUNTRY" />
+                <ScalarProperty Name="SOURCE_LINE" ColumnName="SOURCE_LINE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="TOWN_NAME" ColumnName="TOWN_NAME" />
+                <ScalarProperty Name="PROVINCE_CODE" ColumnName="PROVINCE_CODE" />
+                <ScalarProperty Name="MUNICIPALITY_NAME" ColumnName="MUNICIPALITY_NAME" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Trusted_804_Data_Search_Info" FunctionName="TRUST_DATAModel.Store.Sp_Trusted_804_Data_Search_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TRUST_DATAModel.Sp_Trusted_804_Data_Search_Info_Result">
+                <ScalarProperty Name="Lodgment_Site_Code" ColumnName="Lodgment_Site_Code" />
+                <ScalarProperty Name="Lodgement_Site" ColumnName="Lodgement_Site" />
+                <ScalarProperty Name="CITY_CD" ColumnName="CITY_CD" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Lodgement_Latitude" ColumnName="Lodgement Latitude" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="EFFECTIVE_D" ColumnName="EFFECTIVE_D" />
+                <ScalarProperty Name="SITE_TYPE_CD" ColumnName="SITE_TYPE_CD" />
+                <ScalarProperty Name="Site_Type" ColumnName="Site Type" />
+                <ScalarProperty Name="Service_Provider" ColumnName="Service Provider" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

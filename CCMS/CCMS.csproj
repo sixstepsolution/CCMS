@@ -148,6 +148,9 @@
     <Compile Include="Models\Sp_TrustedData_Search_Info_Result.cs">
       <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Sp_Trusted_804_Data_Search_Info_Result.cs">
+      <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TRUST_DATA_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4439,8 +4442,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="maps\Control.FullScreen.css" />
+    <Content Include="maps\Control.FullScreen.js" />
+    <Content Include="maps\images\icon-fullscreen-2x.png" />
+    <Content Include="maps\images\icon-fullscreen.png" />
     <Content Include="maps\images\pin24.png" />
     <Content Include="maps\images\pin48.png" />
+    <Content Include="maps\leaf-T804.js" />
     <Content Include="maps\leaf-demo.js" />
     <Content Include="maps\markers.js" />
     <Content Include="Models\TRUST_DATA_Model.Context.tt">

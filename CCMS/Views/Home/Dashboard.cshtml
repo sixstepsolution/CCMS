@@ -4,179 +4,6 @@
     Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
 }
 <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
-<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
-<div ng-controller="homeCntrl" ng-cloak style="height:500px">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    @*<h1 class="m-0">Dashboard</h1>*@
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card card-success card-outline direct-chat direct-chat-success">
-                        <div class="card-header">
-                            <h3 class="card-title">APPOINTMENTS</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="card-body" style="display: block;">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="~/Content/dashboard/Images/appoinments.png" style="width:140px;height:110px;"  />
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                    <p class="font-bold text-center" style="font-size: 30px">
-                                        <a href="">
-                                            <h3 style="text-align:center"> 38500</h3>
-                                        </a>
-
-                                    </p>
-                                    <h6 class="text-center">Appointments</h6>
-                                    @*<a href="#" class="text-center">More info <i class="fas fa-arrow-circle-right"></i></a>*@
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-success card-outline direct-chat direct-chat-success">
-                        <div class="card-header">
-                            <h5 class="card-title">LODGEMENTS</h5>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="~/Content/dashboard/Images/lodgements.png" style="width:140px;height:110px;"/>
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                    <p class="font-bold text-center" style="font-size: 30px">
-                                        <a href=""><h3 style="text-align:center">22250</h3></a>
-
-                                    </p>
-                                    <h6 class="text-center">Lodgements</h6>
-                                    @*<a href="#" class="small-box-footer text-center">More info <i class="fas fa-arrow-circle-right"></i></a>*@
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-success card-outline direct-chat direct-chat-success">
-                        <div class="card-header">
-                            <h5 class="card-title">POPULATION</h5>
-
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="card-body">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="~/Content/dashboard/Images/population.png" style="width:140px;height:110px;" />
-                                   
-                                </div>
-                                <div class="col-md-6">
-                                    <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                    <p class="font-bold text-center" style="font-size: 30px">
-                                        <a href=""><h3 style="text-align:center">825985</h3></a>
-                                    </p>
-                                    <h6 class="text-center">Claimant Population</h6>
-                                    @*<a href="#" class="small-box-footer text-center">More info <i class="fas fa-arrow-circle-right"></i></a>*@
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-success card-outline direct-chat direct-chat-success">
-                        <div class="card-header">
-                            <h5 class="card-title">SERVICE</h5>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="card-body" >
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="~/Content/dashboard/Images/service.png" style="width:140px;height:110px;" />
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                    <p class="font-bold text-center" style="font-size: 30px">
-                                        <a href="../Dashboard/ExamineDue"><h3 style="text-align:center">45</h3></a>
-                                    </p>
-                                    <h6 class="text-center">Total Service Provider Sites</h6>
-                                    @*<a href="#" class="small-box-footer text-center">More info <i class="fas fa-arrow-circle-right"></i></a>*@
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-
-
-            </div>
-
-            
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-</div>
-
-
-
-
 <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
 @*<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">*@
 
@@ -192,9 +19,20 @@
     crossorigin="anonymous"></script>*@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"></script>
+<script src="~/maps/Control.FullScreen.js"></script>
+<link href="~/maps/Control.FullScreen.css" rel="stylesheet" />
+<style>
+    .content-header {
+        padding: 5px 0.5rem !important;
+    }
 
+    .box-header {
+        padding: 0 !important;
+        padding-left: 10px !important
+    }
+</style>
 <div ng-controller="homeCntrl" ng-cloak style="zoom:0.9">
-    <div class="content-header" style="padding:10px !important">
+    <div class="content-header">
         <div class="row">
             <div class="col-sm-6">
                 @*<h1 class="m-0">Dashboard</h1>*@
@@ -209,13 +47,14 @@
 
     </div>
     <!-- /.content-header -->
-    <hr />
+    <hr style="margin-top:0 !important" />
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <div class="box card-success card-outline">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #28a745;">License Applications</h5>
+                        <h5 class="box-title" style="color: #28a745;">Appointments</h5>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -228,19 +67,19 @@
                     <div class="box-body" style="display: block;">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="~/Lorex/assets/images/employee_blue.png" style="width:120px;height:90px;" class="img-circle" />
+                                <img src="~/Content/dashboard/Images/appoinments.png" style="width:120px;height:90px;" class="img-circle" />
 
                             </div>
                             <div class="col-md-6">
                                 <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
                                 <p class="font-bold text-center" style="font-size: 30px">
                                     <a href="../HealthCare/MQList" style="color: #28a745;">
-                                        <h3 style="text-align:center;color: #28a745;"> 450</h3>
+                                        <h3 style="text-align:center;color: #28a745;"> 38500</h3>
                                     </a>
 
 
                                 </p>
-                                <h6 class="text-center;" style="">Total Licenses</h6>
+                                @*<h6 class="text-center;" style="">Total</h6>*@
                             </div>
                         </div>
                     </div>
@@ -251,73 +90,7 @@
             <div class="col-md-3">
                 <div class="box card-success card-outline">
                     <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #28a745;">Compentency Application</h5>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body" style="display: block;">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="~/Lorex/assets/images/examination_blue.png" style="width:120px;height:90px;" class="img-circle" />
-
-                            </div>
-                            <div class="col-md-8">
-                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                <p class="font-bold text-center" style="font-size: 30px">
-                                    <a href="../Dashboard/ExamineCompleted" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">74</h3></a>
-
-                                </p>
-                                <h6 class="text-center;">Total Certifications</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <div class="col-md-3">
-                <div class="box card-success card-outline">
-                    <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #28a745;">Renewals</h5>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body" style="display: block;">
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="~/Lorex/assets/images/cert_blue.png" style="width:120px;height:90px;" class="img-circle" />
-
-                            </div>
-                            <div class="col-md-6">
-                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
-                                <p class="font-bold text-center" style="font-size: 30px">
-                                    <a href="../Fitness/GenerateCertificate" style="color: #28a745;"><h3 style="text-align:center;color: #28a745 !important;">243</h3></a>
-                                </p>
-                                <h6 class="text-center;">Total Renewal</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <div class="col-md-3">
-                <div class="box card-success card-outline">
-                    <div class="box-header with-border">
-                        <h5 class="box-title" style="color: #28a745;">Transfers</h5>
+                        <h5 class="box-title" style="color: #28a745;">Lodgements</h5>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -330,15 +103,81 @@
                     <div class="box-body" style="display: block;">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="~/Lorex/assets/images/due_blue.png" style="width:120px;height:90px;" class="img-circle" />
+                                <img src="~/Content/dashboard/Images/lodgements.png" style="width:120px;height:90px;" class="img-circle" />
 
                             </div>
                             <div class="col-md-6">
                                 <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
                                 <p class="font-bold text-center" style="font-size: 30px">
-                                    <a href="../Dashboard/ExamineDue" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">90</h3></a>
+                                    <a href="../Dashboard/ExamineCompleted" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">22250</h3></a>
+
                                 </p>
-                                <h6 class="text-center;">Total Transfers</h6>
+                                @*<h6 class="text-center;">Total</h6>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Claimant Population</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="~/Content/dashboard/Images/population.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../Fitness/GenerateCertificate" style="color: #28a745;"><h3 style="text-align:center;color: #28a745 !important;">825985</h3></a>
+                                </p>
+                                @*<h6 class="text-center;">Total</h6>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Service Provider Sites</h5>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="~/Content/dashboard/Images/service.png" style="width:120px;height:90px;" class="img-circle" />
+
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-spinner fa-spin" ng-if="loaderSpin"></i>
+                                <p class="font-bold text-center" style="font-size: 30px">
+                                    <a href="../Dashboard/ExamineDue" style="color: #28a745;"><h3 style="text-align:center;color: #28a745;">45</h3></a>
+                                </p>
+                                @*<h6 class="text-center;">Total</h6>*@
                             </div>
                         </div>
                     </div>
@@ -350,27 +189,51 @@
 
         </div>
 
-
-
-        <div class="box card-success card-outline">
-            <!--<div class="box-header with-border">
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                </div>-->
-            <!-- /.box-tools -->
-            <!--</div>-->
-            <!-- /.box-header -->
-            <div class="box-body" style="margin:0">
-                <div id="map" style="width: 100% !important; height: 500px !important"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Claimant Population</h5>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="margin:0">
+                        <div id="map" style="width: 100% !important; height: 500px !important"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
             </div>
-            <!-- /.box-body -->
+            <div class="col-md-6">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Service Provider Sites</h5>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="margin:0">
+                        <div id="mapServiceProvidr" style="width: 100% !important; height: 500px !important"></div>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+            </div>
         </div>
         <!-- /.box -->
 
+
+        <script type="text/javascript" src="~/maps/leaf-T804.js"></script>
         <script type="text/javascript" src="~/maps/leaf-demo.js"></script>
-        <script type="text/javascript" src="~/maps/markers.js"></script>
+        @*<script type="text/javascript" src="~/maps/markers.js"></script>*@
     </div>
 
 </div>
