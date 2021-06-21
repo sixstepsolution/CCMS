@@ -53,42 +53,5 @@ namespace CCMS.Controllers
             
             return View();
         }
-
-        [HttpPost]
-        public ActionResult GetTrustedData(string searchKey)
-        {
-            Dictionary<string, object> dct = new Dictionary<string, object>();
-
-            var result = _db.Sp_TrustedData_Search_Info(searchKey).ToList();
-            if (result.Count() > 0)
-            {
-                dct.Add("success", true);
-                dct.Add("result", result);
-            }
-            else
-            {
-                dct.Add("success", false);
-            }
-            return Json(dct, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public ActionResult GetTrusted804Data(string searchKey)
-        {
-            Dictionary<string, object> dct = new Dictionary<string, object>();
-
-            var result = _db.Sp_Trusted_804_Data_Search_Info(searchKey).ToList();
-            if (result.Count() > 0)
-            {
-                dct.Add("success", true);
-                dct.Add("result", result);
-            }
-            else
-            {
-                dct.Add("success", false);
-            }
-            return Json(dct, JsonRequestBehavior.AllowGet);
-        }
-
     }
 }

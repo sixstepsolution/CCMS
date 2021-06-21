@@ -1,0 +1,1157 @@
+﻿
+@{
+    ViewBag.Title = "QueryByPerson";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+<style>
+    .breadcrumb-item a {
+        color: #125e1d !important;
+    }
+
+    .nav-item a {
+        color: #000;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 11pt !important
+    }
+
+        .nav-item a:hover {
+            color: #000;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 11pt !important
+        }
+
+    label {
+        font-weight: 400 !important;
+        /*font-size: 10pt !important;*/
+        margin-bottom: -5px !important;
+        margin-top: -10px !important;
+    }
+
+    .form-control {
+        /*font-size: 10pt !important*/
+    }
+
+    .content-header .breadcrumb {
+        background-color: transparent;
+        line-height: 0.7rem !important;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .card-title {
+        float: left;
+        font-size: 0.9rem !important;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .table td, .table th {
+        padding: 0.1rem !important;
+        vertical-align: top;
+        /*border-top: 1px solid #dee2e6;*/
+    }
+
+    .text-success-custom {
+        color: #057a52 !important;
+    }
+</style>
+
+<script src="~/AngularJs/controllers/ReceiveInbondCntrl.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+<div ng-controller="QuerybyPersonCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row m-b-0">
+                <div class="col-sm-3" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <button type="button" ng-if="!showNewCall && !IsBack" ng-click="NewReciveInbondCall()" style="width:100px!important;margin-top:5px !important" class="btn btn-sm btn-success-custom"><i class="fa fa-plus"></i>&nbsp;Create</button>&nbsp;
+                    <button ng-if="IsBack" style="cursor:pointer!important;margin-top:5px !important;width:150px!important;" class="btn btn-sm btn-success-custom" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</button>
+                    <span ng-show="IsData" style="font-weight:500">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" />
+
+                    </span>
+                </div><!-- /.col -->
+               
+                <div class="col-sm-6"  style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
+                    <span ng-if="IsData" style="font-weight:500">
+                        &nbsp;CCMS No:<b class="text-success"> AP005082543</b>
+                        &nbsp;First name: <b class="text-success">MACHASE</b>
+                        &nbsp;Surname: <b class="text-success">HOPO</b>
+                        &nbsp;Industry No: <b class="text-success">W1085979</b>
+                        &nbsp;RSA ID No: <b class="text-success">5807016112081</b>
+                        &nbsp;Passport No: <b class="text-success">T3519958</b>
+                        &nbsp;Living Status: <b class="text-success" style="color:red">Living</b>
+                        &nbsp;Age: <b class="text-success" >62</b>
+                        &nbsp;Date of Birth: <b class="text-success">1958-07-01</b>
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
+                        <li class="breadcrumb-item active">Receive Inbond Calls</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form ng-if="!showNewCall && !IsBack">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-success card-outline">
+                            @*<div class="card-header">
+                            <h3 class="card-title">Query by Person</h3>
+                        </div>*@
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>ID Type</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm">
+                                                <option value="RSA ID Type">RSA ID Number</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Surname</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Bureau No</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Person Reference</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>First Name</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Year of Birth</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1 text-center">
+                                        <label></label>
+                                        <div class="input-group">
+                                            <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-search"></i>&nbsp;Filter</button>&nbsp;
+                                            <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" ng-show="IsShowSearchdata">
+                            <div class="card-header">
+                                <h3 class="card-title"></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered">
+                                    <thead>
+                                        <tr style="background:#057a528c!important">
+                                            <th>#</th>
+                                            <th>Industry No</th>
+                                            <th>RSA ID No</th>
+                                            <th>Passport No</th>
+                                            <th>First Names</th>
+                                            <th>Surname</th>
+                                            <th>Date of Birth</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>W1085979</td>
+                                            <td><a href="#" ng-click="ShowReceiveIbondCalls()">5206105264186</a></td>
+                                            <td></td>
+                                            <td>MACHASE</td>
+                                            <td>HOPO</td>
+                                            <td>1952-06-10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>W1085987</td>
+                                            <td><a href="#" ng-click="ShowReceiveIbondCalls()">5206105264186</a></td>
+                                            <td></td>
+                                            <td>MACHASE</td>
+                                            <td>HOPO</td>
+                                            <td>1952-06-10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div ng-show="ShowPersonDetails">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="card card-success card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-Summary-tab" data-toggle="pill" href="#custom-tabs-three-Summary" role="tab" aria-controls="custom-tabs-three-Summary" aria-selected="true">Miner Status</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">Hymn Sheet</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">Web Interaction</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-AllContacts-tab" data-toggle="pill" href="#custom-tabs-three-AllContacts" role="tab" aria-controls="custom-tabs-three-AllContacts" aria-selected="false">Bookings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">Call Checklist</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-12 col-lg-12 text-center">
+                                                <button type="button" class="btn btn-success-custom"><i class="fas fa-clipboard-list"></i> Details</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-12">
+                                                <div class="card card-gray border" style="width:100%!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Scheduled Exclusions</h4>
+                                                    </div>
+                                                    <div class="card-body" style="">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Blom Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Opt-out Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Q(h)ubeka Claimant</td>
+                                                                            <td><b class="text-success">No</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-12">
+                                                <div class="card card-gray border">
+                                                    <div class="card-header" style="">
+                                                        <h5 class="card-title">Eligibility</h5>
+                                                    </div>
+                                                    <div class="card-body" style="">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Risk class(Self-declared)</td>
+                                                                            <td>Risk</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Risk class(TEBA / Mines)</td>
+                                                                            <td>Risk</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Tshiamiso Trust Eligible</td>
+                                                                            <td><b class="text-success">Yes, risk work at QM/QP</b></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="row" style="margin-bottom:10px">
+                                            <div class="col-lg-12">
+                                                <h6>NB!. Person only eligible if he/she is NOT excluded AND the above indicates eligibility</h6>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Current lodgement bookings</h4>
+                                                <button type="button" style="float:right" class="btn btn-sm btn-success-custom pull-right"><i class="fa fa-cogs"></i>&nbsp;New Booking</button>&nbsp;
+
+                                            </div>
+                                            <div class="card-body">
+                                                No Bookings
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Messages to Mine worker</h4>
+
+                                            </div>
+                                            <div class="card-body">
+                                                Our records show C10504010 has already logged a claim with the Tshiamiso. Call +27801000240 for more innformtion. To claim is free. Ref: AP10002562
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Send Call confirmation to caller at 27739007893</h4>
+                                                <button type="button" style="float:right" class="btn btn-sm btn-success-custom pull-right"><i class="fa fa-sms"></i>&nbsp;Send SMS</button>&nbsp;
+
+                                            </div>
+                                            <div class="card-body">
+                                                Thanks you for contacting the Tshiamiso Trust. Your call reference is AP10002562. Please submit your documents to submissions@tshiamisotrust.com
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Address" role="tabpanel" aria-labelledby="custom-tabs-three-Address-tab">
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Call Instructions</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row" style="margin-bottom:15px !important">
+                                                    <div class="col-12 col-lg-12">
+                                                        <label>Scenario</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                                </span>
+                                                            </div>
+                                                            <select class="form-control form-control-sm">
+                                                                <option value="">Previous Claim</option>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <label>If a person has already logged a claim and their claim is in progress. The CCMS  system will match the cell phone number entered with a cell phone numnber already recorded when a person went  through the registration process.</label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <h6>Action : </h6>
+                                                        <label>If a person phones the call centre and they have already logged a claim, the call center will able to let the person know the status of their claim and confirm or log a query for investigation by the appropriate office (e.g. the Trust Office,TEBA,CCMS etc.). If the Person calls because they received the message that their phone number does not match the industry number, the call centre should explain this and take down the persons details and pass these  onto  the Tshiamiso back office for forther investigation. </label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <h6>Possible Questions and Answers from Claimant : </h6>
+                                                        <label>Q: I have logged a claim, what is the status? </label>
+                                                        <p>A: the call centre agent will be able to see the statusof the claim on the CCMS system and inform the claimant</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Contacts" role="tabpanel" aria-labelledby="custom-tabs-three-Contacts-tab">
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">SMS / Web Interactions</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-AllContacts" role="tabpanel" aria-labelledby="custom-tabs-three-AllContacts-tab">
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Bookings</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <table class="table table-bordered" width="100%">
+                                                            <thead>
+                                                                <tr style="background:#057a528c!important; color:#fff !important">
+                                                                    <th>#</th>
+                                                                    <th>Booking Type</th>
+                                                                    <th>Booking Date</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Surname</th>
+                                                                    <th>Mobile Number</th>
+                                                                    <th>Booking Time</th>
+                                                                    <th>Lodgement Site</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Manual Booking</td>
+                                                                    <td>2021-05-03</td>
+                                                                    <td>MBULELO</td>
+                                                                    <td>MTHOLI</td>
+                                                                    <td>27785642546</td>
+                                                                    <td>Morning</td>
+                                                                    <td>Butterworth</td>
+                                                                </tr>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Documents" role="tabpanel" aria-labelledby="custom-tabs-three-Documents-tab">
+                                        <div class="card card-gray border" style="">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Call Center Communication</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><a href="#"><i class="fa fa-check-circle"></i> Hymn sheet was communicated</a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><a href="#"><i class="fa fa-check-circle"></i> Ticket with call centre reference was logged</a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="card card-success card-outline">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>*@
+                                </div>
+                                <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Current Ticket</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-bordered">
+                                            <thead style="background-color:#6c757d;color:#fff">
+                                                <tr>
+                                                    <td>
+                                                        Ticket Ref
+                                                    </td>
+                                                    <td>Ticket Status</td>
+                                                    <td>Ticket Date</td>
+                                                    <td>Add Documennts</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>C-EC525796EC1</td>
+                                                    <td>Open</td>
+                                                    <td>2021-06-18 06:03:25</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-database"></i>&nbsp;Add Conversations</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-hand-holding-heart"></i>&nbsp;Close Ticket</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-phone"></i>&nbsp;Request investigation</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-file-invoice"></i>&nbsp;Awaiting docs</button>&nbsp;
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" style="background-color:#6c757d;color:#fff">
+                                                        Conversation Notes (C-EC525796EC1) :
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="card card-success card-outline">
+                            <div class="card-header">
+                                <div class="card-tools" style="float:left !important">
+                                    @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>*@
+                                </div>
+                                <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Previous Closed Ticket</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-bordered">
+                                            <thead style="background-color:#6c757d;color:#fff">
+                                                <tr>
+                                                    <td>
+                                                        Ticket Ref
+                                                    </td>
+                                                    <td>Ticket Status</td>
+                                                    <td>Ticket Date</td>
+                                                    <td>Available Actions</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>C-EB525796EB14</td>
+                                                    <td>Closed</td>
+                                                    <td>2021-03-12 06:03:25</td>
+                                                    <td>
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <table class="table table-bordered">
+                                                        <tr style="background-color:#6c757d;color:#fff">
+                                                            <td>Conversationn Notes (C-EB525796EB14) :</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2021-03-12 06:03:25</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Booking made for mine worker</td>
+                                                        </tr>
+                                                    </table>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="showNewCall">
+                <div class="card card-success card-outline">
+                    <div class="card-header">
+                        <div class="card-tools" style="float:left !important">
+                            @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>*@
+                        </div>
+                        <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Create New Person Record</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h6>Personal Information :</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Industry Number </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Bureau Number </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>ID No </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Passport </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Foreign ID </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Foreign ID')">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Ethnic group</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Ethnic group">Ethnic group</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Language preference *</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Language preference">Language preference</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Nationality</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Nationality">Nationality</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Gender</label>
+                                <div class="input-group" style="margin-top:8px">
+                                    <div class="icheck-primary d-inline" style="margin-right:20px">
+                                        <input type="checkbox" id="GENDER_CHK1">
+                                        <label for="checkboxPrimary2">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="GENDER_CHK2">
+                                        <label for="checkboxPrimary2">
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Surname *</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Alternative Surname </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>First names *</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>second name </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Birth Date </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Marital Status</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Marital Status">Marital Status</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="col-12 col-lg-3 mb-1 text-center">
+                            <label></label>
+                            <div class="input-group">
+                                <button type="button"  style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-save"></i>&nbsp;Submit</button>&nbsp;
+                                <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+            </div>
+
+            <div ng-if="showReceiveInbondCall">
+                <div class="card card-success card-outline">
+                    <div class="card-header">
+                        <div class="card-tools" style="float:left !important">
+                            @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>*@
+                        </div>
+                        <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Capture Caller information</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" style="margin:10px">
+                            <div class="col-lg-12">
+                                <h6>Please enter basic caller information below. For the mobile number , please capture the mobile number (without the country code) and ennsure there are no space  or special characters; an example of a valid South Africa mobile number is : 0825550000</h6>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-4">
+                                <div class="icheck-primary d-inline">
+                                    <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                        Is the caller the miner :
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="CITIZENSHIP_CHK">
+                                    <label for="checkboxPrimary1">
+                                        YES
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="CITIZENSHIP_CHK2">
+                                    <label for="checkboxPrimary2">
+                                        NO
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-4">
+                                <div class="icheck-primary d-inline">
+                                    <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                        Is the miner living? :
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="CITIZENSHIP_CHK">
+                                    <label for="checkboxPrimary1">
+                                        YES
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="CITIZENSHIP_CHK2">
+                                    <label for="checkboxPrimary2">
+                                        NO
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg12 mb-1">
+                                <label>What is the caller's relationsip with the miner? </label>
+
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Ethnic group"></option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Language preference"></option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin:10px">
+                            <div class="col-12 col-lg-12 mb-1">
+                                <h6>Alternative Contact Details</h6>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>First Name </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Surname</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Conntact Relationship?</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control form-control-sm">
+                                        <option value="Conntact Relationship">Conntact Relationship</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Town </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Mobile Number </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-1">
+                                <label>Ticket Ref </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="">
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="col-12 col-lg-12 mb-1 right">
+                            <label></label>
+                            <div class="input-group">
+                                <button type="button" ng-click="SearchDetailsPerson()" style="width:100px!important; float:right" class="btn btn-sm btn-success-custom pull-right"><i class="fa fa-forward"></i>&nbsp;Next</button>&nbsp;
+                                @*<button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">{{modelValue}}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <label>{{modelValue}}</label>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control form-control-sm" placeholder="search...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+
+<!-- DataTables  & Plugins -->
+@*<script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>*@
+<script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $(function () {
+        //alert();
+        $.noConflict();/////
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+
