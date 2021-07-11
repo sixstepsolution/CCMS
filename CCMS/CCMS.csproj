@@ -145,11 +145,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CCMS_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCMS_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CCMS_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CCMS_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCMS_Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Sp_TrustedData_Search_Info_Result.cs">
       <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sp_Trusted_804_Data_Search_Info_Result.cs">
       <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Bureau.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Foreign_Identity_Number.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Identity_Number.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Industry.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Passport_Number.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Person.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Users.cs">
+      <DependentUpon>CCMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRUST_DATA_Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -172,12 +208,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
     <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
     <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
+    <Content Include="AngularJs\services\MasterService.js" />
+    <Content Include="AngularJs\services\LoginService.js" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />
@@ -4452,6 +4491,16 @@
     <Content Include="maps\leaf-T804.js" />
     <Content Include="maps\leaf-demo.js" />
     <Content Include="maps\markers.js" />
+    <Content Include="Models\CCMS_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CCMS_Model.edmx</DependentUpon>
+      <LastGenOutput>CCMS_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CCMS_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CCMS_Model.edmx</DependentUpon>
+      <LastGenOutput>CCMS_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\TRUST_DATA_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TRUST_DATA_Model.edmx</DependentUpon>
@@ -4969,6 +5018,13 @@
     </EntityDeploy>
     <Content Include="Models\TRUST_DATA_Model.edmx.diagram">
       <DependentUpon>TRUST_DATA_Model.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\CCMS_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CCMS_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CCMS_Model.edmx.diagram">
+      <DependentUpon>CCMS_Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -5753,7 +5809,6 @@
     <Content Include="Views\Home\ReceiveInnbondCall.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AngularJs\services\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

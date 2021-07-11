@@ -1,11 +1,11 @@
-﻿ccmsApp.controller('QuerybyPersonCntrl', function ($scope, $timeout) {
+﻿ccmsApp.controller('QuerybyPersonCntrl', function ($scope, $timeout, MasterService) {
     $scope.IsShowSearchdata = false;
     $scope.pdfModel = "";
     $scope.ShowIframe = false;
     $scope.showNewCall = false;
     $scope.IsBack = false;
     $scope.IsData = false;
-    
+
     $scope.SearchbyPerson = function () {
         $scope.showNewCall = false;
         $scope.ShowPersonDetails = false;
@@ -51,8 +51,28 @@
         $scope.IsBack = true;
         $scope.IsData = true;
     }
-    
+
     $scope.addModel = function (val) {
         $scope.modelValue = val;
     }
+
+
+
+    $scope.LoadAllMasterData = function () {
+        LoginService.Login(loginModel).then(function (res) {
+            if (res.data.success === true) {
+                
+            }
+            else {
+               
+            }
+        }).catch(function (response) {
+            console.log(response);
+           
+        });
+    }
+
+    $scope.LoadAllMasterData();
+
+
 });

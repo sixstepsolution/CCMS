@@ -4,7 +4,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ccmsApp">
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,20 @@
     <!-- Custom Css -->
     <link href="../Content/assets/css/style.css" rel="stylesheet" />
     <link href="../Content/assets/css/pages/authentication.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/Scripts/paginationUi.js"></script>
+    <script src="~/Content/autocomplete/angucomplete-alt.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/AngularJs/ccmsApp.js"></script>
+    <script src="~/AngularJs/controllers/Login.js"></script>
+    <script src="~/AngularJs/services/LoginService.js"></script>
     <style>
         .login100-form-btn {
             display: flex;
@@ -35,8 +49,9 @@
             letter-spacing: 1px;
             cursor: pointer;
             transition: all .4s;
-            box-shadow:none
+            box-shadow: none
         }
+
             .login100-form-btn:hover {
                 display: flex;
                 justify-content: center;
@@ -55,32 +70,41 @@
                 cursor: pointer;
                 transition: all .4s;
             }
+
         .fagreen-custom {
             color: #057a52 !important;
-            font-weight: 400!important;
+            font-weight: 400 !important;
+        }
+
+        .has-error {
+            border: 1px solid red
         }
     </style>
 </head>
 
-<body>
+<body ng-controller="LoginCntrl">
     <div class="limiter">
         <div class="container-login100" style="margin:0">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" novalidate name="LoginForm">
                     <span class="login100-form-title p-b-45 fagreen-custom">
                         CCMS
                     </span>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email">
+                    <div class="wrap-input100 validate-input" ng-class="{'has-error': (LoginForm.Username.$dirty
+                                          || Submitted) && LoginForm.Username.$error.required}">
+                        <input class="input100" type="text" name="Username" ng-model="loginModel.Username" ng-class="{'has-error': (LoginForm.Username.$dirty
+                                          || Submitted) && LoginForm.Username.$error.required}" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Username</span>
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass">
+                    <div class="wrap-input100 validate-input" ng-class="{'has-error': (LoginForm.Password.$dirty
+                                          || Submitted) && LoginForm.Password.$error.required}">
+                        <input class="input100" type="password" name="Password" ng-model="loginModel.Password" ng-class="{'has-error': (LoginForm.Password.$dirty
+                                          || Submitted) && LoginForm.Password.$error.required}" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
@@ -104,26 +128,26 @@
 
 
                     <div class="container-login100-form-btn mb-5">
-                        <button class="login100-form-btn">
-                            <a style="text-decoration:none!important;color:#fff!important" href="../Home/Dashboard">Login</a>
+                        <button class="login100-form-btn" style="cursor:pointer" ng-click="isLoginLoding?'':Login(loginModel)">
+                            <span ng-if="isLoginLoding" class="fa fa-spin fa-spinner"></span>  Login
                         </button>
                     </div>
 
                     @*<div class="text-center p-t-45 p-b-20">
-                        <span class="txt2">
-                            or sign up using
-                        </span>
-                    </div>
+                            <span class="txt2">
+                                or sign up using
+                            </span>
+                        </div>
 
-                    <div class="login100-form-social flex-c-m">
-                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                        <div class="login100-form-social flex-c-m">
+                            <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
 
-                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>*@
+                            <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>*@
                 </form>
                 <div class="login100-more" style="background-image: url('../Content/assets/images/undraw_QA_engineers_dg5p.svg');">
                 </div>
