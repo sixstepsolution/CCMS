@@ -160,6 +160,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CCMS_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReceiveInbondingCallInputs.cs" />
     <Compile Include="Models\Sp_TrustedData_Search_Info_Result.cs">
       <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
     </Compile>
@@ -215,6 +216,7 @@
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
+    <Content Include="AngularJs\services\ReceiveInbondService.js" />
     <Content Include="AngularJs\services\MasterService.js" />
     <Content Include="AngularJs\services\LoginService.js" />
     <Content Include="Content\angular-material.css" />

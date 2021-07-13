@@ -41,6 +41,12 @@
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/summernote/summernote-bs4.min.css">
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+          rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
     <script src="~/Scripts/angular-sanitize.js"></script>
     <script src="~/Scripts/paginationUi.js"></script>
@@ -51,6 +57,26 @@
     <script src="~/AngularJs/ccmsApp.js"></script>
     <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
     <script src="~/AngularJs/services/MasterService.js"></script>
+
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
     <style>
         .bg-green-custom {
             background-color: #057a52 !important
@@ -201,6 +227,10 @@
 
         .fg-custom {
             color: #94b62f !important
+        }
+
+        .has-error {
+            border: 1px solid red
         }
     </style>
     @*<style>

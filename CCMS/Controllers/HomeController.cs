@@ -111,6 +111,89 @@ namespace CCMS.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult SaveReceiveInBondCall(tbl_Person modal)
+        {
+            Dictionary<string, object> dct = new Dictionary<string, object>();
+
+            if (modal.First_Name == null)
+            {
+                dct.Add("success", false);
+                dct.Add("message", "Personal information cant not be empty!");
+                return Json(dct, JsonRequestBehavior.AllowGet);
+            }
+            try
+            {
+                DateTime dt = DateTime.UtcNow;
+                modal.Created_Date = dt;
+                modal.Modified_Date = dt;
+                modal.Created_By = Convert.ToInt32(Session["LoggedUserId"].ToString());
+                modal.Modified_By = Convert.ToInt32(Session["LoggedUserId"].ToString());
+                db.tbl_Person.Add(modal);
+                if (db.SaveChanges() > 0)
+                {
+                    dct.Add("success", true);
+                    dct.Add("message", "Saved successfully.");
+                }
+                else
+                {
+                    dct.Add("success", false);
+                    dct.Add("message", "Saved un-successfully.");
+                }
+            }
+            catch (Exception ex)
+            {
+                dct.Add("success", false);
+                dct.Add("message", ex.Message);
+            }
+
+            return Json(dct, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetReceiveInbondingCall(ReceiveInbondingCallInputs inputs)
+        {
+            Dictionary<string, object> dct = new Dictionary<string, object>();
+
+
+            //var gg = ModelState.IsValid;
+            //var result = db.tbl_Person.Where(x => x.ID_No.Contains(inputs.id_number)
+            //|| x.Bureau_Number.Contains(inputs.bureauId)
+            //|| x.First_Name.Contains(inputs.firstname)
+            //|| x.Surname.Contains(inputs.surname)
+            //).AsQueryable();
+
+            IQueryable<tbl_Person> result = db.tbl_Person;
+
+            if (!string.IsNullOrEmpty(inputs.id_number))
+                result = result.Where(app => app.ID_No.ToLower().Contains(inputs.id_number.ToLower()));
+
+            if (!string.IsNullOrEmpty(inputs.bureauId))
+                result = result.Where(app => app.Bureau_Number.ToLower().Contains(inputs.bureauId.ToLower()));
+
+            if (!string.IsNullOrEmpty(inputs.firstname))
+                result = result.Where(app => app.First_Name.ToLower().Contains(inputs.firstname.ToLower()));
+
+            if (!string.IsNullOrEmpty(inputs.surname))
+                result = result.Where(app => app.Surname.ToLower().Contains(inputs.surname.ToLower()));
+
+          
+            if (inputs.dob != null)
+            {
+                result = result.Where(x => DateTime.Compare(x.Date_Of_Birth.Value, inputs.dob.Value) == 0);
+            }
+            if (result.Count() > 0)
+            {
+                dct.Add("success", true);
+                dct.Add("result", result);
+            }
+            else
+            {
+                dct.Add("success", false);
+            }
+            return Json(dct, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult GetIndustries()
         {
             Dictionary<string, object> dct = new Dictionary<string, object>();

@@ -59,6 +59,7 @@
 </style>
 
 <script src="~/AngularJs/controllers/ReceiveInbondCntrl.js"></script>
+<script src="~/AngularJs/services/ReceiveInbondService.js"></script>
 <!-- DataTables -->
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -77,8 +78,8 @@
 
                     </span>
                 </div><!-- /.col -->
-               
-                <div class="col-sm-6"  style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
+
+                <div class="col-sm-6" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
                     <span ng-if="IsData" style="font-weight:500">
                         &nbsp;CCMS No:<b class="text-success"> AP005082543</b>
                         &nbsp;First name: <b class="text-success">MACHASE</b>
@@ -87,7 +88,7 @@
                         &nbsp;RSA ID No: <b class="text-success">5807016112081</b>
                         &nbsp;Passport No: <b class="text-success">T3519958</b>
                         &nbsp;Living Status: <b class="text-success" style="color:red">Living</b>
-                        &nbsp;Age: <b class="text-success" >62</b>
+                        &nbsp;Age: <b class="text-success">62</b>
                         &nbsp;Date of Birth: <b class="text-success">1958-07-01</b>
                     </span>
                 </div>
@@ -109,8 +110,8 @@
                     <div class="col-12 col-lg-12">
                         <div class="card card-success card-outline">
                             @*<div class="card-header">
-                            <h3 class="card-title">Query by Person</h3>
-                        </div>*@
+                                    <h3 class="card-title">Query by Person</h3>
+                                </div>*@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 col-lg-3 mb-1">
@@ -121,7 +122,7 @@
                                                     <i class="fa fa-sort-numeric-down"></i>
                                                 </span>
                                             </div>
-                                            <select class="form-control form-control-sm">
+                                            <select class="form-control form-control-sm" name="id_type" ng-model="filterModal.id_type" >
                                                 <option value="RSA ID Type">RSA ID Number</option>
                                                 <option></option>
                                             </select>
@@ -130,7 +131,7 @@
                                     <div class="col-12 col-lg-3 mb-1">
                                         <label></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control form-control-sm">
+                                            <input type="text" class="form-control form-control-sm"  name="id_number" ng-model="filterModal.id_number" >
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-sort-numeric-down"></i>
@@ -146,7 +147,7 @@
                                                     <i class="fa fa-user"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" placeholder=""  name="surname" ng-model="filterModal.surname" >
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
@@ -157,7 +158,7 @@
                                                     <i class="fa fa-sort-numeric-down"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" placeholder=""  name="bureauId" ng-model="filterModal.bureauId" >
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +171,7 @@
                                                     <i class="fa fa-user"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" placeholder=""  name="refNumber" ng-model="filterModal.refNumber" >
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
@@ -181,7 +182,7 @@
                                                     <i class="fa fa-user"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" placeholder=""  name="firstname" ng-model="filterModal.firstname" >
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
@@ -192,13 +193,13 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" datepicker1  name="dob" ng-model="filterModal.dob" >
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1 text-center">
                                         <label></label>
                                         <div class="input-group">
-                                            <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-search"></i>&nbsp;Filter</button>&nbsp;
+                                            <button type="button" ng-click="SearchbyPerson(filterModal)" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-search"></i>&nbsp;Filter</button>&nbsp;
                                             <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
                                         </div>
                                     </div>
@@ -212,10 +213,9 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr style="background:#057a528c!important">
-                                            <th>#</th>
                                             <th>Industry No</th>
                                             <th>RSA ID No</th>
                                             <th>Passport No</th>
@@ -225,24 +225,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>W1085979</td>
-                                            <td><a href="#" ng-click="ShowReceiveIbondCalls()">5206105264186</a></td>
-                                            <td></td>
-                                            <td>MACHASE</td>
-                                            <td>HOPO</td>
-                                            <td>1952-06-10</td>
+                                        <tr ng-repeat="x in ReceiveInbondCallList">
+                                            <td>{{x.Industry_Number}}</td>
+                                            <td><a href="#" ng-click="ShowReceiveIbondCalls()">{{x.ID_No}}</a></td>
+                                            <td>{{x.Passport}}</td>
+                                            <td>{{x.First_Name}}</td>
+                                            <td>{{x.Surname}}</td>
+                                            <td>{{x.Date_Of_Birth.replace('/Date(','').replace(')/','') | date:"dd-MM-yyyy"}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td>W1085987</td>
-                                            <td><a href="#" ng-click="ShowReceiveIbondCalls()">5206105264186</a></td>
-                                            <td></td>
-                                            <td>MACHASE</td>
-                                            <td>HOPO</td>
-                                            <td>1952-06-10</td>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -344,7 +335,7 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                         </div>
                                         <div class="row" style="margin-bottom:10px">
                                             <div class="col-lg-12">
@@ -397,7 +388,7 @@
                                                                 </span>
                                                             </div>
                                                             <select class="form-control form-control-sm">
-                                                                <option value="">Previous Claim</option>
+                                                                <option ng-value="">Previous Claim</option>
                                                                 <option></option>
                                                             </select>
                                                         </div>
@@ -425,7 +416,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Contacts" role="tabpanel" aria-labelledby="custom-tabs-three-Contacts-tab">
                                         <div class="card card-gray border" style="">
@@ -433,10 +424,10 @@
                                                 <h4 class="card-title">SMS / Web Interactions</h4>
                                             </div>
                                             <div class="card-body">
-                                                
+
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-AllContacts" role="tabpanel" aria-labelledby="custom-tabs-three-AllContacts-tab">
                                         <div class="card card-gray border" style="">
@@ -470,7 +461,7 @@
                                                                     <td>Morning</td>
                                                                     <td>Butterworth</td>
                                                                 </tr>
-                                                               
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -500,9 +491,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -513,8 +504,8 @@
                             <div class="card-header">
                                 <div class="card-tools" style="float:left !important">
                                     @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>*@
+                                            <i class="fas fa-minus"></i>
+                                        </button>*@
                                 </div>
                                 <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Current Ticket</h3>
                             </div>
@@ -570,8 +561,8 @@
                             <div class="card-header">
                                 <div class="card-tools" style="float:left !important">
                                     @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>*@
+                                            <i class="fas fa-minus"></i>
+                                        </button>*@
                                 </div>
                                 <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Previous Closed Ticket</h3>
                             </div>
@@ -629,232 +620,243 @@
             </div>
 
             <div ng-if="showNewCall">
-                <div class="card card-success card-outline">
-                    <div class="card-header">
-                        <div class="card-tools" style="float:left !important">
-                            @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>*@
+                <form name="ReciveInbondCallFrom" novalidate>
+                    <div class="card card-success card-outline">
+                        <div class="card-header">
+                            <div class="card-tools" style="float:left !important">
+                                @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>*@
+                            </div>
+                            <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Create New Person Record</h3>
                         </div>
-                        <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Create New Person Record</h3>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h6>Personal Information :</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Industry Number </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                <i class="fa fa-plus"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Bureau Number </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Bureau_Number" ng-model="ModelData.Bureau_Number">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
+                                                <i class="fa fa-plus"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>ID No </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="ID_No" ng-model="ModelData.ID_No">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
+                                                <i class="fa fa-plus"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Passport </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Passport" ng-model="ModelData.Passport">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                                <span class="fa fa-plus"> Add</span>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Foreign ID </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Foreign_ID" ng-model="ModelData.Foreign_ID">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Foreign ID')">
+                                                <i class="fa fa-plus"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Ethnic group</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-sort-alpha-down"></i>
+                                            </span>
+                                        </div>
+                                        <select class="form-control form-control-sm" name="Ethnic_Group" ng-model="ModelData.Ethnic_Group">
+                                            <option ng-value="">Ethnic group</option>
+                                            <option value="Ethnic group1">Ethnic group1</option>
+                                            <option value="Ethnic group2">Ethnic group2</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Language preference *</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-sort-alpha-down"></i>
+                                            </span>
+                                        </div>
+                                        <select class="form-control form-control-sm" name="Language_Preference" ng-model="ModelData.Language_Preference">
+                                            <option ng-value="">Language preference</option>
+                                            <option value="English">English</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Nationality</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-sort-alpha-down"></i>
+                                            </span>
+                                        </div>
+                                        <select class="form-control form-control-sm" name="Nationality" ng-model="ModelData.Nationality">
+                                            <option ng-value="">Nationality</option>
+                                            <option value="Indian">Indain</option>
+                                            <option value="South African">South African</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Gender</label>
+                                    <div class="input-group" style="margin-top:8px">
+                                        <div class="icheck-primary d-inline" style="margin-right:20px">
+                                            <input type="radio" id="genderRadio1" name="Gender" ng-model="ModelData.Gender" value="Male">
+                                            <label for="genderRadio1">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="icheck-primary d-inline">
+                                            <input type="radio" id="genderRadio2" name="Gender" ng-model="ModelData.Gender" value="Female">
+                                            <label for="genderRadio2">
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Surname *</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Surname" ng-model="ModelData.Surname">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Alternative Surname </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Alternative_Surname" ng-model="ModelData.Alternative_Surname">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>First names</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="First_Name" ng-model="ModelData.First_Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>second name </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" placeholder="" name="Second_Name" ng-model="ModelData.Second_Name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Birth Date </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" datepicker1 placeholder="" name="Date_Of_Birth" ng-model="ModelData.Date_Of_Birth">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 mb-1">
+                                    <label>Marital Status</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-sort-alpha-down"></i>
+                                            </span>
+                                        </div>
+                                        <select class="form-control form-control-sm" name="Marital_Status" ng-model="ModelData.Marital_Status">
+                                            <option ng-value="">Marital Status</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-footer">
+                            <div class="col-12 col-lg-3 mb-1 text-center">
+                                <label></label>
+                                <div class="input-group">
+                                    <button type="button" style="width:100px!important" class="btn btn-sm btn-success-custom" ng-click="IsSaving?'':SaveReceiveInBondCall()">
+                                        <i ng-if="!IsSaving" class="fa fa-save"></i>&nbsp; <i ng-if="IsSaving" class="fa fa-spin fa-spinner"></i>&nbsp;Submit
+                                    </button>&nbsp;
+                                    <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-footer-->
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h6>Personal Information :</h6>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Industry Number </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Bureau Number </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>ID No </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Passport </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Foreign ID </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Foreign ID')">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Ethnic group</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-sort-alpha-down"></i>
-                                        </span>
-                                    </div>
-                                    <select class="form-control form-control-sm">
-                                        <option value="Ethnic group">Ethnic group</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Language preference *</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-sort-alpha-down"></i>
-                                        </span>
-                                    </div>
-                                    <select class="form-control form-control-sm">
-                                        <option value="Language preference">Language preference</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Nationality</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-sort-alpha-down"></i>
-                                        </span>
-                                    </div>
-                                    <select class="form-control form-control-sm">
-                                        <option value="Nationality">Nationality</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Gender</label>
-                                <div class="input-group" style="margin-top:8px">
-                                    <div class="icheck-primary d-inline" style="margin-right:20px">
-                                        <input type="checkbox" id="GENDER_CHK1">
-                                        <label for="checkboxPrimary2">
-                                            Male
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="checkbox" id="GENDER_CHK2">
-                                        <label for="checkboxPrimary2">
-                                            Female
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Surname *</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Alternative Surname </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>First names *</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>second name </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Birth Date </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 mb-1">
-                                <label>Marital Status</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-sort-alpha-down"></i>
-                                        </span>
-                                    </div>
-                                    <select class="form-control form-control-sm">
-                                        <option value="Marital Status">Marital Status</option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="card-footer">
-                        <div class="col-12 col-lg-3 mb-1 text-center">
-                            <label></label>
-                            <div class="input-group">
-                                <button type="button"  style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-save"></i>&nbsp;Submit</button>&nbsp;
-                                <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card-footer-->
-                </div>
+                </form>
             </div>
 
             <div ng-if="showReceiveInbondCall">
@@ -862,8 +864,8 @@
                     <div class="card-header">
                         <div class="card-tools" style="float:left !important">
                             @*<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>*@
+                                    <i class="fas fa-minus"></i>
+                                </button>*@
                         </div>
                         <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Capture Caller information</h3>
                     </div>
@@ -1074,7 +1076,7 @@
                                     <input type="text" class="form-control form-control-sm" placeholder="">
                                 </div>
                             </div>
-                            
+
                         </div>
 
                     </div>

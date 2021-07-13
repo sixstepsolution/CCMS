@@ -124,8 +124,11 @@ ccmsApp.directive("datepicker1", function () {
         link: function (scope, el, attr) {
             el.datepicker({
                 dateFormat: 'yy-mm-dd',
-                minDate: 0,
-                maxDate: 0
+                //minDate: 0,
+                maxDate: 0,
+                changeMonth: true,
+                changeYear: true
+
             });
         }
     };
