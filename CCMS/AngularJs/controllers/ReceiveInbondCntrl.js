@@ -25,6 +25,8 @@
         $scope.ShowPersonDetails = true;
         $scope.IsShowSearchdata = false;
         $scope.showReceiveInbondCall = false;
+        $scope.showQuestionnaire = false;
+        $scope.showMinorDetails = false;
         $scope.showNewCall = false;
         $scope.IsBack = true;
         $scope.IsData = true;
@@ -34,15 +36,47 @@
     $scope.NewReciveInbondCall = function () {
         $scope.showNewCall = true;
         $scope.ShowPersonDetails = false;
+        $scope.showQuestionnaire = false;
         $scope.showReceiveInbondCall = false;
+        $scope.showMinorDetails = false;
         $scope.IsShowSearchdata = false;
         $scope.IsBack = true;
         $scope.IsData = false;
     }
-
+    $scope.Questionnaire = function () {
+        $scope.showNewCall = false;
+        $scope.showQuestionnaire = true;
+        $scope.ShowPersonDetails = false;
+        $scope.showReceiveInbondCall = false;
+        $scope.showMinorDetails = false;
+        $scope.IsShowSearchdata = false;
+        $scope.IsBack = true;
+        $scope.IsData = false;
+    }
+    $scope.showCapture = function () {
+        $scope.showNewCall = false;
+        $scope.showReceiveInbondCall = true;
+        $scope.showQuestionnaire = false;
+        $scope.showMinorDetails = false;
+        $scope.ShowPersonDetails = false;
+        $scope.IsShowSearchdata = false;
+        $scope.IsBack = true;
+        $scope.IsData = true;
+    }
+    $scope.ShowMiner = function () {
+        $scope.showNewCall = false;
+        $scope.showReceiveInbondCall = false;
+        $scope.showMinorDetails = true;
+        $scope.showQuestionnaire = false;
+        $scope.ShowPersonDetails = false;
+        $scope.IsShowSearchdata = false;
+        $scope.IsBack = true;
+        $scope.IsData = true;
+    }
     $scope.BacltoList = function () {
         $scope.showNewCall = false;
         $scope.showReceiveInbondCall = false;
+        $scope.showQuestionnaire = false;
         $scope.ShowPersonDetails = false;
         $scope.IsShowSearchdata = false;
         $scope.IsBack = false;
@@ -51,6 +85,7 @@
     $scope.ShowReceiveIbondCalls = function () {
         $scope.showNewCall = false;
         $scope.showReceiveInbondCall = true;
+        $scope.showQuestionnaire = false;
         $scope.ShowPersonDetails = false;
         $scope.IsShowSearchdata = false;
         $scope.IsBack = true;
