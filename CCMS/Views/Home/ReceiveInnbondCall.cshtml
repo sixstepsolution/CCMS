@@ -70,17 +70,29 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row m-b-0">
-                <div class="col-sm-3" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
-                    <button type="button" ng-if="!showNewCall && !IsBack" ng-click="NewReciveInbondCall()" style="width:100px!important;margin-top:5px !important" class="btn btn-sm btn-success-custom"><i class="fa fa-plus"></i>&nbsp;Create</button>&nbsp;
-                    <button ng-if="IsBack" style="cursor:pointer!important;margin-top:5px !important;width:150px!important;" class="btn btn-sm btn-success-custom" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</button>
-                    <span ng-show="IsData" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" />
+                <div class="col-sm-1" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <button type="button" ng-if="!showNewCall && !IsBack" ng-click="NewReciveInbondCall()" style="margin-top:5px !important" class="btn btn-sm btn-success-custom"><i class="fa fa-plus"></i>&nbsp;Create</button>&nbsp;
+                    <button ng-if="IsBack" style="cursor:pointer!important;margin-top:5px !important;" class="btn btn-sm btn-success-custom" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back</button>
 
-                    </span>
                 </div><!-- /.col -->
 
-                <div class="col-sm-6" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
-                    <span ng-if="IsData" style="font-weight:500">
+                <div class="col-sm-7" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
+                    <div ng-show="IsData" style="font-weight:500;">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" style="float:left" />
+                        <div>
+                            &nbsp;CCMS No:<b class="text-success"> AP005082543</b>
+                            &nbsp;First name: <b class="text-success">MACHASE</b>
+                            &nbsp;Surname: <b class="text-success">HOPO</b>
+                            &nbsp;Industry No: <b class="text-success">W1085979</b>
+                            &nbsp;RSA ID No: <b class="text-success">5807016112081</b>
+                            &nbsp;Passport No: <b class="text-success">T3519958</b>
+                            &nbsp;Living Status: <b class="text-success" style="color:red">Living</b>
+                            &nbsp;Age: <b class="text-success">62</b>
+                            &nbsp;Date of Birth: <b class="text-success">1958-07-01</b>
+                        </div>
+
+                    </div>
+                    @*<span ng-if="IsData" style="font-weight:500;" class="col-sm-11">
                         &nbsp;CCMS No:<b class="text-success"> AP005082543</b>
                         &nbsp;First name: <b class="text-success">MACHASE</b>
                         &nbsp;Surname: <b class="text-success">HOPO</b>
@@ -90,9 +102,9 @@
                         &nbsp;Living Status: <b class="text-success" style="color:red">Living</b>
                         &nbsp;Age: <b class="text-success">62</b>
                         &nbsp;Date of Birth: <b class="text-success">1958-07-01</b>
-                    </span>
+                    </span>*@
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
                         <li class="breadcrumb-item active">Receive Inbond Calls</li>
@@ -271,8 +283,8 @@
                                 <div class="tab-content" id="custom-tabs-three-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
                                         <div class="row" style="margin-bottom:5px;">
-                                            <div class="col-12 col-lg-12 text-center">
-                                                <button type="button" class="btn btn-success-custom"><i class="fas fa-clipboard-list"></i> Details</button>
+                                            <div class="col-12 col-lg-12 text-right">
+                                                <button type="button" class="btn btn-sm btn-success-custom"><i class="fas fa-clipboard-list"></i> Details</button>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -532,7 +544,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="4">
-                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom" data-toggle="modal" data-target="#ViewTicketModal"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
                                                         <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom" data-toggle="modal" data-target="#Conversation"><i class="fa fa-database"></i>&nbsp;Add Conversations</button>&nbsp;
                                                         <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-hand-holding-heart"></i>&nbsp;Close Ticket</button>&nbsp;
                                                         <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-phone"></i>&nbsp;Request investigation</button>&nbsp;
@@ -586,7 +598,7 @@
                                                     <td>Closed</td>
                                                     <td>2021-03-12 06:03:25</td>
                                                     <td>
-                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
+                                                        <button type="button" style="margin:2px" class="btn btn-sm btn-success-custom" data-toggle="modal" data-target="#ViewTicketModal"><i class="fa fa-eye"></i>&nbsp;View</button>&nbsp;
                                                     </td>
                                                 </tr>
 
@@ -649,8 +661,6 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12 col-lg-6 mb-1">
                                     <label>Bureau Number </label>
                                     <div class="input-group">
@@ -677,8 +687,6 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12 col-lg-6 mb-1">
                                     <label>Passport </label>
                                     <div class="input-group">
@@ -705,8 +713,6 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12 col-lg-6 mb-1">
                                     <label>Ethnic group</label>
                                     <div class="input-group">
@@ -740,8 +746,6 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12 col-lg-6 mb-1">
                                     <label>Nationality</label>
                                     <div class="input-group">
@@ -813,23 +817,6 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-lg-3 mb-1">
-                                            <label>Gender</label>
-                                            <div class="input-group" style="margin-top:8px">
-                                                <div class="icheck-primary d-inline" style="margin-right:20px">
-                                                    <input type="radio" id="genderRadio1" name="Gender" ng-model="ModelData.Gender" value="Male">
-                                                    <label for="genderRadio1">
-                                                        Male
-                                                    </label>
-                                                </div>
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="radio" id="genderRadio2" name="Gender" ng-model="ModelData.Gender" value="Female">
-                                                    <label for="genderRadio2">
-                                                        Female
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-3 mb-1">
                                             <label>Birth Date </label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -856,26 +843,41 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-12 col-lg-3 mb-1">
+                                            <label>Gender</label>
+                                            <div class="input-group" style="margin-top:8px">
+                                                <div class="icheck-primary d-inline" style="margin-right:20px">
+                                                    <input type="radio" id="genderRadio1" name="Gender" ng-model="ModelData.Gender" value="Male">
+                                                    <label for="genderRadio1">
+                                                        Male
+                                                    </label>
+                                                </div>
+                                                <div class="icheck-primary d-inline">
+                                                    <input type="radio" id="genderRadio2" name="Gender" ng-model="ModelData.Gender" value="Female">
+                                                    <label for="genderRadio2">
+                                                        Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
 
 
                         <div class="card-footer">
-                            <div class="col-12 col-lg-12 mb-1 text-center">
-                                <label></label>
-                                <div class="input-group">
-                                    <button type="button" style="width:100px!important" class="btn btn-sm btn-success-custom" ng-click="IsSaving?'':SaveReceiveInBondCall()">
-                                        <i ng-if="!IsSaving" class="fa fa-save"></i>&nbsp; <i ng-if="IsSaving" class="fa fa-spin fa-spinner"></i>&nbsp;Submit
-                                    </button>&nbsp;
-                                    <button type="button" class="btn btn-sm btn-success-custom" ng-click="Questionnaire()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>
-                                    <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
-                                </div>
-                            </div>
+
+                            <button type="button" style="width:100px!important" class="btn btn-sm btn-success-custom " ng-click="IsSaving?'':SaveReceiveInBondCall()">
+                                <i ng-if="!IsSaving" class="fa fa-save"></i>&nbsp; <i ng-if="IsSaving" class="fa fa-spin fa-spinner"></i>&nbsp;Submit
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-sm btn-success-custom" ng-click="Questionnaire()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>
+                            &nbsp;
+                            <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
+
                         </div>
+
                         <!-- /.card-footer-->
                     </div>
                 </form>
@@ -958,7 +960,7 @@
                                     <button type="button" style="width:100px!important" class="btn btn-sm btn-success-custom" ng-click="IsSaving?'':SaveReceiveInBondCall()">
                                         <i ng-if="!IsSaving" class="fa fa-save"></i>&nbsp; <i ng-if="IsSaving" class="fa fa-spin fa-spinner"></i>&nbsp;Save
                                     </button>&nbsp;
-                                    <button type="button" class="btn btn-sm btn-success-custom" ng-click="showCapture()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>
+                                    <button type="button" class="btn btn-sm btn-success-custom" ng-click="showCapture()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>&nbsp;
 
                                     <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
                                 </div>
@@ -1493,22 +1495,21 @@
                                                     <div class="col-12 col-lg-3 mb-1">
                                                         <label>Occupation </label>
                                                         <div class="input-group">
-                                                            <div class="input-group-prepend">
+                                                            <input type="text" class="form-control form-control-sm" placeholder="" name="Alternative_Surname" ng-model="ModelData.Alternative_Surname">
+                                                              <div class="input-group-prepend" data-toggle="modal" data-target="#occupationModal">
                                                                 <span class="input-group-text">
-                                                                    <i class="fa fa-fa-ellipsis-h"></i>
+                                                                    <i class="fa fa-fa-plus"></i>
                                                                 </span>
                                                             </div>
-                                                            <input type="text" class="form-control form-control-sm" placeholder="" name="Alternative_Surname" ng-model="ModelData.Alternative_Surname">
-
                                                         </div>
-                                                        <div class="input-group">
+                                                        @*<div class="input-group">
                                                             <div class="icheck-primary d-inline" style="margin-right:20px">
                                                                 <input type="radio" readonly ng-selected="true" id="genderRadio1" name="Gender" ng-model="ModelData.Gender" value="Male">
                                                                 <label for="genderRadio1">
                                                                     Other
                                                                 </label>
                                                             </div>
-                                                        </div>
+                                                        </div>*@
                                                     </div>
 
                                                 </div>
@@ -1627,6 +1628,7 @@
                                                     <i ng-if="!IsSaving" class="fa fa-save"></i>&nbsp; <i ng-if="IsSaving" class="fa fa-spin fa-spinner"></i>&nbsp;Submit
                                                 </button>&nbsp;
                                                 <button type="button" class="btn btn-sm btn-success-custom" ng-click="SearchDetailsPerson()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>
+                                                &nbsp;
                                                 <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
                                             </div>
                                         </div>
@@ -1675,6 +1677,60 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="occupationModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Occupation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <label>Occupation</label>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control form-control-sm" placeholder="search...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="ViewTicketModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">View Ticket</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        Ticet information here.........
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!-- /.content -->
     <div class="modal" id="Conversation">
         <div class="modal-dialog modal-lg">
@@ -1695,60 +1751,45 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
-                                    <label>
-                                        01. Mineworker deceased but not found on database. Caller insists that mineworker did work at <MINE> form <DATE> to <DATE>. Advice required on eligibility.
-                                    </label>
+                                    <ul>
+                                        <li>
+                                             Mineworker deceased but not found on database. Caller insists that mineworker did work at <MINE> form <DATE> to <DATE>. Advice required on eligibility.
+                                        </li>
+                                        <li>
+                                             Mineworker alive but not found on database. Mineworker insists that he/she did work at <MINE> form <DATE> to <DATE>. Advice required on eligibility.
+                                        </li>
+
+                                        <li>
+                                             Mineworker found on database but shown as not eligible. Mineworker insists that he/she is eligible. Advice required on eligibility.
+                                        </li>
+                                        <li>
+                                             Mineworker/Caller supplied with requested information.
+                                        </li>
+                                        <li>
+                                            Booking made for mineworker.
+                                        </li>
+                                    </ul>
+                                    
 
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-12">
-
-                                    <label>
-                                        02. Mineworker alive but not found on database. Mineworker insists that he/she did work at <MINE> form <DATE> to <DATE>. Advice required on eligibility.
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-12">
-
-                                    <label>
-                                        03. Mineworker found on database but shown as not eligible. Mineworker insists that he/she is eligible. Advice required on eligibility.
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-12">
-
-                                    <label>
-                                        04. Mineworker/Caller supplied with requested information.
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-12">
-
-                                    <label>
-                                        05. Booking made for mineworker.
-                                    </label>
-                                </div>
-                            </div>
+                          
                             <div class="row" style="margin-top:20px !important">
                                 <div class="col-12 col-lg-12">
 
                                     <label>
                                         Details
                                     </label>
-                                    <textarea rows="5"></textarea>
+                                    <textarea rows="5" class="form-control form-control-sm"></textarea>
                                 </div>
                             </div>
                             <div class="row" style="margin-top:20px !important">
                                 <div class="col-12 col-lg-12">
 
                                     <label>
-                                        Date & Timestamp: 
+                                        Date & Timestamp:
                                     </label>
-                                    
+
                                 </div>
                             </div>
                         </div>
