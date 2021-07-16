@@ -6,6 +6,7 @@
     $scope.IsBack = false;
     $scope.IsData = false;
     $scope.IsSaving = false;
+    $scope.isCreate = false;
     $scope.ReceiveInbondCallList = [];
 
 
@@ -34,6 +35,8 @@
     }
 
     $scope.NewReciveInbondCall = function () {
+        $scope.isCreate = true;
+
         $scope.showNewCall = true;
         $scope.ShowPersonDetails = false;
         $scope.showQuestionnaire = false;
@@ -83,6 +86,7 @@
         $scope.IsData = false;
     }
     $scope.ShowReceiveIbondCalls = function () {
+        $scope.isCreate = false;
         $scope.showNewCall = false;
         $scope.showReceiveInbondCall = true;
         $scope.showQuestionnaire = false;
@@ -164,6 +168,47 @@
             console.log(response);
 
         });
+    }
+
+    //Attachments
+    $scope.UploadAttachmentLoader = false;
+
+    $scope.AttachmentFiles = [];
+
+    $scope.RemoveAttachment = function (index) {
+        $scope.AttachmentFiles.splice(index, 1);
+    }
+
+    $scope.UploadAttachment = function () {
+        //alert()
+        $scope.AttachmentFiles = [];
+        var files = $("#Attachment").get(0).files;
+
+        if (files.length < 1) {
+            toastr["warning"]('Select files to upload');
+
+            
+        } else {
+            //alert()
+            if ((GetAllFilesSizes(files) + GetAllFilesSizes($scope.AttachmentFiles)) > $scope.maxUploadSize) {
+                //alert("E")
+                toastr["error"]('Files size exceeded. Max files size allowed is ' + $scope.maxUploadSizeString + '.');
+                return false;
+
+            }
+
+            for (var i = 0; i < files.length; i++) {
+                
+                $scope.AttachmentFiles.push(files[i]);
+            }
+            console.log($scope.AttachmentFiles);
+            //alert("S")
+            toastr["success"]('Uploaded successfully.');
+
+            
+
+            $('#Attachment').val('').clone(true);
+        }
     }
 
 });

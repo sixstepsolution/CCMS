@@ -49,6 +49,32 @@ ccmsApp.filter('propsFilter', function () {
         return out;
     };
 });
+function GetAllFilesSizes(files) {
+    var size = 0;
+    for (var i = 0; i < files.length; i++) {
+        size = size + files[i].size;
+    }
+    return size;
+}
+
+function convertDateFormat(dateFrmt) {
+    if (dateFrmt == null) { return null; }
+    var d = dateFrmt.replace(/[^a-zA-Z0-9]/g, '');
+    var dc = d.slice(4);
+    return dc;
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 //ccmsApp.config(function ($httpProvider) {
 //    $httpProvider.interceptors.push(AuthInterceptor);  
 //}).run(function ($rootScope) {
