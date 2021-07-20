@@ -7,7 +7,19 @@
     $scope.IsData = false;
     $scope.IsSaving = false;
     $scope.isCreate = false;
+   // $scope.ShowMiner();
     $scope.ReceiveInbondCallList = [];
+    $scope.minerDynamicList = [];
+    $scope.MinerModel = {};
+    
+    //$scope.minerDynamicList = [{
+    //    ID: 1,
+    //    StartDate: '',
+    //    EndDate: '',
+    //    Employer: '',
+    //    Occupation: '',
+    //    Source:''
+    //}];
 
 
     $scope.filterModal = {};
@@ -209,6 +221,21 @@
 
             $('#Attachment').val('').clone(true);
         }
+    }
+
+    $scope.addMinorDetails = function (minormodel) {
+        $scope.minerDynamicList.push({
+            StartDate: minormodel.StartDate,
+            EndDate: minormodel.EndDate,
+            Employer: minormodel.Employer,
+            Occupation: minormodel.Occupation,
+            Source: minormodel.Source
+        })
+        $scope.MinerModel = {}
+    }
+    $scope.removeMinorDetailsByIndex = function (index) {
+        //alert(index)
+        $scope.minerDynamicList.splice(index, 1);
     }
 
 });
