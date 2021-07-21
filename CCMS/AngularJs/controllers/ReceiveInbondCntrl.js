@@ -238,4 +238,80 @@
         $scope.minerDynamicList.splice(index, 1);
     }
 
+    $scope.changeIDType = function (id_type) {
+        $scope.IdNumber = id_type;
+    }
+    $scope.UniqueNUmbersList = [];
+    $scope.IndustryNUmbersList = [];
+    $scope.BureauNUmbersList = [];
+    $scope.PassportNUmbersList = [];
+    $scope.IdentityNUmbersList = [];
+    $scope.ForiegnIDNUmbersList = [];
+    var dynId =0;
+    $scope.addDynamicNumber = function (modelValue, UniqueNumber) {
+        $scope.UniqueNUmbersList.push({
+            dynId: dynId,
+            UniqueNumber: UniqueNumber,
+            type: modelValue
+        });
+        dynId++;
+        delete $scope.UniqueNumber;
+        //switch (modelValue) {
+        //    case 'Industry Number': $scope.IndustryNUmbersList.push({
+        //        UniqueNumber: UniqueNumber
+        //    });
+        //        break;
+        //    case 'Bureau Number': $scope.BureauNUmbersList.push({
+        //        UniqueNumber: UniqueNumber
+        //    });
+        //        break;
+        //    case 'ID No': $scope.IdentityNUmbersList.push({
+        //        UniqueNumber: UniqueNumber
+        //    });
+        //        break;
+        //    case 'Passport Number': $scope.PassportNUmbersList = [];
+        //        break;
+        //    case 'Foreign ID': $scope.ForiegnIDNUmbersList = [];
+        //        break;
+        //    default: 
+        //        break;
+            
+
+        //}
+    }
+    $scope.removeUniqueNumber = function (SelectedID) {
+        //alert(index)
+        var selectedIndex = $scope.UniqueNUmbersList.findIndex(x => x.dynId == SelectedID)
+        $scope.UniqueNUmbersList.splice(selectedIndex, 1);
+    }
+
+    $scope.acceptUniqueNumber = function (modelValue) {
+        //console.log($scope.UniqueNUmbersList)
+        console.log($scope.UniqueNUmbersList.filter(x => x.type == modelValue))
+        $scope.filteredUniqueNumbers = $scope.UniqueNUmbersList.filter(x => x.type == modelValue);
+        $scope.selectedUniqueNumberList = $scope.filteredUniqueNumbers.filter(function (item) {
+            return item.Selected
+        })
+        console.log($scope.selectedUniqueNumberList)
+        switch (modelValue) {
+            case 'Industry Number': $scope.ModelData.Industry_Number = $scope.selectedUniqueNumberList[0].UniqueNumber;
+                break;
+            case 'Bureau Number': $scope.ModelData.Bureau_Number = $scope.selectedUniqueNumberList[0].UniqueNumber;
+                break;
+            case 'ID No': $scope.ModelData.ID_No = $scope.selectedUniqueNumberList[0].UniqueNumber;
+                break;
+            case 'Passport Number': $scope.ModelData.Passport = $scope.selectedUniqueNumberList[0].UniqueNumber;
+                break;
+            case 'Foreign ID': $scope.ModelData.Foreign_ID = $scope.selectedUniqueNumberList[0].UniqueNumber;
+                break;
+            default: 
+                break;
+
+
+        }
+        $('#myModal').model('hide');
+
+
+    }
+
 });
