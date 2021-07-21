@@ -10,7 +10,7 @@ namespace CCMS.Controllers
     public class HomeController : Controller
     {
         private TRUST_DATAEntities _db = new TRUST_DATAEntities();
-        private CCMSEntities db = new CCMSEntities();
+        //private CCMSEntities db = new CCMSEntities();
         public ActionResult Index()
         {
             return View();

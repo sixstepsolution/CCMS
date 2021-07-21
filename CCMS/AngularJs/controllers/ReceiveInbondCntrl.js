@@ -21,6 +21,7 @@
     //    Source:''
     //}];
 
+    $scope.OccupationsList = ['Developer','Tester','Designer','Manager','TeamLeader']
 
     $scope.filterModal = {};
     $scope.ModelData = {};
@@ -66,7 +67,7 @@
         $scope.showMinorDetails = false;
         $scope.IsShowSearchdata = false;
         $scope.IsBack = true;
-        $scope.IsData = false;
+        $scope.IsData = true;
     }
     $scope.showCapture = function () {
         $scope.showNewCall = false;
@@ -315,9 +316,22 @@
 
 
         }
-        $('#myModal').modal('hide');
+        //$('#myModal').modal('hide');
 
 
+    }
+    $scope.changeOccupation = function (val) {
+        if (val) {
+            $scope.filteredOccupationList = $scope.OccupationsList.filter(x => x.toUpperCase().includes(val.toUpperCase()));
+
+        } else {
+            $scope.filteredOccupationList = [];
+        }
+        
+    }
+    $scope.addOccupation = function (val) {
+        $scope.selectedOccupation = val;
+       // $('#occupationModal').modal('hide');
     }
 
 });
