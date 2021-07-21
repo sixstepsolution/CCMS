@@ -3,7 +3,6 @@
     $scope.IsShowSearchdata = false;
     $scope.pdfModel = "";
     $scope.ShowIframe = false;
-
     $scope.SearchbyPerson = function () {
         $scope.IsShowSearchdata = true;
     }
@@ -22,5 +21,8 @@
         $timeout(function () {
             $scope.ShowIframe = true;
         }, 2000);
+    }
+    $scope.changeIDType = function (id_type) {
+        $scope.IdNumber = id_type;
     }
 });

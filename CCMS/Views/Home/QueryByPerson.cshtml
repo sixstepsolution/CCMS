@@ -104,14 +104,20 @@
                                                     <i class="fa fa-sort-numeric-down"></i>
                                                 </span>
                                             </div>
-                                            <select class="form-control form-control-sm">
-                                                <option value="RSA ID Type">RSA ID Number</option>
-                                                <option></option>
+                                            <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                                <option value="">-- Select ID Type --</option>
+                                                <option value="Industry Number">Industry Number</option>
+                                                <option value="RSA ID Number">RSA ID Number</option>
+                                                <option value="Passport Number">Passport Number</option>
+                                                <option value="Employee Number">Employee Number</option>
+                                                <option value="Company Number">Company Number</option>
+                                                <option value="Bureau Number">Bureau Number</option>
+                                                <option value="Foriegn ID Number">Foriegn ID Number</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
-                                        <label></label>
+                                        <label>{{IdNumber}}</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control form-control-sm">
                                             <div class="input-group-append">
@@ -200,7 +206,8 @@
                                         <tr style="background:#057a528c!important">
                                             <th>#</th>
                                             <th>Industry No</th>
-                                            <th>RSA ID No</th>
+                                            <th>ID No</th>
+                                            <th>Country</th>
                                             <th>Passport No</th>
                                             <th>First Names</th>
                                             <th>Surname</th>
@@ -219,12 +226,39 @@
                                         </tr>
                                         <tr>
                                             <td>2.</td>
-                                            <td>W1085987</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">5206105264186</a></td>
                                             <td></td>
-                                            <td>MACHASE</td>
-                                            <td>HOPO</td>
-                                            <td>1952-06-10</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">5601085713089</a></td>
+                                            <td></td>
+                                            <td>J</td>
+                                            <td>NGXALABA</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td></td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">4204230021085</a></td>
+                                            <td></td>
+                                            <td>J.E</td>
+                                            <td>Van Der Merwe</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td></td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">8911195577085</a></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>BANDA TD</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>W1508654</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">6206045922082</a></td>
+                                            <td>6768572</td>
+                                            <td>MOLAOA</td>
+                                            <td>ABRAM JANNYANA</td>
+                                            <td>1962-06-04</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -758,8 +792,8 @@
                                                             <thead>
                                                                 <tr style="background:#057a528c!important">
                                                                     <th>#</th>
-                                                                    <th>Name</th>
                                                                     <th>Surname</th>
+                                                                    <th>Name</th>
                                                                     <th>Relationship</th>
                                                                     <th>Identification</th>
                                                                     <th>Contact</th>
@@ -1008,13 +1042,14 @@
                                             <li style="float:right!important">
                                                 <select class="form-control form-control-sm" style="margin-right:20px!important">
                                                     <option selected value="">Available Versions</option>
+                                                    <option value="Prep">Prep</option>
                                                 </select>
                                             </li>
-                                            <li style="float:right!important">
-                                                <b class="text-danger">Conflict</b> Not Conflict <a href="#">3288</a> Ignore <a href="#">0</a> Risk <a href="#">0</a>
+                                            <li style="float:right!important;margin-left:20px">
+                                                <b class="text-danger"><i class="fa fa-flag"></i>&nbsp;Conflict</b> Not Conflict <a href="#">3288</a> Ignore <a href="#">0</a> Risk <a href="#">0</a>
                                             </li>
-                                            <li>
-                                                <button type="button" class="btn btn-success-custom" style="padding-left:10px!important">
+                                            <li style="float:right!important;margin-left:20px">
+                                                <button type="button" class="btn btn-sm btn-success-custom" style="padding-left:10px!important">
                                                     <i class="fa fa-download"></i>
                                                 </button>
                                             </li>

@@ -28,9 +28,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <script src="~/Scripts/angular-route.min.js"></script>
-    <script src="~/AngularJs/ccmsApp.js"></script>
+    @*<script src="~/AngularJs/ccmsApp.js"></script>
     <script src="~/AngularJs/controllers/Login.js"></script>
-    <script src="~/AngularJs/services/LoginService.js"></script>
+    <script src="~/AngularJs/services/LoginService.js"></script>*@
     <style>
         .login100-form-btn {
             display: flex;
@@ -105,25 +105,25 @@
     <div class="limiter">
         <div class="container-login100" style="margin:0">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" novalidate name="LoginForm">
+                <form class="login100-form validate-form"  name="LoginForm">
                     <span class="login100-form-title p-b-45 fagreen-custom">
                         CCMS
                     </span>
 
 
-                    <div class="wrap-input100 validate-input" ng-class="{'has-error': (LoginForm.Username.$dirty
+                    <div class="wrap-input100 " ng-class="{'has-error': (LoginForm.Username.$dirty
                                           || Submitted) && LoginForm.Username.$error.required}">
                         <input class="input100" type="text" name="Username" ng-model="loginModel.Username" ng-class="{'has-error': (LoginForm.Username.$dirty
-                                          || Submitted) && LoginForm.Username.$error.required}" required>
+                                          || Submitted) && LoginForm.Username.$error.required}" >
                         <span class="focus-input100"></span>
                         <span class="label-input100">Username</span>
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" ng-class="{'has-error': (LoginForm.Password.$dirty
+                    <div class="wrap-input100 " ng-class="{'has-error': (LoginForm.Password.$dirty
                                           || Submitted) && LoginForm.Password.$error.required}">
                         <input class="input100" type="password" name="Password" ng-model="loginModel.Password" ng-class="{'has-error': (LoginForm.Password.$dirty
-                                          || Submitted) && LoginForm.Password.$error.required}" required>
+                                          || Submitted) && LoginForm.Password.$error.required}" >
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
@@ -147,9 +147,9 @@
 
 
                     <div class="container-login100-form-btn mb-5">
-                        <button class="login100-form-btn" style="cursor:pointer" ng-click="isLoginLoding?'':Login(loginModel)">
-                            <span ng-if="isLoginLoding" class="fa fa-spin fa-spinner"></span>  Login
-                        </button>
+                        <a href="../Home/Dashboard" class="login100-form-btn" @*ng-click="isLoginLoding?'':Login(loginModel)"*@>
+                            Login</a>@*<span class="fa fa-spin fa-spinner"></span>*@  
+                        </a>
                     </div>
 
                     @*<div class="text-center p-t-45 p-b-20">

@@ -160,26 +160,32 @@
     }
 
 
-    $scope.SearchbyPerson = function (inputs) {         
-        ReceiveInbondService.GetReceiveInbondingCall($scope.filterModal).then(function (res) {
-            $scope.ReceiveInbondCallList = [];
-            if (res.data.success === true) {
-                $scope.ReceiveInbondCallList = res.data.result;
+    $scope.SearchbyPerson = function (inputs) {   
+        $scope.showNewCall = false;
+        $scope.ShowPersonDetails = false;
+        $scope.showReceiveInbondCall = false;
+        $scope.IsShowSearchdata = true;
+        $scope.IsBack = false;
+        $scope.IsData = false;
+        //ReceiveInbondService.GetReceiveInbondingCall($scope.filterModal).then(function (res) {
+        //    $scope.ReceiveInbondCallList = [];
+        //    if (res.data.success === true) {
+        //        $scope.ReceiveInbondCallList = res.data.result;
 
-                $scope.showNewCall = false;
-                $scope.ShowPersonDetails = false;
-                $scope.showReceiveInbondCall = false;
-                $scope.IsShowSearchdata = true;
-                $scope.IsBack = false;
-                $scope.IsData = false;
-            }
-            else {
-                $scope.ReceiveInbondCallList = [];
-            }
-        }).catch(function (response) {
-            console.log(response);
+        //        $scope.showNewCall = false;
+        //        $scope.ShowPersonDetails = false;
+        //        $scope.showReceiveInbondCall = false;
+        //        $scope.IsShowSearchdata = true;
+        //        $scope.IsBack = false;
+        //        $scope.IsData = false;
+        //    }
+        //    else {
+        //        $scope.ReceiveInbondCallList = [];
+        //    }
+        //}).catch(function (response) {
+        //    console.log(response);
 
-        });
+        //});
     }
 
     //Attachments
@@ -309,7 +315,7 @@
 
 
         }
-        $('#myModal').model('hide');
+        $('#myModal').modal('hide');
 
 
     }
