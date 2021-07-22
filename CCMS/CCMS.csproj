@@ -209,6 +209,11 @@
     <Content Include="Content\assets\css\styles\theme-orange.css" />
     <Content Include="Content\assets\css\styles\theme-purple.css" />
     <Content Include="Content\assets\css\styles\theme-white.css" />
+    <Content Include="Content\assets\flags\bw_flag.png" />
+    <Content Include="Content\assets\flags\mz_flag.png" />
+    <Content Include="Content\assets\flags\nm_flag.png" />
+    <Content Include="Content\assets\flags\sa_flag.png" />
+    <Content Include="Content\assets\flags\zb_flag.png" />
     <Content Include="Content\assets\fonts\fontawesome\fa-brands-400.svg" />
     <Content Include="Content\assets\fonts\fontawesome\fa-regular-400.svg" />
     <Content Include="Content\assets\fonts\fontawesome\fa-solid-900.svg" />
