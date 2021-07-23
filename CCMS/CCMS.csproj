@@ -220,6 +220,10 @@
     <Content Include="Content\assets\fonts\iconfont\material-icons.css" />
     <Content Include="Content\assets\fonts\iconfont\MaterialIcons-Regular.svg" />
     <Content Include="Content\assets\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <Content Include="Content\assets\icons\address.png" />
+    <Content Include="Content\assets\icons\allcontacts.png" />
+    <Content Include="Content\assets\icons\contacts.png" />
+    <Content Include="Content\assets\icons\summary.png" />
     <Content Include="Content\assets\images\animation-bg.jpg" />
     <Content Include="Content\assets\images\bg-01.jpg" />
     <Content Include="Content\assets\images\details_close.png" />
