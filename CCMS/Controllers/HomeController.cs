@@ -54,6 +54,12 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult CallCenter()
+        {
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult GetTrustedData(string searchKey)
         {

@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "CallCenter";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+
+<style>
+    .content-header {
+        padding: 5px 0.5rem !important;
+    }
+
+    .box-header {
+        padding: 0 !important;
+        padding-left: 10px !important
+    }
+</style>
+<div ng-controller="homeCntrl" ng-cloak style="zoom:0.9;" >
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                @*<h1 class="m-0">Dashboard</h1>*@
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Call Center</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div>
+    <!-- /.content-header -->
+    <hr style="margin-top:0 !important" />
+
+    <div class="container-fluid">
+        <div class="row m-1">
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/ReceiveInnbondCall">
+                        <img src="~/Content/assets/icons/inbond.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Receive Inbond Calls</h5>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/log_outbond.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Log on Outbond Calls</h5>
+                    </a>
+                </div>
+                
+
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/add_lodge.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Add Lodgement Booking</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 text-center ">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/change_lodge.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Change Lodgement Booking</h5>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row m-1">
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/viewLodge.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">View Lodgement Booking</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/upload_documents.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Add Documents to Tickets</h5>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/BME_booking.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">BME Booking</h5>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/QueryByPerson">
+                        <img src="~/Content/assets/icons/query_person.png" style="width:120px;height:120px" />
+                        <h5 style="color: #28a745;">Query by Person</h5>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
