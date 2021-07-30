@@ -13,14 +13,50 @@
     <!-- Favicon-->
     <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
     <!-- Plugins Core Css -->
-    <link href="../Content/assets/css/app.min.css" rel="stylesheet">
+    @*<link href="../Content/assets/css/app.min.css" rel="stylesheet">*@
     <!-- Custom Css -->
-    <link href="../Content/assets/css/style.css" rel="stylesheet" />
-    <link href="../Content/assets/css/pages/authentication.css" rel="stylesheet" />
+    @*<link href="../Content/assets/css/style.css" rel="stylesheet" />*@
+    @*<link href="../Content/assets/css/pages/authentication.css" rel="stylesheet" />*@
+    <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/fontawesome-free/css/all.min.css">
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    @*@Styles.Render("~/Content/css")*@
-    @*@Scripts.Render("~/bundles/modernizr")*@
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    @*<link rel="stylesheet" href="~/Content/dashboardNew/plugins/jqvmap/jqvmap.min.css">*@
+    <!-- Theme style -->
+    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+
+    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.css">
+    @*<link href="../Content/dashboardNew/dist/css/skins/_all-skins.min.css" rel="stylesheet" />*@
+
+    @*<link href="../Content/dashboardNew/plugins/select2/select2.min.css" rel="stylesheet" />*@
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/summernote/summernote-bs4.min.css">
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+          rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-sanitize.js"></script>
     <script src="~/Scripts/paginationUi.js"></script>
@@ -29,8 +65,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <script src="~/Scripts/angular-route.min.js"></script>
     @*<script src="~/AngularJs/ccmsApp.js"></script>
-    <script src="~/AngularJs/controllers/Login.js"></script>
-    <script src="~/AngularJs/services/LoginService.js"></script>*@
+        <script src="~/AngularJs/controllers/Login.js"></script>
+        <script src="~/AngularJs/services/LoginService.js"></script>*@
     <style>
         .login100-form-btn {
             display: flex;
@@ -80,6 +116,61 @@
             border: 1px solid red
         }
     </style>
+    <style>
+        .btn-success-custom {
+            color: #fff !important;
+            background-color: #057a52 !important;
+            border-color: #057a52 !important;
+            box-shadow: none;
+        }
+
+            .btn-success-custom:hover {
+                color: #fff !important;
+                background-color: #b8d75c !important;
+                border-color: #b8d75c !important;
+                box-shadow: none;
+            }
+
+        .btn-success-custom-sm {
+            color: #fff !important;
+            background-color: #057a52 !important;
+            border-color: #057a52 !important;
+            box-shadow: none;
+            width: 70px !important;
+            height: 20px !important;
+            font-size: 9pt !important;
+            line-height: 0.7 !important;
+        }
+
+            .btn-success-custom-sm:hover {
+                color: #fff !important;
+                background-color: #b8d75c !important;
+                border-color: #b8d75c !important;
+                box-shadow: none;
+            }
+
+        .btn-danger-custom {
+            color: #fff !important;
+            background-color: #b8d75c !important;
+            border-color: #b8d75c !important;
+            box-shadow: none;
+        }
+
+            .btn-danger-custom:hover {
+                color: #fff !important;
+                background-color: #057a52 !important;
+                border-color: #057a52 !important;
+                box-shadow: none;
+            }
+
+        .fg-custom {
+            color: #94b62f !important
+        }
+
+        .has-error {
+            border: 1px solid red
+        }
+    </style>
     <script>
         toastr.options = {
             "closeButton": false,
@@ -99,84 +190,131 @@
             "hideMethod": "fadeOut"
         }
     </script>
+    <style>
+        .page-header {
+            padding-bottom: 9px;
+            margin: 199px 0 20px;
+            /* border-bottom: 1px solid #eee; */
+        }
+
+        .carousel-caption {
+            right: 0% !important;
+            left: 0% !important;
+            padding-bottom: 0px !important;
+        }
+    </style>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        /*  .roundedB { width: 200px; height: 200px; border-radius: 50%; background-image: url('../Content/assets/icons/inbond.png'); background-position: 70% 50%; background-size: 130%; }*/
+        .roundedB {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid #28a745 !important;
+            /*background-image: url(../Content/assets/icons/inbond.png);*/
+            background-position: 70% 50%;
+            background-size: 100%;
+        }
+
+        .roundedB1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            /*border: 1px solid red !important;*/
+            /*background-image: url(../Content/assets/icons/inbond.png);*/
+            background-position: 70% 50%;
+            background-size: 100%;
+        }
+
+        .km {
+            color: #28a745;
+            font-size: 11pt;
+            text-align: center;
+            margin-left: 20px;
+        }
+    </style>
 </head>
 
-<body ng-controller="LoginCntrl">
-    <div class="limiter">
-        <div class="container-login100" style="margin:0">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form"  name="LoginForm">
-                    <span class="login100-form-title p-b-45 fagreen-custom">
-                        CCMS
-                    </span>
+<body ng-controller="LoginCntrl" @*style="background-color: #b8d75c"*@>
+   
+
+    
 
 
-                    <div class="wrap-input100 " ng-class="{'has-error': (LoginForm.Username.$dirty
-                                          || Submitted) && LoginForm.Username.$error.required}">
-                        <input class="input100" type="text" name="Username" ng-model="loginModel.Username" ng-class="{'has-error': (LoginForm.Username.$dirty
-                                          || Submitted) && LoginForm.Username.$error.required}" >
-                        <span class="focus-input100"></span>
-                        <span class="label-input100">Username</span>
-                    </div>
+    <div class="container-home">
+        <div>
+            @*<div>
+            <a href="../home/index" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                <img src="~/Content/assets/images/Tshiamiso_logo.svg" style="width:150px;height:150px" />
+            </a>
+        </div>*@
 
+            @*<div class="container">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <a href="../Doctor/Login">
+            <img src="~/Custon_Images/logo3.svg" style="width:100%;" />
+        </a>
+                          <div class="text-center">
+                            <a href="../Home/CCMS_Login"><button class="btn-primary btn btn-sm" type="button" style="margin:10px;">CAS LOGIN</button></a>
 
-                    <div class="wrap-input100 " ng-class="{'has-error': (LoginForm.Password.$dirty
-                                          || Submitted) && LoginForm.Password.$error.required}">
-                        <input class="input100" type="password" name="Password" ng-model="loginModel.Password" ng-class="{'has-error': (LoginForm.Password.$dirty
-                                          || Submitted) && LoginForm.Password.$error.required}" >
-                        <span class="focus-input100"></span>
-                        <span class="label-input100">Password</span>
-                    </div>
-
-                    <div class="flex-sb-m w-full p-t-15 p-b-20">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value=""> Remember me
-                                <span class="form-check-sign">
-                                    <span class="check"></span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <div>
-                            <a href="#" class="txt1">
-                                Forgot Password?
-                            </a>
                         </div>
                     </div>
-
-
-                    <div class="container-login100-form-btn mb-5">
-                        <a href="../Home/Dashboard" class="login100-form-btn" @*ng-click="isLoginLoding?'':Login(loginModel)"*@>
-                            Login</a>@*<span class="fa fa-spin fa-spinner"></span>*@  
+                    <div class="col-md-6">
+                        <a href="../Home/Other_Login">
+                            <img src="~/Content/assets/images/undraw_QA_engineers_dg5p.svg" style="width:100%;" />
                         </a>
+                        <div class="text-center">
+                            <a href="../Home/Other_Login"><button class="btn-primary btn btn-sm" type="button" style="margin:10px;">OTHER LOGIN</button></a>
+
+                        </div>
                     </div>
 
-                    @*<div class="text-center p-t-45 p-b-20">
-                            <span class="txt2">
-                                or sign up using
-                            </span>
+                </div>
+
+            </div>*@
+
+            <div class="text-center">
+                <div class="pull-left">
+                    <a href="../home/index" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <img src="~/Content/assets/images/Tshiamiso_logo.svg" style="width:150px" />
+                    </a>
+                </div>
+                <h2 style="color:#057a52;">CAS</h2>
+            </div>
+            <hr style="padding:50px;border-color:#057a52;" />
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="col-md-3 text-center">
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="../Doctor/Login">
+                            <img src="~/Custon_Images/logo1.svg" class="roundedB" />
+                        </a>
+
+                        <div class="text-center">
+
+                            <a href="../Home/CCMS_Login"><button class="btn btn-sm btn-success-custom" type="button" style="margin:10px;">CAS LOGIN</button></a>
+
                         </div>
+                    </div>
+                    <div class="col-md-3  text-center">
+                        <a href="../Home/Other_Login">
+                            <img src="~/Content/assets/images/undraw_QA_engineers_dg5p.svg" class="roundedB" />
+                        </a>
+                        <div class="text-center">
+                            <a href="../Home/Other_Login"><button class="btn btn-sm btn-success-custom" type="button" style="margin:10px;">OTHER LOGIN</button></a>
 
-                        <div class="login100-form-social flex-c-m">
-                            <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-
-                            <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>*@
-                </form>
-                <div class="login100-more" style="background-image: url('../Content/assets/images/undraw_QA_engineers_dg5p.svg');">
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                    </div>
                 </div>
             </div>
+
+
         </div>
     </div>
-
-    <!-- Plugins Js -->
-    <script src="../Content/assets/js/app.min.js"></script>
-    <script src="../Content/assets/js/pages/examples/pages.js"></script>
 </body>
 
 </html>

@@ -15,6 +15,18 @@ namespace CCMS.Controllers
         {
             return View();
         }
+           public ActionResult CCMS_Login()
+        {
+            return View();
+        }
+           public ActionResult Other_Login()
+        {
+            return View();
+        }
+           public ActionResult CCMS_Roles()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
@@ -298,5 +310,11 @@ namespace CCMS.Controllers
             return View();
         }
 
+
+        public ActionResult DeceasedRegister()
+        {
+
+            return View();
+        }
     }
 }

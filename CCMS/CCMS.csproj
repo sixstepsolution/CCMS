@@ -176,6 +176,7 @@
     <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
     <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
+    <Content Include="AngularJs\controllers\DeceaseRegisterCntrl.js" />
     <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
@@ -4461,6 +4462,19 @@
     <None Include="Content\dashboard\Scripts\_references.js" />
     <Content Include="Content\Timeline.css" />
     <Content Include="Content\toastr.css" />
+    <Content Include="Custon_Images\cas_Image.svg" />
+    <Content Include="Custon_Images\ccms_logo.png" />
+    <Content Include="Custon_Images\doctor_blue.png" />
+    <Content Include="Custon_Images\employee_blue.png" />
+    <Content Include="Custon_Images\key.svg" />
+    <Content Include="Custon_Images\log4.svg" />
+    <Content Include="Custon_Images\logo1.png" />
+    <Content Include="Custon_Images\logo1.svg" />
+    <Content Include="Custon_Images\logo2.svg" />
+    <Content Include="Custon_Images\logo3.svg" />
+    <Content Include="Custon_Images\logo5.svg" />
+    <Content Include="Custon_Images\logo6.svg" />
+    <Content Include="Custon_Images\ohnp_blue.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -5774,6 +5788,10 @@
     <Content Include="Views\Home\Trust.cshtml" />
     <Content Include="Views\Home\ReceiveInnbondCall.cshtml" />
     <Content Include="Views\Home\CallCenter.cshtml" />
+    <Content Include="Views\Home\Other_Login.cshtml" />
+    <Content Include="Views\Home\CCMS_Login.cshtml" />
+    <Content Include="Views\Home\CCMS_Roles.cshtml" />
+    <Content Include="Views\Home\DeceasedRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

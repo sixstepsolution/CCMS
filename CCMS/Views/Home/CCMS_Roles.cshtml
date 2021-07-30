@@ -1,0 +1,413 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="ccmsApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>CCMS</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
+    <!-- Plugins Core Css -->
+    @*<link href="../Content/assets/css/app.min.css" rel="stylesheet">*@
+    <!-- Custom Css -->
+    @*<link href="../Content/assets/css/style.css" rel="stylesheet" />*@
+    @*<link href="../Content/assets/css/pages/authentication.css" rel="stylesheet" />*@
+    <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/fontawesome-free/css/all.min.css">
+    @Scripts.Render("~/bundles/jquery")
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    @*<link rel="stylesheet" href="~/Content/dashboardNew/plugins/jqvmap/jqvmap.min.css">*@
+    <!-- Theme style -->
+    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+
+    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.css">
+    @*<link href="../Content/dashboardNew/dist/css/skins/_all-skins.min.css" rel="stylesheet" />*@
+
+    @*<link href="../Content/dashboardNew/plugins/select2/select2.min.css" rel="stylesheet" />*@
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/dashboardNew/plugins/summernote/summernote-bs4.min.css">
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+          rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/Scripts/paginationUi.js"></script>
+    <script src="~/Content/autocomplete/angucomplete-alt.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-route.min.js"></script>
+    @*<script src="~/AngularJs/ccmsApp.js"></script>
+        <script src="~/AngularJs/controllers/Login.js"></script>
+        <script src="~/AngularJs/services/LoginService.js"></script>*@
+    <style>
+        .login100-form-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background: #057a52;
+            font-family: Barlow,sans-serif;
+            font-size: 12px;
+            color: #fff;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all .4s;
+            box-shadow: none
+        }
+
+            .login100-form-btn:hover {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 20px;
+                width: 100%;
+                height: 50px;
+                border-radius: 10px;
+                background: #a8ce38;
+                font-family: Barlow,sans-serif;
+                font-size: 12px;
+                color: #fff;
+                line-height: 1.2;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                cursor: pointer;
+                transition: all .4s;
+            }
+
+        .fagreen-custom {
+            color: #057a52 !important;
+            font-weight: 400 !important;
+        }
+
+        .has-error {
+            border: 1px solid red
+        }
+    </style>
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
+    <style>
+        .page-header {
+            padding-bottom: 9px;
+            margin: 199px 0 20px;
+            /* border-bottom: 1px solid #eee; */
+        }
+
+        .carousel-caption {
+            right: 0% !important;
+            left: 0% !important;
+            padding-bottom: 0px !important;
+        }
+    </style>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+  /*  .roundedB { width: 200px; height: 200px; border-radius: 50%; background-image: url('../Content/assets/icons/inbond.png'); background-position: 70% 50%; background-size: 130%; }*/
+        .roundedB {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 1px solid #b8d75c !important;
+            /*background-image: url(../Content/assets/icons/inbond.png);*/
+            background-position: 70% 50%;
+            background-size: 100%;
+        }
+        .roundedB1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            /*border: 1px solid red !important;*/
+            /*background-image: url(../Content/assets/icons/inbond.png);*/
+            background-position: 70% 50%;
+            background-size: 100%;
+        }
+        .km {
+            color: #28a745;
+            font-size: 11pt;
+            text-align: center;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body ng-controller="LoginCntrl">
+
+
+    <div class="container-fluid">
+        @*<div>
+            <a href="../home/index" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                <img src="~/Content/assets/images/Tshiamiso_logo.svg" style="width:150px;height:150px" />
+            </a>
+        </div>*@
+        <div class="text-center">
+            <div class="pull-left">
+                <a href="../home/index" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                    <img src="~/Content/assets/images/Tshiamiso_logo.svg" style="width:150px" />
+                </a>
+            </div>
+            <h2 style="color:#28a745">CAS ROLES</h2>
+        </div>
+        <hr  style="padding-bottom:50px;border-color:#28a745"/>
+        <div class="row" style="margin:10px">
+            <div class="col-md-4">
+                <a href="../home/dashboard">
+                    <table>
+                        <tr>
+                            <td> <div class=""> <img src="~/Content/assets/icons/inbond.png" class="roundedB" /></div></td>
+                            <td> <div class="km">Tshiamiso Trust TCC</div></td>
+                        </tr>
+                    </table>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/log_outbond.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust Office</div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/add_lodge.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust MCP</div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px">
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/change_lodge.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust Claim Review</div></td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/viewLodge.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust Call center</div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/upload_documents.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust Pre Claim Prepare</div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px">
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/BME_booking.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Agent</div></td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/query_person.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust MCP Prepare</div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td> <div class=""> <img src="~/Content/assets/icons/BME_booking.png" class="roundedB" /></div></td>
+                        <td> <div class="km">Tshiamiso Trust TCC Prepare</div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+       
+          
+            <div class="row" style="margin:10px">
+                <div class="col-md-4">
+                    <table>
+                        <tr>
+                            <td> <div class=""> <img src="~/Content/assets/icons/query_person.png" class="roundedB" /></div></td>
+                            <td> <div class="km">Tshiamiso Trust A2D24</div></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+       
+
+
+
+
+
+
+
+        @*<div class="row" style="margin:10px">
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/ReceiveInnbondCall">
+                        <img src="~/Content/assets/icons/inbond.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust TCC</div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/log_outbond.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust Office</div>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/add_lodge.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust MCP</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px">
+
+            <div class="col-md-4 text-center ">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/change_lodge.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust Claim Review</div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/viewLodge.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust Call center</div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/upload_documents.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust Pre Claim Prepare</div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" style="margin:10px">
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/BME_booking.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Agent</div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/QueryByPerson">
+                        <img src="~/Content/assets/icons/query_person.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust MCP Prepare</div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/QueryByPerson">
+                        <img src="~/Content/assets/icons/query_person.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust TCC Prepare</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="margin:10px">
+            <div class="col-md-4 text-center">
+                <div class="col-md-12 border">
+                    <a href="../Home/Trust">
+                        <img src="~/Content/assets/icons/BME_booking.png" style="width:120px;height:120px" />
+                        <div style="color: #28a745;font-size:11pt">Tshiamiso Trust A2D24</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>*@
+
+    </div>
+</body>
+
+</html>
