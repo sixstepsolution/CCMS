@@ -3,11 +3,12 @@
     $scope.pdfModel = "";
     $scope.ShowIframe = false;
     $scope.showNewCall = false;
+    $scope.PersonSummary = false;
     $scope.IsBack = false;
     $scope.IsData = false;
     $scope.IsSaving = false;
     $scope.isCreate = false;
-   // $scope.ShowMiner();
+    // $scope.ShowMiner();
     $scope.ReceiveInbondCallList = [];
     $scope.minerDynamicList = [];
     $scope.MinerModel = {};
@@ -116,7 +117,7 @@
     //    Source:''
     //}];
 
-    $scope.OccupationsList = ['Developer','Tester','Designer','Manager','TeamLeader']
+    $scope.OccupationsList = ['Developer', 'Tester', 'Designer', 'Manager', 'TeamLeader']
 
     $scope.filterModal = {};
     $scope.ModelData = {};
@@ -130,19 +131,20 @@
     });
 
 
-    //$scope.SearchDetailsPerson = function () {
-    //    $scope.ShowPersonDetails = true;
-    //    $scope.IsShowSearchdata = false;
-    //    $scope.showReceiveInbondCall = false;
-    //    $scope.showQuestionnaire = false;
-    //    $scope.showMinorDetails = false;
-    //    $scope.showNewCall = false;
-    //    $scope.IsBack = true;
-    //    $scope.IsData = true;
+    $scope.SearchPersonSummary = function () {
+        $scope.PersonSummary = true;
+        $scope.IsShowSearchdata = false;
+        $scope.showReceiveInbondCall = false;
+        $scope.showQuestionnaire = false;
+        $scope.showMinorDetails = false;
+        $scope.showNewCall = false;
+        $scope.IsBack = true;
+        $scope.IsData = true;
 
-    //}
+    }
 
     $scope.NewDieceasedPerson = function () {
+        $scope.PersonSummary = false;
         $scope.isCreate = true;
         $scope.DeceasedType = 'Create';
         $scope.showNewCall = true;
@@ -158,6 +160,7 @@
     $scope.UpdateDieceasedPerson = function () {
         $scope.isCreate = true;
         $scope.DeceasedType = 'Update';
+        $scope.PersonSummary = false;
 
         $scope.showNewCall = true;
         $scope.ShowPersonDetails = false;
@@ -207,7 +210,7 @@
         //    console.log(response);
 
         //});
-       
+
     }
 
     //$scope.LoadAllMasterData();
@@ -241,7 +244,7 @@
     }
 
 
-    $scope.SearchbyPerson = function (inputs) {   
+    $scope.SearchbyPerson = function (inputs) {
         $scope.showNewCall = false;
         $scope.ShowPersonDetails = false;
         $scope.showReceiveInbondCall = false;
@@ -286,7 +289,7 @@
         if (files.length < 1) {
             toastr["warning"]('Select files to upload');
 
-            
+
         } else {
             //alert()
             if ((GetAllFilesSizes(files) + GetAllFilesSizes($scope.AttachmentFiles)) > $scope.maxUploadSize) {
@@ -297,14 +300,14 @@
             }
 
             for (var i = 0; i < files.length; i++) {
-                
+
                 $scope.AttachmentFiles.push(files[i]);
             }
             console.log($scope.AttachmentFiles);
             //alert("S")
             toastr["success"]('Uploaded successfully.');
 
-            
+
 
             $('#Attachment').val('').clone(true);
         }
@@ -334,7 +337,7 @@
     $scope.PassportNUmbersList = [];
     $scope.IdentityNUmbersList = [];
     $scope.ForiegnIDNUmbersList = [];
-    var dynId =0;
+    var dynId = 0;
     $scope.addDynamicNumber = function (modelValue, UniqueNumber) {
         $scope.UniqueNUmbersList.push({
             dynId: dynId,
@@ -362,7 +365,7 @@
         //        break;
         //    default: 
         //        break;
-            
+
 
         //}
     }
@@ -391,7 +394,7 @@
                 break;
             case 'Foreign ID': $scope.ModelData.Foreign_ID = $scope.selectedUniqueNumberList[0].UniqueNumber;
                 break;
-            default: 
+            default:
                 break;
 
 
@@ -407,11 +410,11 @@
         } else {
             $scope.filteredOccupationList = [];
         }
-        
+
     }
     $scope.addOccupation = function (val) {
         $scope.selectedOccupation = val;
-       // $('#occupationModal').modal('hide');
+        // $('#occupationModal').modal('hide');
     }
 
 });

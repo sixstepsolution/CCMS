@@ -175,9 +175,11 @@
   <ItemGroup>
     <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
+    <Content Include="AngularJs\controllers\MaintainPersonDoc.js" />
     <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
     <Content Include="AngularJs\controllers\DeceaseRegisterCntrl.js" />
     <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
+    <Content Include="AngularJs\controllers\UpdatePerson.js" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
@@ -4459,6 +4461,7 @@
     <Content Include="Content\dashboardNew\plugins\summernote\summernote.js.map" />
     <Content Include="Content\dashboardNew\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\dashboardNew\plugins\toastr\toastr.js.map" />
+    <Content Include="Content\assets\TRUST_REGISTER_DECEASED.PDF" />
     <None Include="Content\dashboard\Scripts\_references.js" />
     <Content Include="Content\Timeline.css" />
     <Content Include="Content\toastr.css" />
@@ -5792,6 +5795,8 @@
     <Content Include="Views\Home\CCMS_Login.cshtml" />
     <Content Include="Views\Home\CCMS_Roles.cshtml" />
     <Content Include="Views\Home\DeceasedRegister.cshtml" />
+    <Content Include="Views\Home\MaintainPersonDoc.cshtml" />
+    <Content Include="Views\Home\UpdatePerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

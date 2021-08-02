@@ -316,5 +316,15 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult MaintainPersonDoc()
+        {
+
+            return View();
+        }
+        public ActionResult UpdatePerson()
+        {
+
+            return View();
+        }
     }
 }

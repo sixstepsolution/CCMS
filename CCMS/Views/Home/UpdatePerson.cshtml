@@ -60,7 +60,7 @@
     }
 </style>
 
-<script src="~/AngularJs/controllers/DeceaseRegisterCntrl.js"></script>
+<script src="~/AngularJs/controllers/UpdatePerson.js"></script>
 <script src="~/AngularJs/services/ReceiveInbondService.js"></script>
 <!-- DataTables -->
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -109,7 +109,7 @@
                 <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Person</a></li>
-                        <li class="breadcrumb-item active">Deceased Register</li>
+                        <li class="breadcrumb-item active">Update Person</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -124,8 +124,8 @@
                     <div class="col-12 col-lg-12">
                         <div class="card card-success card-outline">
                             @*<div class="card-header">
-                                    <h3 class="card-title">Query by Person</h3>
-                                </div>*@
+                            <h3 class="card-title">Query by Person</h3>
+                        </div>*@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 col-lg-3 mb-1">
@@ -250,7 +250,7 @@
                                         <tr>
                                             <td>1.</td>
                                             <td>W1085979</td>
-                                            <td><a href="#" ng-click="UpdateDieceasedPerson()">5206105264186</a></td>
+                                            <td><a href="#" ng-click="SearchPersonSummary()">5206105264186</a></td>
                                             <td style="text-align:center">
                                                 <img src="~/Content/assets/flags/sa_flag.png" style="width:20px;height:20px" />
                                             </td>
@@ -262,7 +262,7 @@
                                         <tr>
                                             <td>2.</td>
                                             <td>W1082332</td>
-                                            <td><a href="#" ng-click="UpdateDieceasedPerson()">5601085713089</a></td>
+                                            <td><a href="#" ng-click="SearchPersonSummary()">5601085713089</a></td>
                                             <td style="text-align:center">
                                                 <img src="~/Content/assets/flags/zb_flag.png" style="width:20px;height:20px" />
                                             </td>
@@ -274,7 +274,7 @@
                                         <tr>
                                             <td>3.</td>
                                             <td>W1098789</td>
-                                            <td><a href="#" ng-click="UpdateDieceasedPerson()">4204230021085</a></td>
+                                            <td><a href="#" ng-click="SearchPersonSummary()">4204230021085</a></td>
                                             <td style="text-align:center">
                                                 <img src="~/Content/assets/flags/mz_flag.png" style="width:20px;height:20px" />
                                             </td>
@@ -286,7 +286,7 @@
                                         <tr>
                                             <td>4.</td>
                                             <td>W8765678</td>
-                                            <td><a href="#" ng-click="UpdateDieceasedPerson()">8911195577085</a></td>
+                                            <td><a href="#" ng-click="SearchPersonSummary()">8911195577085</a></td>
                                             <td style="text-align:center">
                                                 <img src="~/Content/assets/flags/nm_flag.png" style="width:20px;height:20px" />
                                             </td>
@@ -298,7 +298,7 @@
                                         <tr>
                                             <td>5.</td>
                                             <td>W1508654</td>
-                                            <td><a href="#" ng-click="UpdateDieceasedPerson()">6206045922082</a></td>
+                                            <td><a href="#" ng-click="SearchPersonSummary()">6206045922082</a></td>
                                             <td style="text-align:center">
                                                 <img src="~/Content/assets/flags/bw_flag.png" style="width:20px;height:20px" />
                                             </td>
@@ -1538,6 +1538,286 @@
                 </div>
             </div>
 
+            <div ng-if="PersonSummary" class="card card-success card-outline border">
+                <div class="card-header">
+                    <h4 class="card-title">Person Summary</h4>
+                    <a class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addIdentityDocumentsModal"><i class="fa fa-plus"></i>&nbsp;Add</a>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-6">
+                            <div class="card card-gray border">
+                                <div class="card-header">
+                                    <h4 class="card-title"><i class="fa fa-user"></i>&nbsp;Personal Details</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <table border="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>First Names</td>
+                                                        <td>MACHASE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Surname</td>
+                                                        <td>HOPO</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Birth</td>
+                                                        <td>1952-06-10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gender</td>
+                                                        <td>Male</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Living Status</td>
+                                                        <td><b class="text-success">Living</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Age</td>
+                                                        <td>68</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Death</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Marital Status</td>
+                                                        <td>No</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Language</td>
+                                                        <td>Sepedi (Northern Sotho)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nationality</td>
+                                                        <td>South Africa</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <div class="card card-gray border">
+                                <div class="card-header">
+                                    <h4 class="card-title"><i class="fa fa-user-shield"></i>&nbsp;Work Summary</h4>
+                                </div>
+                                <div class="card-body" style="height:247px!important">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12 mb-3">
+                                            <table border="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Declared Occupation</td>
+                                                        <td>MACHASE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Declared Service Years </td>
+                                                        <td>1952</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TEBA Service Years </td>
+                                                        <td>1984-03-27 to 2009-04-15 <br /><b class="text-red">25.05 Years</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TEBA Overall Years </td>
+                                                        <td><b class="text-red">14.63 Years</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TEBA Start Office</td>
+                                                        <td>Lesotho </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TEBA End Office</td>
+                                                        <td>Free State</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-6">
+                            <div class="card card-gray border" style="width:100%!important">
+                                <div class="card-header">
+                                    <h4 class="card-title"><i class="fa fa-calendar-day"></i>&nbsp;Scheduled Exclusions</h4>
+                                </div>
+                                <div class="card-body" style="height:100px!important">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <table border="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Blom Claimant</td>
+                                                        <td><b class="text-success">No</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Opt-out Claimant</td>
+                                                        <td><b class="text-success">No</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Q(h)ubeka Claimant</td>
+                                                        <td><b class="text-success">No</b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-gray border">
+                                <div class="card-header" style="margin-top: -12px !important;">
+                                    <h5 class="card-title"><i class="fa fa-user-check"></i>&nbsp;Eligibility</h5>
+                                </div>
+                                <div class="card-body" style="height:114px!important">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <table border="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Risk class(Self-declared)</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Risk class(TEBA / Mines)</td>
+                                                        <td>Risk</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tshiamiso Trust Eligible</td>
+                                                        <td><b class="text-success">Yes, risk work at QM/QP</b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
+                        <b>Industry Number(s)</b>
+                        <p>
+                            <b class="text-success">W1085979</b>
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
+                        <b>Bureau Number(s)</b>
+                        <p>
+                            <b class="text-success">B846301</b>
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-1 pb-1" style="width:30%!important;float:left!important">
+                        <b>Company Number(s)</b>
+                        <p>
+                            <b class="text-success">BA175390</b>
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-1 pb-1" style="width:30%!important;float:left!important">
+                        <b>Employee Number(s)</b>
+                        <p>
+                            <b class="text-success">BA175390</b>
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-1 pb-2" style="width:20%!important;float:left!important">
+                        <b>South African ID(s)</b>
+                        <p>
+                            <b class="text-success">5206105264186</b><br />
+                            <b class="text-success">5206105264087</b><br />
+                            <b class="text-success">5206105264187</b>
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-1 pb-2" style="width:20%!important;float:left!important">
+                        <b>Attorneys</b>
+                        <p>
+                            <b class="text-success">Richard Spoor</b><br />
+                            <b class="text-success">Abraham Kiewitz</b><br /><br />
+                        </p>
+                    </div>
+                    <div class="callout callout-info pt-0 pb-2" style="width:30%!important;float:left!important">
+                        <b>Other Checks</b>
+                        <table border="0">
+                            <tr>
+                                <td>Home Affaires(RSA citizen / PR)</td>
+                                <td><b class="text-success right"> Not done</b></td>
+                            </tr>
+                            <tr>
+                                <td>TEBA fingerprint verification</td>
+                                <td><b class="text-success right"> Not done</b></td>
+                            </tr>
+                            <tr>
+                                <td>Bank account validation</td>
+                                <td><b class="text-success right"> Not done</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="callout callout-info pt-2 pb-4" style="width:30%!important;float:left!important">
+                        <b>Fraud Flagging</b>
+                        <table border="0">
+                            <tr>
+                                <td>Person record flagged as suspect</td>
+                                <td><b class="text-success right">&nbsp;&nbsp;No</b></td>
+                            </tr>
+                            <tr>
+                                <td>Person record investigated</td>
+                                <td><b class="text-success right">&nbsp;&nbsp;No</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="callout callout-info pt-2 pb-4" style="width:100%!important;float:left!important">
+                        <b>5 Year Rule</b>
+                        <table border="0">
+                            <tr>
+                                <td colspan="2">The mineworker has worked less than 5 years of Risk Work at Qualifying Mines.The Trust Deed states that the mineworker must pay for the cost of the medical examination him/herself:</td>
+                            </tr>
+                            <tr>
+                                <td>1. </td>
+                                <td> If the mineworker agrees to pay for the medical examination, the claim registration process can continue.</td>
+                            </tr>
+                            <tr>
+                                <td>2. </td>
+                                <td> If the mineworker refuses to pay for the medical examination, the claim registration process cannot continue.</td>
+                            </tr>
+                            <tr>
+                                <td>Note : </td>
+                                <td> The mineworker has been told that the cost of medical examination will be refunded to him/her if and only if he/she is found eligible (will not be refunded if found ineligible).</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+
+                        </div>
+                        <div class="col-12 col-lg-4">
+
+                            
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <button type="button" class="btn btn-sm btn-success-custom" ng-click="UpdateDieceasedPerson()" style="width:100px!important"><i class="fa fa-forward"></i>&nbsp;Next</button>
+                            &nbsp;
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
 
         </div>
     </section>
@@ -2594,7 +2874,7 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
                     </div>
 
