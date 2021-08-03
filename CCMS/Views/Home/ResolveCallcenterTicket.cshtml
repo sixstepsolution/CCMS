@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "QueryByPerson";
+    ViewBag.Title = "ResolveCallcenterTicket";
     Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
 }
+
 <style>
     .breadcrumb-item a {
         color: #125e1d !important;
@@ -57,27 +58,29 @@
         color: #057a52 !important;
     }
 </style>
-<script src="~/AngularJs/controllers/QuerybyPersonCntrl.js"></script>
+<script src="~/AngularJs/controllers/ResolveCallcenterCntrl.js"></script>
 <!-- DataTables -->
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
-<div ng-controller="QuerybyPersonCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+<div ng-controller="ResolveCallcenterCntrl" ng-cloak style="height:auto;zoom:0.9!important">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row m-b-0">
-                <div class="col-sm-8" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
-                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
-                    <span ng-show="ShowPersonDetails" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;CCMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>
+                <div class="col-sm-8" style="margin-top:-7px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <b ng-show="ShowResolveCallcentreDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoSearch()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</b>
+                    <b ng-show="ShowPersonDetailsNew" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</b>
+                    <span ng-show="ShowPersonDetailsNew" style="font-weight:500">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;AP No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b><br />
+                        RSA ID No:<b class="text-success"> 5506085014000</b> &nbsp;Living Status:<b class="text-success"> Living</b> &nbsp;Age:<b class="text-success"> 66</b> &nbsp;Date of Birth:<b class="text-success"> 1955-06-08</b> &nbsp;Claims:<b class="text-success"> 0</b> &nbsp;
                     </span>
                 </div><!-- /.col -->
                 <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Trust</a></li>
-                        <li class="breadcrumb-item active">Query by Person</li>
+                        <li class="breadcrumb-item active">Administrator/ Resolve Call Center Ticket</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -87,13 +90,13 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <form ng-hide="ShowPersonDetails">
+            <form ng-show="ShowPersonDetails">
                 <div class="row">
                     <div class="col-12 col-lg-12">
                         <div class="card card-success card-outline">
                             @*<div class="card-header">
-                                    <h3 class="card-title">Query by Person</h3>
-                                </div>*@
+                            <h3 class="card-title">Query by Person</h3>
+                        </div>*@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 col-lg-3 mb-1">
@@ -101,11 +104,11 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                    <i class="fa fa-list"></i>
                                                 </span>
                                             </div>
                                             <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
-                                                <option value="">-- Select ID Type --</option>
+                                                <option value="">--Make a selection--</option>
                                                 <option value="Industry Number">Industry Number</option>
                                                 <option value="RSA ID Number">RSA ID Number</option>
                                                 <option value="Passport Number">Passport Number</option>
@@ -139,30 +142,6 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
-                                        <label>Bureau No</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="fa fa-sort-numeric-down"></i>
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-lg-3 mb-1">
-                                        <label>Person Reference</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="fa fa-user"></i>
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-3 mb-1">
                                         <label>First Name</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
@@ -181,9 +160,40 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             </div>
+                                            <input type="text" datepicker1 class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Ticket Reference</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-sort-numeric-down"></i>
+                                                </span>
+                                            </div>
                                             <input type="text" class="form-control form-control-sm" placeholder="">
                                         </div>
                                     </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Ticket Status</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                                <option value="">--Make a selection--</option>
+                                                <option value="Awaiting documents">Awaiting documents</option>
+                                                <option value="Backoffice Investigating">Backoffice Investigating</option>
+                                                <option value="Callcentre book">Callcentre book</option>
+                                                <option value="Callcentre call">Callcentre call</option>
+                                                <option value="Closed">Closed</option>
+                                                <option value="Open">Open</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12 col-lg-3 mb-1 text-center">
                                         <label></label>
                                         <div class="input-group">
@@ -205,79 +215,75 @@
                                     <thead>
                                         <tr style="background:#057a528c!important">
                                             <th>#</th>
-                                            <th>Industry No</th>
-                                            <th>ID No</th>
-                                            <th>Country</th>
-                                            <th>Passport No</th>
-                                            <th>First Names</th>
-                                            <th>Surname</th>
-                                            <th>Date of Birth</th>
+                                            <th>External Reference</th>
+                                            <th>Surname and Name</th>
+                                            <th>Industry</th>
+                                            <th>RSA ID</th>
+                                            <th>Passport</th>
+                                            <th>Bureau Number</th>
+                                            <th>Open Date</th>
+                                            <th class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1.</td>
-                                            <td>W1085979</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">5206105264186</a></td>
-                                            <td style="text-align:center">
-                                                <img src="~/Content/assets/flags/sa_flag.png" style="width:20px;height:20px" />
-                                            </td>
-                                            <td>199098</td>
-                                            <td>MACHASE</td>
-                                            <td>HOPO</td>
-                                            <td>1952-06-10</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">201202_DR_31</a></td>
+                                            <td>FOURIE THEUNIS</td>
+                                            <td></td>
+                                            <td>4109135083009</td>
+                                            <td></td>
+                                            <td>G2739</td>
+                                            <td>2020-12-02</td>
+                                            <td class="text-center"><b class="badge bg-red pb-1" style="width: 160px !important; font-size: 10pt !important">Closed</b></td>
                                         </tr>
                                         <tr>
                                             <td>2.</td>
-                                            <td>W1082332</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">5601085713089</a></td>
-                                            <td style="text-align:center">
-                                                <img src="~/Content/assets/flags/zb_flag.png" style="width:20px;height:20px" />
-                                            </td>
-                                            <td>324678</td>
-                                            <td>NGXALABA</td>
-                                            <td>J</td>
-                                            <td>1980-06-04</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">210120_38_SM</a></td>
+                                            <td>FOURIE CULLEN DEON</td>
+                                            <td></td>
+                                            <td>4109135083009</td>
+                                            <td></td>
+                                            <td>G2739</td>
+                                            <td>2020-12-02</td>
+                                            <td class="text-center"><b class="badge bg-red pb-1" style="width: 160px !important; font-size: 10pt !important">Closed</b></td>
                                         </tr>
                                         <tr>
                                             <td>3.</td>
-                                            <td>W1098789</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">4204230021085</a></td>
-                                            <td style="text-align:center">
-                                                <img src="~/Content/assets/flags/mz_flag.png" style="width:20px;height:20px" />
-                                            </td>
-                                            <td>876908</td>
-                                            <td>Van Der Merwe</td>
-                                            <td>J.E</td>
-                                            <td>1971-01-04</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">210209_DR_15</a></td>
+                                            <td>FOURIE CULLEN DEON</td>
+                                            <td></td>
+                                            <td>4109135083009</td>
+                                            <td></td>
+                                            <td>G2739</td>
+                                            <td>2020-12-02</td>
+                                            <td class="text-center"><b class="badge bg-warning pb-1" style="width: 160px !important; font-size: 10pt !important">Backoffice investigating</b></td>
                                         </tr>
                                         <tr>
                                             <td>4.</td>
-                                            <td>W8765678</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">8911195577085</a></td>
-                                            <td style="text-align:center">
-                                                <img src="~/Content/assets/flags/nm_flag.png" style="width:20px;height:20px" />
-                                            </td>
-                                            <td>987789</td>
-                                            <td>BANDA TD</td>
-                                            <td>M</td>
-                                            <td>1973-08-23</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">210128_PS_02</a></td>
+                                            <td>FOURIE CULLEN DEON</td>
+                                            <td></td>
+                                            <td>4109135083009</td>
+                                            <td></td>
+                                            <td>G2739</td>
+                                            <td>2020-12-02</td>
+                                            <td class="text-center"><b class="badge bg-red pb-1" style="width: 160px !important; font-size: 10pt !important">Closed</b></td>
                                         </tr>
                                         <tr>
                                             <td>5.</td>
-                                            <td>W1508654</td>
-                                            <td><a href="#" ng-click="ShowPersonDetails1()">6206045922082</a></td>
-                                            <td style="text-align:center">
-                                                <img src="~/Content/assets/flags/bw_flag.png" style="width:20px;height:20px" />
-                                            </td>
-                                            <td>6768572</td>
-                                            <td>MOLAOA</td>
-                                            <td>ABRAM JANYANA</td>
-                                            <td>1962-06-04</td>
+                                            <td><a href="#" ng-click="ShowPersonDetails1()">210204_CM_05</a></td>
+                                            <td>FOURIE CULLEN DEON</td>
+                                            <td></td>
+                                            <td>4109135083009</td>
+                                            <td></td>
+                                            <td>G2739</td>
+                                            <td>2020-12-02</td>
+                                            <td class="text-center"><b class="badge bg-red pb-1" style="width:160px!important;font-size:10pt!important">Closed</b></td>
                                         </tr>
                                     </tbody>
 
-                                    
+
                                 </table>
                             </div>
                             <!-- /.card-body -->
@@ -285,8 +291,189 @@
                     </div>
                 </div>
             </form>
+            <div ng-show="ShowResolveCallcentreDetails">
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <div class="card card-success card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-Information-tab" data-toggle="pill" href="#custom-tabs-three-Information" role="tab" aria-controls="custom-tabs-three-Information" aria-selected="true">
 
-            <div ng-show="ShowPersonDetails">
+                                            <i class="fa fa-book" style="color:#057A52"></i>&nbsp;Information Request
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Booking-tab" data-toggle="pill" href="#custom-tabs-three-Booking" role="tab" aria-controls="custom-tabs-three-Booking" aria-selected="false">
+                                            <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;New Booking Approval
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-Information" role="tabpanel" aria-labelledby="custom-tabs-three-Information-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;">
+                                        <table id="example2" class="table table-bordered">
+                                            <thead>
+                                                <tr style="background:#057a528c!important">
+                                                    <th>#</th>
+                                                    <th>External Reference</th>
+                                                    <th>Minor</th>
+                                                    <th>Ticket Description</th>
+                                                    <th>Caller First Name</th>
+                                                    <th>Caller Surname</th>
+                                                    <th>Ticket Open Date</th>
+                                                    <th>Times not available</th>
+                                                    <th>Opened By</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210209_DR_15</a></td>
+                                                    <td>DANIEL JOHANNES FOURIE</td>
+                                                    <td></td>
+                                                    <td>DANIEL JOHANNES</td>
+                                                    <td>FOURIE</td>
+                                                    <td>2021-02-09 16:23:23	</td>
+                                                    <td></td>
+                                                    <td>Dimpho.Hlasa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">C-EADE2264DE4</a></td>
+                                                    <td>JOSEPH PHENYA</td>
+                                                    <td></td>
+                                                    <td>MOLEBOHENG CASTALLY</td>
+                                                    <td>PHENYA</td>
+                                                    <td>2021-02-22 14:40:27	</td>
+                                                    <td></td>
+                                                    <td>Hlanlaniso.Mzima</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">C-EAE178344C9</a></td>
+                                                    <td>THABO ALFRED MALAKOANA</td>
+                                                    <td></td>
+                                                    <td>THABO ALFRED</td>
+                                                    <td>MALAKOANA</td>
+                                                    <td>2021-02-23 15:30:14	</td>
+                                                    <td></td>
+                                                    <td>Hlanlaniso.Mzima</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210128_DR_01</a></td>
+                                                    <td>SAM AUPA RAKOMETSI</td>
+                                                    <td></td>
+                                                    <td>SAM AUPA</td>
+                                                    <td>RAKOMETSI</td>
+                                                    <td>2021-01-28 07:20:50	</td>
+                                                    <td></td>
+                                                    <td>Dimpho.Hlasa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210303_CM_12</a></td>
+                                                    <td>VUYISILE HARTSON BHADUZA</td>
+                                                    <td></td>
+                                                    <td>AYABULELA</td>
+                                                    <td>MBUCANE</td>
+                                                    <td>2021-03-03 10:36:15	</td>
+                                                    <td></td>
+                                                    <td>Constance.Mathonsi</td>
+                                                </tr>
+                                            </tbody>
+
+
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Booking" role="tabpanel" aria-labelledby="custom-tabs-three-Booking-tab">
+                                        <table id="example3" class="table table-bordered">
+                                            <thead>
+                                                <tr style="background:#057a528c!important">
+                                                    <th>#</th>
+                                                    <th>External Reference</th>
+                                                    <th>Minor</th>
+                                                    <th>Ticket Description</th>
+                                                    <th>Caller First Name</th>
+                                                    <th>Caller Surname</th>
+                                                    <th>Ticket Open Date</th>
+                                                    <th>Times not available</th>
+                                                    <th>Opened By</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210209_DR_15</a></td>
+                                                    <td>DANIEL JOHANNES FOURIE</td>
+                                                    <td></td>
+                                                    <td>DANIEL JOHANNES</td>
+                                                    <td>FOURIE</td>
+                                                    <td>2021-02-09 16:23:23	</td>
+                                                    <td></td>
+                                                    <td>Dimpho.Hlasa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">C-EADE2264DE4</a></td>
+                                                    <td>JOSEPH PHENYA</td>
+                                                    <td></td>
+                                                    <td>MOLEBOHENG CASTALLY</td>
+                                                    <td>PHENYA</td>
+                                                    <td>2021-02-22 14:40:27	</td>
+                                                    <td></td>
+                                                    <td>Hlanlaniso.Mzima</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">C-EAE178344C9</a></td>
+                                                    <td>THABO ALFRED MALAKOANA</td>
+                                                    <td></td>
+                                                    <td>THABO ALFRED</td>
+                                                    <td>MALAKOANA</td>
+                                                    <td>2021-02-23 15:30:14	</td>
+                                                    <td></td>
+                                                    <td>Hlanlaniso.Mzima</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210128_DR_01</a></td>
+                                                    <td>SAM AUPA RAKOMETSI</td>
+                                                    <td></td>
+                                                    <td>SAM AUPA</td>
+                                                    <td>RAKOMETSI</td>
+                                                    <td>2021-01-28 07:20:50	</td>
+                                                    <td></td>
+                                                    <td>Dimpho.Hlasa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">210303_CM_12</a></td>
+                                                    <td>VUYISILE HARTSON BHADUZA</td>
+                                                    <td></td>
+                                                    <td>AYABULELA</td>
+                                                    <td>MBUCANE</td>
+                                                    <td>2021-03-03 10:36:15	</td>
+                                                    <td></td>
+                                                    <td>Constance.Mathonsi</td>
+                                                </tr>
+                                            </tbody>
+
+
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ShowPersonDetailsNew">
                 <div class="row">
                     <div class="col-12 col-sm-12">
                         <div class="card card-success card-outline card-tabs">
@@ -300,26 +487,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">
-                                            <i class="fa fa-globe-africa"  style="color:#057A52"></i>&nbsp;Address
+                                            <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;Address
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">
-                                            <i class="fa fa-address-book"  style="color:#057A52"></i>&nbsp;Contacts</a>
+                                            <i class="fa fa-address-book" style="color:#057A52"></i>&nbsp;Contacts
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-AllContacts-tab" data-toggle="pill" href="#custom-tabs-three-AllContacts" role="tab" aria-controls="custom-tabs-three-AllContacts" aria-selected="false">
-                                            <i class="fa fa-address-card"  style="color:#057A52"></i>&nbsp;All Contacts
+                                            <i class="fa fa-address-card" style="color:#057A52"></i>&nbsp;All Contacts
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Bank-tab" data-toggle="pill" href="#custom-tabs-three-Bank" role="tab" aria-controls="custom-tabs-three-Bank" aria-selected="false">
+                                            <i class="fa fa-building" style="color:#057A52"></i>&nbsp;Bank Details
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">
-                                            <i class="fa fa-file-contract"  style="color:#057A52"></i>&nbsp;Documents
+                                            <i class="fa fa-file-contract" style="color:#057A52"></i>&nbsp;Documents
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-CallCentre-tab" data-toggle="pill" href="#custom-tabs-three-CallCentre" role="tab" aria-controls="custom-tabs-three-CallCentre" aria-selected="false">
                                             <i class="fa fa-headset" style="color:#057A52"></i>&nbsp;Call Center
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-PaymentAudit-tab" data-toggle="pill" href="#custom-tabs-three-PaymentAudit" role="tab" aria-controls="custom-tabs-three-PaymentAudit" aria-selected="false">
+                                            <i class="fa fa-headset" style="color:#057A52"></i>&nbsp;Payment Audit
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -334,21 +532,30 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-ServiceHist-tab" data-toggle="pill" href="#custom-tabs-three-ServiceHist" role="tab" aria-controls="custom-tabs-three-ServiceHist" aria-selected="false">
-                                        <i class="fa fa-user-clock" style="color:#057A52"></i>&nbsp;
-                                        Service Hist</a>
+                                            <i class="fa fa-user-clock" style="color:#057A52"></i>&nbsp;
+                                            Service Hist
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-ServiceSummary-tab" data-toggle="pill" href="#custom-tabs-three-ServiceSummary" role="tab" aria-controls="custom-tabs-three-ServiceSummary" aria-selected="false">
-                                        <i class="fa fa-user-cog" style="color:#057A52"></i>&nbsp;
-                                        Service Summary</a>
+                                            <i class="fa fa-user-cog" style="color:#057A52"></i>&nbsp;
+                                            Service Summary
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Claims-tab" data-toggle="pill" href="#custom-tabs-three-Claims" role="tab" aria-controls="custom-tabs-three-Claims" aria-selected="false">
-                                        <i class="fa fa-user-check" style="color:#057A52"></i>&nbsp;Claims</a>
+                                            <i class="fa fa-user-check" style="color:#057A52"></i>&nbsp;Claims
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-AssociatedClaims-tab" data-toggle="pill" href="#custom-tabs-three-AssociatedClaims" role="tab" aria-controls="custom-tabs-three-AssociatedClaims" aria-selected="false">
+                                            <i class="fa fa-user-check" style="color:#057A52"></i>&nbsp;Associated Claims
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-PersonFlags-tab" data-toggle="pill" href="#custom-tabs-three-PersonFlags" role="tab" aria-controls="custom-tabs-three-PersonFlags" aria-selected="false">
-                                        <i class="fa fa-flag-checkered" style="color:#057A52"></i>&nbsp;Person Flags</a>
+                                            <i class="fa fa-flag-checkered" style="color:#057A52"></i>&nbsp;Person Flags
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -892,6 +1099,98 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Bank" role="tabpanel" aria-labelledby="custom-tabs-three-Bank-tab">
+                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Account Details</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        Account holder initials
+                                                                    </td>
+                                                                    <td><b></b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Account holder</td>
+                                                                    <td><b></b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Bank/building society</td>
+                                                                    <td>
+                                                                        <select class="form-control" disabled>
+                                                                            <option selected>STANDARD BANK</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Branch code</td>
+                                                                    <td><b>001005</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Account Type</td>
+                                                                    <td>
+                                                                        <select class="form-control" disabled>
+                                                                            <option selected></option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Other account type</td>
+                                                                    <td><b>Other type..</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Bank stamp date</td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control" placeholder="YYYY-MM-DD" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sequence</td>
+                                                                    <td><b>351292</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Account verified status</td>
+                                                                    <td><b>NONE</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Account linked to claim</td>
+                                                                    <td><b>No</b></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:70%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Document View</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
+                                                <table class="table table-bordered" width="100%">
+                                                    <thead>
+                                                        <tr style="background:#057a528c!important">
+                                                            <th>#</th>
+                                                            <th>Documents</th>
+                                                            <th>Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Documents" role="tabpanel" aria-labelledby="custom-tabs-three-Documents-tab">
                                         <div class="card card-gray border" style="width:30%!important;float:left!important">
                                             <div class="card-header">
@@ -1015,6 +1314,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-PaymentAudit" role="tabpanel" aria-labelledby="custom-tabs-three-PaymentAudit-tab">
+                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title"></h4>
+                                            </div>
+                                            <div class="card-body">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Bookings" role="tabpanel" aria-labelledby="custom-tabs-three-Bookings-tab">
                                         <div class="card card-gray border" style="width:100%!important;float:left!important">
                                             <div class="card-header">
@@ -1057,12 +1365,26 @@
                                     <div class="tab-pane fade" id="custom-tabs-three-X-Ray" role="tabpanel" aria-labelledby="custom-tabs-three-X-Ray-tab">
                                         <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
                                             <div class="card-header">
-                                                <h4 class="card-title text-red">CCMS: No studies found</h4>
+                                                <h4 class="card-title text-red pull-left">CCMS: No studies found</h4>&nbsp;&nbsp;
+                                                <i class="fa fa-sync pull-right text-warning"></i>
                                             </div>
                                         </div>
                                         <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
                                             <div class="card-header">
-                                                <h4 class="card-title text-red">AURUM: No studies found</h4>
+                                                <h4 class="card-title text-red pull-left">AURUM: No studies found</h4>&nbsp;&nbsp;
+                                                <i class="fa fa-sync pull-right text-warning"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
+                                            <div class="card-header">
+                                                <h4 class="card-title text-red pull-left">TECHMED Proxy: Error, Unable to read ORTHANC response</h4>&nbsp;&nbsp;
+                                                <i class="fa fa-sync pull-right text-warning"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card border" style="width:100%!important;float:left!important;background-color:#bfbfbf!important;font-weight:500">
+                                            <div class="card-header">
+                                                <h4 class="card-title text-red pull-left">MBOD Archive: No studies found</h4>&nbsp;&nbsp;
+                                                <i class="fa fa-sync pull-right text-warning"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -1093,7 +1415,7 @@
                                                 </button>
                                             </li>
                                         </ul>
-                                        <div class="tab-content" id="custom-tabs-three-tabContentSub">
+                                        <div class="tab-content" id="custom-tabss-three-tabContentSub">
                                             <div class="tab-pane fade show active" id="custom-tabs-three-Consolidated" role="tabpanel" aria-labelledby="custom-tabs-three-Consolidated-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
                                                 <div class="card card-gray border" style="width:100%!important;float:left!important">
                                                     <div class="card-header">
@@ -1101,8 +1423,24 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="row">
-                                                            <div class="col-12 col-lg-12">                                                                
-                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">                                                                  
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>Period</th>
+                                                                            <th>Days</th>
+                                                                            <th>Standard Mine Name</th>
+                                                                            <th>Site / Operation</th>
+                                                                            <th>Overall Risk</th>
+                                                                            <th>Occupation Risk</th>
+                                                                            <th>Risk Area</th>
+                                                                            <th>Risk Shifts</th>
+                                                                            <th>All Shifts</th>
+                                                                            <th>TEBA Declared Risk Area</th>
+                                                                            <th>Mine / Contractor</th>
+                                                                            <th>Source</th>
+                                                                        </tr>
+                                                                    </thead>
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
@@ -1114,6 +1452,7 @@
                                                                             <td>Underground</td>
                                                                             <td>938</td>
                                                                             <td>938</td>
+                                                                            <td>Underground</td>
                                                                             <td></td>
                                                                             <td>Ashanti</td>
                                                                         </tr>
@@ -1127,6 +1466,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1140,6 +1480,7 @@
                                                                             <td>Underground</td>
                                                                             <td>938</td>
                                                                             <td>938</td>
+                                                                            <td>Underground</td>
                                                                             <td></td>
                                                                             <td>Ashanti</td>
                                                                         </tr>
@@ -1153,6 +1494,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1166,6 +1508,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1179,6 +1522,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1192,6 +1536,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1205,6 +1550,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1218,6 +1564,7 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
@@ -1231,21 +1578,193 @@
                                                                             <td>Unknown</td>
                                                                             <td>0</td>
                                                                             <td>0</td>
+                                                                            <td>Underground</td>
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
-                                                                    </tbody>                                                                   
+                                                                    </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade show active" id="custom-tabs-three-ScheduleFCons" role="tabpanel" aria-labelledby="custom-tabs-three-ScheduleFCons-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-
+                                            <div class="tab-pane fade show" id="custom-tabs-three-ScheduleFCons" role="tabpanel" aria-labelledby="custom-tabs-three-ScheduleFCons-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title"></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>Period</th>
+                                                                            <th>Days</th>
+                                                                            <th>Standard Mine Name</th>
+                                                                            <th>Site / Operation</th>
+                                                                            <th>Overall Risk</th>
+                                                                            <th>Occupation Risk</th>
+                                                                            <th>Risk Area</th>
+                                                                            <th>Risk Shifts</th>
+                                                                            <th>All Shifts</th>
+                                                                            <th>TEBA Declared Risk Area</th>
+                                                                            <th>Mine / Contractor</th>
+                                                                            <th>Source</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td>Underground</td>
+                                                                            <td>BRACKEN GOLD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-846</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>RISK</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>938</td>
+                                                                            <td>938</td>
+                                                                            <td>Underground</td>
+                                                                            <td></td>
+                                                                            <td>Ashanti</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;RISK</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-angle-down"></i>&nbsp;1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#bfbfbf">
+                                                                            <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
+                                                                            <td>268</td>
+                                                                            <td>FreddiesFSGeduld</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>UNKNOWN</td>
+                                                                            <td><i class="fa fa-angle-right"></i>&nbsp;Unknown</td>
+                                                                            <td>Unknown</td>
+                                                                            <td>0</td>
+                                                                            <td>0</td>
+                                                                            <td>Underground</td>
+                                                                            <td>FREE STATE GEDULD MINE</td>
+                                                                            <td>TEBA</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="tab-pane fade show active" id="custom-tabs-three-TEBAPdf" role="tabpanel" aria-labelledby="custom-tabs-three-TEBAPdf-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-
+                                            <div class="tab-pane fade show" id="custom-tabs-three-TEBAPdf" role="tabpanel" aria-labelledby="custom-tabs-three-TEBAPdf-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                                <iframe src="~/Uploads/Inspection.pdf" width="100%" height="400px">
+                                                </iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -1345,36 +1864,63 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Claims" role="tabpanel" aria-labelledby="custom-tabs-three-Claims-tab">
-                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
                                             <div class="card-header">
-                                                <h4 class="card-title">CCMS MBOD claims</h4>
+                                                <h4 class="card-title">Step details</h4>
                                             </div>
-                                            <div class="card-body">
+                                            <div class="card-body" style="height:400px!important">
                                                 <div class="row">
-                                                    <div class="col-12 col-lg-12">
-                                                        <table class="table table-bordered" width="100%">
-                                                            <thead>
-                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
-                                                                    <th>#</th>
-                                                                    <th>Claim Id</th>
-                                                                    <th>Source</th>
-                                                                    <th>Claim Date</th>
-                                                                    <th>Status</th>
-                                                                    <th>Certification Date</th>
-                                                                    <th>Finding/Degree</th>
-                                                                    <th>Paid</th>
-                                                                </tr>
-                                                            </thead>
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>1</td>
-                                                                    <td>FO7B5B80 MCS_008342745</td>
-                                                                    <td>MBOD Migration</td>
-                                                                    <td>2006-03-14</td>
-                                                                    <td>Medically Certified</td>
-                                                                    <td>2008-01-28</td>
-                                                                    <td>2nd Degree and TB</td>
-                                                                    <td></td>
+                                                                    <td>
+                                                                        <div style="background-color:#057a52!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">1. Claim Lodged</a>
+                                                                        </div>                                                                        
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                       
+                                                                        <div style="background-color:#057a528c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">2. Benefits Medical Examination</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                        
+                                                                        <div style="background-color:#287dae!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">3. Medical Panel Assessment</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                        
+                                                                        <div style="background-color:#7a65b0!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">4. Trust Certification</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                       
+                                                                        <div style="background-color:#b8d75c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">5. Mine Agent Review</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                        
+                                                                        <div style="background-color:#53a898!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">6. Approval and Payment</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>                                                                        
+                                                                        <div style="background-color:#5ac476!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">7. Ineligible Claim</a>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -1382,39 +1928,230 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                        <div class="card card-gray border" style="width:70%!important;float:left!important">
                                             <div class="card-header">
-                                                <h4 class="card-title">CCMS Tshiamiso claims</h4>
+                                                <h4 class="card-title">View Claims</h4>
                                             </div>
-                                            <div class="card-body">
+                                            <div class="card-body" style="height:400px!important" ng-show="ShowClaimsList">
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">CCMS MBOD claims</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>#</th>
+                                                                            <th>Claim Id</th>
+                                                                            <th>Source</th>
+                                                                            <th>Claim Date</th>
+                                                                            <th>Status</th>
+                                                                            <th>Certification Date</th>
+                                                                            <th>Finding/Degree</th>
+                                                                            <th>Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>FO7B5B80 MCS_008342745</td>
+                                                                            <td>MBOD Migration</td>
+                                                                            <td>2006-03-14</td>
+                                                                            <td>Medically Certified</td>
+                                                                            <td>2008-01-28</td>
+                                                                            <td>2nd Degree and TB</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">CCMS Tshiamiso claims</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>#</th>
+                                                                            <th>Claim Id</th>
+                                                                            <th>Source</th>
+                                                                            <th>Claim Date</th>
+                                                                            <th>Status</th>
+                                                                            <th>Certification Date</th>
+                                                                            <th>Finding/Degree</th>
+                                                                            <th>Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-AssociatedClaims" role="tabpanel" aria-labelledby="custom-tabs-three-AssociatedClaims-tab">
+                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Step details</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important">
                                                 <div class="row">
-                                                    <div class="col-12 col-lg-12">
-                                                        <table class="table table-bordered" width="100%">
-                                                            <thead>
-                                                                <tr style="background:#057a528c!important;font-size:10pt!important">
-                                                                    <th>#</th>
-                                                                    <th>Claim Id</th>
-                                                                    <th>Source</th>
-                                                                    <th>Claim Date</th>
-                                                                    <th>Status</th>
-                                                                    <th>Certification Date</th>
-                                                                    <th>Finding/Degree</th>
-                                                                    <th>Paid</th>
-                                                                </tr>
-                                                            </thead>
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
+                                                                    <td>
+                                                                        <div style="background-color:#057a52!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">1. Claim Lodged</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#057a528c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">2. Benefits Medical Examination</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#287dae!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">3. Medical Panel Assessment</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#7a65b0!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">4. Trust Certification</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#b8d75c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">5. Mine Agent Review</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#53a898!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">6. Approval and Payment</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="background-color:#5ac476!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
+                                                                            <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">7. Ineligible Claim</a>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:70%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">View Claims</h4>
+                                            </div>
+                                            <div class="card-body" style="height:400px!important" ng-show="ShowClaimsList">
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">CCMS MBOD claims</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>#</th>
+                                                                            <th>Claim Id</th>
+                                                                            <th>Source</th>
+                                                                            <th>Claim Date</th>
+                                                                            <th>Status</th>
+                                                                            <th>Certification Date</th>
+                                                                            <th>Finding/Degree</th>
+                                                                            <th>Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>FO7B5B80 MCS_008342745</td>
+                                                                            <td>MBOD Migration</td>
+                                                                            <td>2006-03-14</td>
+                                                                            <td>Medically Certified</td>
+                                                                            <td>2008-01-28</td>
+                                                                            <td>2nd Degree and TB</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card card-gray border" style="width:100%!important;float:left!important">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">CCMS Tshiamiso claims</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%">
+                                                                    <thead>
+                                                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                                                            <th>#</th>
+                                                                            <th>Claim Id</th>
+                                                                            <th>Source</th>
+                                                                            <th>Claim Date</th>
+                                                                            <th>Status</th>
+                                                                            <th>Certification Date</th>
+                                                                            <th>Finding/Degree</th>
+                                                                            <th>Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1482,15 +2219,23 @@
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script>
-    $(function () {
+<script>$(function () {
         //alert();
         $.noConflict();/////
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
-</script>
+    $("#example2").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    $("#example3").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+    });</script>
+
+
 
 

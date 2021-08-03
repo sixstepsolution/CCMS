@@ -1,0 +1,418 @@
+﻿@{
+    ViewBag.Title = "AddLodgementBooking";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+
+
+<style>
+    .breadcrumb-item a {
+        color: #125e1d !important;
+    }
+
+    .nav-item a {
+        color: #000;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 11pt !important
+    }
+
+        .nav-item a:hover {
+            color: #000;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 11pt !important
+        }
+
+    label {
+        font-weight: 400 !important;
+        /*font-size: 10pt !important;*/
+        margin-bottom: -5px !important;
+        margin-top: -10px !important;
+    }
+
+    .form-control {
+        /*font-size: 10pt !important*/
+    }
+
+    .content-header .breadcrumb {
+        background-color: transparent;
+        line-height: 0.7rem !important;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .card-title {
+        float: left;
+        font-size: 0.9rem !important;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .table td, .table th {
+        padding: 0.1rem !important;
+        vertical-align: top;
+        /*border-top: 1px solid #dee2e6;*/
+    }
+
+    .text-success-custom {
+        color: #057a52 !important;
+    }
+</style>
+<script src="~/AngularJs/controllers/AddLodgementBookingCntrl.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+<div ng-controller="AddLodgementBookingCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row m-b-0">
+                <div class="col-sm-8" style="margin-top:-7px!important;margin-bottom:-11px!important;font-size:9pt!important">
+                    @*<a ng-show="ShowResolveCallcentreDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoSearch()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>*@
+                    <a ng-show="ShowPersonDetailsNew" style="cursor:pointer!important;font-size:11pt!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
+                    <span ng-show="ShowPersonDetailsNew" style="font-weight:500">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;AP No:<b class="text-success"> AP116166013</b> &nbsp;First name: <b class="text-success">MOAHLOLI JACOB</b> &nbsp;Surname: <b class="text-success">THABANA</b>&nbsp;Industry No: <b class="text-success">R0924425</b>
+                        RSA ID No:<b class="text-success"> 6309145325089</b>&nbsp;Passport No:<b class="text-success"> 6844657</b> &nbsp;Living Status:<b class="text-success"> Living</b> &nbsp;Age:<b class="text-success"> 57</b> &nbsp;Date of Birth:<b class="text-success"> 1963-09-14</b> &nbsp;Claims:<b class="text-success"> 0</b> &nbsp;
+                    </span>
+                </div><!-- /.col -->
+                <div class="col-sm-4">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
+                        <li class="breadcrumb-item active">Add Lodgement Booking</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div ng-show="ShowPersonDetails">
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <div class="card card-success card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-Summary-tab" data-toggle="pill" href="#custom-tabs-three-Summary" role="tab" aria-controls="custom-tabs-three-Summary" aria-selected="true">
+
+                                            <i class="fa fa-book" style="color:#057A52"></i>&nbsp;Inbox
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;">
+                                        <table id="example2" class="table table-bordered">
+                                            <thead>
+                                                <tr style="background:#057a528c!important">
+                                                    <th>#</th>
+                                                    <th>External Reference</th>
+                                                    <th>Minor</th>
+                                                    <th>Ticket Description</th>
+                                                    <th>Caller First Name</th>
+                                                    <th>Caller Surname</th>
+                                                    <th>Ticket Open Date</th>
+                                                    <th># Times not available</th>
+                                                    <th>Opened By</th>
+                                                    <th>Last Conversation</th>
+                                                    <th>Last Updated</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td><a href="#" ng-click="ShowNewPersonDetails()">C-EAEB2EA786F</a></td>
+                                                    <td>MOAHLOLI JACOB THABANA</td>
+                                                    <td></td>
+                                                    <td>MOAHLOLI JACOB</td>
+                                                    <td>THABANA</td>
+                                                    <td>2021-02-26 13:01:04</td>
+                                                    <td></td>
+                                                    <td>Hlanlaniso.Mzima</td>
+                                                    <td>fhatuwani.magaba</td>
+                                                    <td>2021-07-29 13:19:47</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="ShowPersonDetailsNew">
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <div class="card card-success card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-CaptureCaller-tab" data-toggle="pill" href="#custom-tabs-three-CaptureCaller" role="tab" aria-controls="custom-tabs-three-CaptureCaller" aria-selected="true">
+                                            <i class="fa fa-headset" style="color:#057A52"></i>&nbsp;Capture Caller Information
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">
+                                            <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;Lodgement Office
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">
+                                            <i class="fa fa-file" style="color:#057A52"></i>&nbsp;Required Documents
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-CaptureCaller" role="tabpanel" aria-labelledby="custom-tabs-three-CaptureCaller-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-12 mb-1">
+                                                <b style="text-align:justify;color:#1749b0">
+                                                    Please enter basic caller information below. For the mobile number, please capture the full mobile number (without the country code) and ensure there are no spaces or special characters; an example of a valid South African mobile number is 0825550000
+                                                </b>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Is the caller the miner?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option selected value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Is the miner living?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option selected value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>What is the caller's relationship with the miner? </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="Father">Father</option>
+                                                        <option value="Son">Son</option>
+                                                        <option value="Daughter">Daughter</option>
+                                                        <option selected value="Mother">Mother</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's first name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="AZAEL MADIBO">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's surname</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="PULUMA">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's preferred language</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="English" selected>English</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's nearest town</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-city"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="Welkom, Free State, South Africa">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's mobile number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-mobile"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="+27 0723413200">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <b class="text-success">Alternative Contact Details</b>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>First Name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="MZWAKHE">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Surname</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="MSIBI">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Contact relationship?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="Father">Father</option>
+                                                        <option value="Son">Son</option>
+                                                        <option value="Daughter">Daughter</option>
+                                                        <option selected value="COUSIN">COUSIN</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Town</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="Welkom, Free State, South Africa">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Mobile Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="+27 012635187">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <div class="pull-right">
+                                                    <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom">Next >></button>&nbsp;
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Address" role="tabpanel" aria-labelledby="custom-tabs-three-Address-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-Contacts" role="tabpanel" aria-labelledby="custom-tabs-three-Contacts-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<!-- DataTables  & Plugins -->
+@*<script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>*@
+<script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $(function () {
+        //alert();
+        $.noConflict();/////
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $("#example2").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+        $("#example3").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+    });</script>

@@ -173,13 +173,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJs\controllers\AddLodgementBookingCntrl.js" />
     <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
+    <Content Include="AngularJs\controllers\LogOutboundCall.js" />
     <Content Include="AngularJs\controllers\MaintainPersonDoc.js" />
+    <Content Include="AngularJs\controllers\PrepareClaimCntrl.js" />
     <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
     <Content Include="AngularJs\controllers\DeceaseRegisterCntrl.js" />
     <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
+    <Content Include="AngularJs\controllers\ResolveCallcenterCntrl.js" />
     <Content Include="AngularJs\controllers\UpdatePerson.js" />
+    <Content Include="AngularJs\controllers\ViewLodgementCntrl.js" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
@@ -5789,7 +5794,7 @@
     <Content Include="Views\Home\QueryByPerson.cshtml" />
     <Content Include="Uploads\Inspection.pdf" />
     <Content Include="Views\Home\Trust.cshtml" />
-    <Content Include="Views\Home\ReceiveInnbondCall.cshtml" />
+    <Content Include="Views\Home\ReceiveInboundCall.cshtml" />
     <Content Include="Views\Home\CallCenter.cshtml" />
     <Content Include="Views\Home\Other_Login.cshtml" />
     <Content Include="Views\Home\CCMS_Login.cshtml" />
@@ -5797,6 +5802,12 @@
     <Content Include="Views\Home\DeceasedRegister.cshtml" />
     <Content Include="Views\Home\MaintainPersonDoc.cshtml" />
     <Content Include="Views\Home\UpdatePerson.cshtml" />
+    <Content Include="Views\Home\LogOutboundCall.cshtml" />
+    <Content Include="Views\Home\AddLodgementBooking.cshtml" />
+    <Content Include="Views\Home\ChangeLodgementBooking.cshtml" />
+    <Content Include="Views\Home\PrepareClaim.cshtml" />
+    <Content Include="Views\Home\ResolveCallcenterTicket.cshtml" />
+    <Content Include="Views\Home\ViewLodgementBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

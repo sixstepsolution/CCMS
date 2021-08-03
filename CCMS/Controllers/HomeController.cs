@@ -304,7 +304,7 @@ namespace CCMS.Controllers
 
 
 
-        public ActionResult ReceiveInnbondCall()
+        public ActionResult ReceiveInboundCall()
         {
 
             return View();
@@ -326,5 +326,38 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult LogOutboundCall()
+        {
+
+            return View();
+        }
+
+        public ActionResult AddLodgementBooking()
+        {
+
+            return View();
+        }
+        public ActionResult ChangeLodgementBooking()
+        {
+
+            return View();
+        }
+        public ActionResult ViewLodgementBookings()
+        {
+
+            return View();
+        }
+        public ActionResult ResolveCallcenterTicket()
+        {
+
+            return View();
+        }
+        public ActionResult PrepareClaim()
+        {
+
+            return View();
+        }
+
+
     }
 }

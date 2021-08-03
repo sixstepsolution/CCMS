@@ -7,6 +7,13 @@
     $scope.IsData = false;
     $scope.IsSaving = false;
     $scope.isCreate = false;
+    $scope.showDocument = function () {
+       // alert()
+        //$scope.ShowIframe = false;
+        $timeout(function () {
+            $scope.ShowIframe = true;
+        }, 1000);
+    }
    // $scope.ShowMiner();
     $scope.ReceiveInbondCallList = [];
     $scope.minerDynamicList = [];

@@ -1,0 +1,342 @@
+﻿
+@{
+    ViewBag.Title = "ViewLodgementBookings";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+
+
+<style>
+    .breadcrumb-item a {
+        color: #125e1d !important;
+    }
+
+    .customtd {
+        border: none !important;
+    }
+
+    .nav-item a {
+        color: #000;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 11pt !important
+    }
+
+        .nav-item a:hover {
+            color: #000;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 11pt !important
+        }
+
+    label {
+        font-weight: 400 !important;
+        /*font-size: 10pt !important;*/
+        margin-bottom: -5px !important;
+        margin-top: -10px !important;
+    }
+
+    .form-control {
+        /*font-size: 10pt !important*/
+    }
+
+    .content-header .breadcrumb {
+        background-color: transparent;
+        line-height: 0.7rem !important;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .card-title {
+        float: left;
+        font-size: 0.9rem !important;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .table td, .table th {
+        padding: 0.1rem !important;
+        vertical-align: top;
+        /*border-top: 1px solid #dee2e6;*/
+    }
+
+    .text-success-custom {
+        color: #057a52 !important;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        margin-left: 0.5em;
+        display: inline-block;
+        width: auto;
+        margin-top: 5px !important;
+    }
+</style>
+<script src="~/AngularJs/controllers/ViewLodgementCntrl.js"></script>
+<!-- DataTables -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
+<div ng-controller="ViewLodgementCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row m-b-0">
+                <div class="col-sm-8" style="margin-top:-5px!important;margin-bottom:-11px!important;font-size:10pt!important">
+                    <b ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</b>                                      
+                </div><!-- /.col -->
+                <div class="col-sm-4">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
+                        <li class="breadcrumb-item active">View Lodgement Booking</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <form ng-show="ShowSearchDetails">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-success card-outline">
+                            @*<div class="card-header">
+                                    <h3 class="card-title">Query by Person</h3>
+                                </div>*@
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking Type</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                                <option value="">-- Make a selection --</option>
+                                                <option value="BME Site">BME Site</option>
+                                                <option value="Lodgement Site">Lodgement Site</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Site</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm" name="site" ng-model="site">
+                                                <option value="">-- Make a selection --</option>
+                                                <option value="AURUM SEBOKENG">AURUM SEBOKENG</option>
+                                                <option value="HOME LODGEMENT">HOMELODGEMENT</option>
+                                                <option value="TEBA BRITS">TEBA BRITS</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking Start Date </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking End Date</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-4 mb-1">
+                                    </div>
+                                    <div class="col-12 col-lg-4 mb-1 text-center">
+                                        <label></label>
+                                        <div class="input-group">
+                                            <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom"><i class="fa fa-search"></i>&nbsp;Search</button>&nbsp;
+                                            <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-print"></i>&nbsp;Print</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 mb-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div ng-show="ShowPersonDetails">
+                <div class="card">
+                    <div class="card-header card-gray">
+                        <h3 class="card-title">Mon, 02 Aug 2021</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">                        
+                        <div class="row">
+                            <div class="col-12 col-lg-12 mb-3" style="font-size:10pt!important">
+                                <div class="callout callout-info pt-1 pb-1" style="width:15%!important;float:left!important">
+                                    <b>Total slots</b>
+                                    <p>
+                                        <b class="text-success">15</b>
+                                    </p>
+                                </div>
+                                <div class="callout callout-info pt-1 pb-1" style="width:35%!important;float:left!important">
+                                    <b>Slots Allocated to Bookings (including priority)</b>
+                                    <p>
+                                        <b class="text-success">14 (0 priority / 14 manual / 0 waiting list)</b>
+                                    </p>
+                                </div>
+                                <div class="callout callout-info pt-1 pb-1" style="width:15%!important;float:left!important">
+                                    <b>Total Slots Booked</b>
+                                    <p>
+                                        <b class="text-success">2</b>
+                                    </p>
+                                </div>
+                                <div class="callout callout-info pt-1 pb-1" style="width:20%!important;float:left!important">
+                                    <b>Booked Slots Processed</b>
+                                    <p>
+                                        <b class="text-success">0</b>
+                                    </p>
+                                </div>
+                                <div class="callout callout-info pt-1 pb-1" style="width:15%!important;float:left!important">
+                                    <b>Walk-in Slots</b>
+                                    <p>
+                                        <b class="text-success">1</b>
+                                    </p>
+                                </div>
+                                <table class="table table-bordered" id="example1" width="100%" style="font-size:10pt!important">
+                                    <thead>
+                                        <tr style="background:#057a528c!important;font-size:10pt!important">
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Surname</th>
+                                            <th>Mobile Number</th>
+                                            <th>Miner ID/Industry Number</th>
+                                            <th>Miner</th>
+                                            <th>Relationship to Miner</th>
+                                            <th>Miner Name</th>
+                                            <th>Miner Surname</th>
+                                            <th>Times</th>
+                                            <th>External Ref</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>CURA</td>
+                                            <td>TOR</td>
+                                            <td>27827787788</td>
+                                            <td>7109155795083</td>
+                                            <td>N</td>
+                                            <td>CURATOR</td>
+                                            <td>PHONE EPHRAIM</td>
+                                            <td>SEREKEHO</td>
+                                            <td>Morning (08:00 - 12:00)</td>
+                                            <td>C-ECE0E8E680B</td>
+                                            <td class="text-center"><b class="badge bg-green pb-1" style="width: 100px !important; font-size: 10pt !important">Booked</b></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>EXEC</td>
+                                            <td>UTOR</td>
+                                            <td>27825556677</td>
+                                            <td>6311065940087</td>
+                                            <td>N</td>
+                                            <td>EXECUTOR</td>
+                                            <td>LIMO</td>
+                                            <td>DLALA</td>
+                                            <td>AFTERNOON (13:00 - 16:00)</td>
+                                            <td>C-ECE0F7804A2</td>
+                                            <td class="text-center"><b class="badge bg-green pb-1" style="width: 100px !important; font-size: 10pt !important">Booked</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+
+    <div class="modal" id="ClaimantImageModal">
+        <div class="modal-dialog" style="width:70%!important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Images</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-1">
+                            <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                        <div class="col-12 col-lg-6 mb-1">
+                            <img src="~/Content/dashboardNew/dist/img/avatar2.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DataTables  & Plugins -->
+@*<script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>*@
+<script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $(function () {
+        //alert();
+        $.noConflict();/////
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        
+        //$("#MedicalDone").DataTable({
+        //    "responsive": true, "lengthChange": false, "autoWidth": false
+        //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+

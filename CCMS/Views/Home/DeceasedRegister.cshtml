@@ -432,6 +432,58 @@
 
 
                                                                 <div class="row">
+
+                                                                    <div class="col-12 col-lg-3 mb-1">
+                                                                        <label>Foreign ID </label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" readonly class="form-control form-control-sm" placeholder="" name="Foreign_ID" ng-model="ModelData.Foreign_ID">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Foreign ID')">
+                                                                                    <i class="fa fa-plus">&nbsp;Add</i>
+                                                                                </span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 col-lg-3 mb-1">
+                                                                        <label>Ethnic group</label>
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="fa fa-sort-alpha-down"></i>
+                                                                                </span>
+                                                                            </div>
+
+                                                                            <select class="form-control form-control-sm" name="Ethnic_Group" ng-model="ModelData.Ethnic_Group">
+                                                                                <option ng-value="">Ethnic group</option>
+                                                                                <option value="Black" class="text-info"> Black </option>
+                                                                                <option class="text-info" value="Coloured"> Coloured </option>
+                                                                                <option class="text-info" value="Indian"> Indian </option>
+                                                                                <option class="text-info" value="Other"> Other </option>
+                                                                                <option class="text-info" value="Unknown"> Unknown </option>
+                                                                                <option class="text-info" value="White"> White </option>
+                                                                                <option value="African"> African </option>
+                                                                                <option value="Bophuthatswana"> Bophuthatswana </option>
+                                                                                <option value="Chinese"> Chinese </option>
+                                                                                <option value="Lesotho"> Lesotho </option>
+                                                                                <option value="Malay"> Malay </option>
+                                                                                <option value="Ndebele"> Ndebele </option>
+                                                                                <option value="North-Sotho"> North-Sotho </option>
+                                                                                <option value="Other Asian"> Other Asian </option>
+                                                                                <option value="Other Coloured"> Other Coloured </option>
+                                                                                <option value="Shangaan"> Shangaan </option>
+                                                                                <option value="Sotho"> Sotho </option>
+                                                                                <option value="South-Sotho"> South-Sotho </option>
+                                                                                <option value="Swazi"> Swazi </option>
+                                                                                <option value="Transkei"> Transkei </option>
+                                                                                <option value="Tswana"> Tswana </option>
+                                                                                <option value="Venda"> Venda </option>
+                                                                                <option value="Xhosa"> Xhosa </option>
+                                                                                <option value="Zulu"> Zulu </option>
+                                                                                <option></option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-12 col-lg-3 mb-1">
                                                                         <label>Language preference *</label>
                                                                         <div class="input-group">
@@ -770,95 +822,99 @@
                                                     <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Date of Death and Proof of Death Documents</h3>
                                                 </div>
                                                 <div class="card-body">
+                                                    
                                                     <div class="row">
-                                                        <div class="col-12 col-lg-12 mb-1">
-                                                            <h6>Register Deceased Person : Jaishankar Boddu</h6>
-                                                        </div>
-                                                        <div class="col-12 col-lg-12 mb-1">
-                                                            <label>Please enter the mine worker's date of death below and upload accompanying proof of death documents </label>
+                                                        <div class="col-12 col-sm-12">
 
-                                                        </div>
-                                                        <div class="col-12 col-lg-3 mb-1">
-                                                            <label>
-                                                                Date of Death *
-                                                            </label>
-                                                            <div class="input-group">
-                                                                <input type="text" datepicker1 class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
-                                                                        <i class="fa fa-calendar"></i>
-                                                                    </span>
+                                                            <div class="card card-gray border" style="width:50%!important;float:left!important">
+                                                                <div class="card-header">
+                                                                    <h4 class="card-title">Documents</h4>
                                                                 </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-lg-12 mb-1">
+                                                                            <h6>Register Deceased Person : Jaishankar Boddu</h6>
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-12 mb-1">
+                                                                            <label>Please enter the mine worker's date of death below and upload accompanying proof of death documents </label>
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12">
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-6 mb-1">
+                                                                            <label>
+                                                                                Date of Death *
+                                                                            </label>
+                                                                            <div class="input-group">
+                                                                                <input type="text" datepicker1 class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text  btn btn-success-custom">
+                                                                                        <i class="fa fa-calendar"></i>
+                                                                                    </span>
+                                                                                </div>
 
-                                                        <div class="card card-success card-outline border" style="width:50%!important;float:left!important">
-                                                            <div class="card-header">
-                                                                <h4 class="card-title">Documents</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col-12 col-lg-12 mb-3">
-                                                                        <div class="card card-gray border">
-                                                                            <div class="card-header">
-                                                                                <h4 class="card-title">Group : Deceased Proof of Death	At least one</h4>
-                                                                                <a class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addAtleastOneDocumentsModal"><i class="fa fa-plus"></i>&nbsp;Add</a>
-
-                                                                            </div>
-                                                                            <div class="card-body">
-                                                                                <table border="0" width="100%">
-                                                                                    <tbody>
-
-                                                                                        <tr>
-                                                                                            <td style="width:85%">Death Certificate</td>
-                                                                                            <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
-                                                                                        </tr>
-
-                                                                                    </tbody>
-                                                                                </table>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="card card-gray border">
-                                                                            <div class="card-header">
-                                                                                <h4 class="card-title">Optional group</h4>
-                                                                                <a class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addOptionalDocumentModal"><i class="fa fa-plus"></i>&nbsp;Add</a>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-lg-12 mb-3">
+                                                                            <div class="card card-gray border">
+                                                                                <div class="card-header">
+                                                                                    <h4 class="card-title">Group : Deceased Proof of Death	At least one</h4>
+                                                                                    <a class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addAtleastOneDocumentsModal"><i class="fa fa-plus"></i>&nbsp;Add</a>
 
-                                                                            </div>
-                                                                            <div class="card-body">
-                                                                                <table border="0" width="100%" class="mt-2">
-                                                                                    <tbody>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <table border="0" width="100%">
+                                                                                        <tbody>
 
-                                                                                        <tr>
-                                                                                            <td style="width:85%">Adoption Proof </td>
-                                                                                            <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td style="width:85%">Attorney Documentation </td>
-                                                                                            <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
+                                                                                            <tr>
+                                                                                                <td style="width:85%">Death Certificate</td>
+                                                                                                <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
+                                                                                            </tr>
+
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
                                                                             </div>
+                                                                            <div class="card card-gray border">
+                                                                                <div class="card-header">
+                                                                                    <h4 class="card-title">Optional group</h4>
+                                                                                    <a class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addOptionalDocumentModal"><i class="fa fa-plus"></i>&nbsp;Add</a>
+
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <table border="0" width="100%" class="mt-2">
+                                                                                        <tbody>
+
+                                                                                            <tr>
+                                                                                                <td style="width:85%">Adoption Proof </td>
+                                                                                                <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td style="width:85%">Attorney Documentation </td>
+                                                                                                <td style="width:15%"><a class="btn btn-sm btn-success-custom" href="#" ng-click="showDocument()"><i class="fa fa-eye"></i>&nbsp;View</a></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+
+
                                                                         </div>
-
-
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="card card-gray border" style="width:50%!important;float:left!important">
-                                                            <div class="card-header">
-                                                                <h4 class="card-title">Document View</h4>
+                                                            <div class="card card-gray border" style="width:50%!important;float:left!important">
+                                                                <div class="card-header">
+                                                                    <h4 class="card-title">Document View</h4>
+                                                                </div>
+                                                                <div class="card-body" style="height:420px!important">
+                                                                    <iframe src="~/Uploads/Inspection.pdf" width="100%" height="400px" ng-show="ShowIframe">
+                                                                    </iframe>
+                                                                </div>
                                                             </div>
-                                                            <div class="card-body" style="height:400px!important">
-                                                                <iframe src="~/Uploads/Inspection.pdf" width="100%" height="400px" ng-show="ShowIframe">
-                                                                </iframe>
-                                                            </div>
-                                                        </div>
 
+
+                                                        </div>
 
                                                     </div>
                                                     <div class="card-footer">
@@ -919,7 +975,7 @@
                                                                         <label>Road / Street </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  m" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                <span class="input-group-text  m">
                                                                                     <i class="fa fa-street-view"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -931,7 +987,7 @@
                                                                         <label>Plot / Stand / House No </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
+                                                                                <span class="input-group-text  ">
                                                                                     <i class="fa fa-sort-numeric-down"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="1001" placeholder="" name="Bureau_Number" ng-model="ModelData.Bureau_Number">
@@ -943,7 +999,7 @@
                                                                         <label>Village / Suburb </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
+                                                                                <span class="input-group-text  ">
                                                                                     <i class="fa fa-sort-alpha-down"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="68009876754635" placeholder="" name="ID_No" ng-model="ModelData.ID_No">
@@ -955,7 +1011,7 @@
                                                                         <label>Town / City </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                                                                <span class="input-group-text  ">
                                                                                     <span class="fa fa-location-arrow"></span>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
@@ -971,7 +1027,7 @@
                                                                         <label>Province / Region / District </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                                                                <span class="input-group-text  ">
                                                                                     <span class="fa fa-location-arrow"></span>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
@@ -1104,9 +1160,9 @@
                                                             <div class="card-body">
                                                                 <div class="row">
                                                                     <div class="col-12 col-lg-12 mb-1">
-                                                                        <div class="icheck-primary d-inline" style="margin-right:20px">
-                                                                            <input type="checkbox" id="genderRadio1" name="Gender" ng-model="ModelData.Gender" value="Male">
-                                                                            <label for="genderRadio1">
+                                                                        <div class="form-check" style="margin-right:20px">
+                                                                            <input type="checkbox" class="form-check-input" id="chk" name="Gender">
+                                                                            <label class="form-check-label" for="genderRadio1">
                                                                                 postal address same as residential address?
                                                                             </label>
                                                                         </div>
@@ -1117,7 +1173,7 @@
                                                                         <label>Road / Street </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                <span class="input-group-text  ">
                                                                                     <i class="fa fa-street-view"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -1129,7 +1185,7 @@
                                                                         <label>Plot / Stand / House No </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
+                                                                                <span class="input-group-text ">
                                                                                     <i class="fa fa-sort-numeric-down"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="1001" placeholder="" name="Bureau_Number" ng-model="ModelData.Bureau_Number">
@@ -1141,7 +1197,7 @@
                                                                         <label>Village / Suburb </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
+                                                                                <span class="input-group-text ">
                                                                                     <i class="fa fa-sort-alpha-down"></i>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="68009876754635" placeholder="" name="ID_No" ng-model="ModelData.ID_No">
@@ -1153,7 +1209,7 @@
                                                                         <label>Town / City </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                                                                <span class="input-group-text ">
                                                                                     <span class="fa fa-location-arrow"></span>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
@@ -1169,7 +1225,7 @@
                                                                         <label>Province / Region / District </label>
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                                                                <span class="input-group-text ">
                                                                                     <span class="fa fa-location-arrow"></span>
                                                                                 </span>
                                                                             </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
@@ -1352,7 +1408,7 @@
                                                                             <div class="input-group">
                                                                                 <input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                    <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#SendPINModal" >
                                                                                         <i class="fa fa-phone"> Send Pin</i>
                                                                                     </span>
                                                                                 </div>
@@ -1364,7 +1420,7 @@
                                                                             <div class="input-group">
                                                                                 <input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                    <span class="input-group-text  btn btn-success-custom" style="cursor: pointer;" data-toggle="modal" data-target="#SendPINModal" >
                                                                                         <i class="fa fa-phone"> Send Pin</i>
                                                                                     </span>
                                                                                 </div>
@@ -1375,7 +1431,7 @@
                                                                             <label>Other No 1</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text" style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                    <span class="input-group-text" >
                                                                                         <i class="fa fa-phone"></i>
                                                                                     </span>
                                                                                 </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -1387,7 +1443,7 @@
                                                                             <label>Other No 2</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                    <span class="input-group-text " >
                                                                                         <i class="fa fa-phone"></i>
                                                                                     </span>
                                                                                 </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -1399,7 +1455,7 @@
                                                                             <label>Email</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                                                                    <span class="input-group-text  " >
                                                                                         <i class="fa fa-envelope"></i>
                                                                                     </span>
                                                                                 </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -1676,6 +1732,38 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="SendPINModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Enter PIN</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <label>Enter pin sent to mobile phone</label>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control form-control-sm" placeholder="PIN">
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal" id="MinerEmployerModal">
         <div class="modal-dialog modal-sm">
@@ -2594,7 +2682,7 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
                     </div>
 
@@ -3136,7 +3224,7 @@
                                     <label>Road / Street </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Industry Number')">
+                                            <span class="input-group-text " >
                                                 <i class="fa fa-street-view"></i>
                                             </span>
                                         </div><input type="text" class="form-control form-control-sm" value="Mining" placeholder="" name="Industry_Number" ng-model="ModelData.Industry_Number">
@@ -3148,7 +3236,7 @@
                                     <label>Plot / Stand / House No </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Bureau Number')">
+                                            <span class="input-group-text " >
                                                 <i class="fa fa-sort-numeric-down"></i>
                                             </span>
                                         </div><input type="text" class="form-control form-control-sm" value="1001" placeholder="" name="Bureau_Number" ng-model="ModelData.Bureau_Number">
@@ -3160,7 +3248,7 @@
                                     <label>Village / Suburb </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('ID No')">
+                                            <span class="input-group-text " >
                                                 <i class="fa fa-sort-alpha-down"></i>
                                             </span>
                                         </div><input type="text" class="form-control form-control-sm" value="68009876754635" placeholder="" name="ID_No" ng-model="ModelData.ID_No">
@@ -3172,7 +3260,7 @@
                                     <label>Town / City </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text  " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                            <span class="input-group-text  " >
                                                 <span class="fa fa-location-arrow"></span>
                                             </span>
                                         </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
@@ -3188,7 +3276,7 @@
                                     <label>Province / Region / District </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text " style="cursor: pointer;" data-toggle="modal" data-target="#myModal" ng-click="addModel('Passport')">
+                                            <span class="input-group-text " >
                                                 <span class="fa fa-location-arrow"></span>
                                             </span>
                                         </div><input type="text" class="form-control form-control-sm" value="u909900 SOUTH AFRICA" placeholder="" name="Passport" ng-model="ModelData.Passport">
