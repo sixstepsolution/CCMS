@@ -2,8 +2,10 @@
     $scope.IsShowSearchdata = false;
     $scope.pdfModel = "";
     $scope.ShowIframe = false;
+    $scope.isList = true;
     $scope.showNewCall = false;
-    $scope.showNewCall = false;
+    $scope.isDetails = false;
+    $scope.ShowPersonDetailsNew = false;
     $scope.IsBack = false;
     $scope.IsData = false;
     $scope.IsSaving = false;
@@ -12,6 +14,55 @@
     $scope.ReceiveInbondCallList = [];
     $scope.minerDynamicList = [];
     $scope.MinerModel = {};
+
+    $scope.showDocument = function () {
+        //$scope.ShowIframe = false;
+        $timeout(function () {
+            $scope.ShowIframe = true;
+        }, 2000);
+    }
+    $scope.showClaimDetails = function () {
+        //$scope.ShowIframe = false;
+        $timeout(function () {
+            $scope.ShowClaimsList = true;
+        }, 2000);
+    }
+    $scope.changeIDType = function (id_type) {
+        $scope.IdNumber = id_type;
+    }
+
+    $scope.showNewPersonData = function () {
+        $scope.ShowPersonDetailsNew = true;
+        $scope.isDetails = true;
+        $scope.IsBack = false;
+        $scope.IsData = true;
+        $scope.isList = false;
+        $scope.showNewCall = false;
+        $scope.IsShowSearchdata = false;
+
+    }
+    $scope.BacktoView = function () {
+        $scope.ShowPersonDetailsNew = false;
+        $scope.isDetails = false;
+        $scope.IsBack = true;
+        $scope.IsData = true;
+        $scope.isList = false;
+        $scope.showNewCall = true;
+        $scope.IsShowSearchdata = false;
+
+    }
+    $scope.BacltoList = function () {
+        $scope.showNewCall = false;
+        $scope.showReceiveInbondCall = false;
+        $scope.showQuestionnaire = false;
+        $scope.ShowPersonDetails = false;
+        $scope.IsShowSearchdata = true;
+        $scope.ShowPersonDetailsNew = false;
+        $scope.isDetails = false;
+        $scope.IsBack = false;
+        $scope.IsData = false;
+        $scope.isList = true;
+    }
 
     //$scope.minerDynamicList = [{
     //    ID: 1,
@@ -49,8 +100,7 @@
     }
 
     $scope.NewReciveInbondCall = function () {
-        $scope.isCreate = true;
-
+        
         $scope.showNewCall = true;
         $scope.ShowPersonDetails = false;
         $scope.showQuestionnaire = false;
@@ -59,6 +109,9 @@
         $scope.IsShowSearchdata = false;
         $scope.IsBack = true;
         $scope.IsData = true;
+        $scope.ShowPersonDetailsNew = false;
+        $scope.isDetails = false;
+
     }
     $scope.Questionnaire = function () {
         $scope.showNewCall = false;
@@ -90,15 +143,7 @@
         $scope.IsBack = true;
         $scope.IsData = true;
     }
-    $scope.BacltoList = function () {
-        $scope.showNewCall = false;
-        $scope.showReceiveInbondCall = false;
-        $scope.showQuestionnaire = false;
-        $scope.ShowPersonDetails = false;
-        $scope.IsShowSearchdata = true;
-        $scope.IsBack = false;
-        $scope.IsData = false;
-    }
+    
     $scope.ShowReceiveIbondCalls = function () {
         $scope.isCreate = false;
         $scope.showNewCall = false;

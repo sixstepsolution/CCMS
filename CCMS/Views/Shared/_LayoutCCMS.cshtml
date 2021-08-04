@@ -232,6 +232,21 @@
         .has-error {
             border: 1px solid red
         }
+        .nav-tabs .nav-link {
+            border: 1px solid #ddd !important;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+        }
+
+            .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+                border-color: #057a52 #057a52 #fff #057a52 !important;
+            }
+
+            .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+                color: #495057;
+                background-color: #fff;
+                border-color: #057a52 #057a52 #fff #057a52 !important;
+            }
     </style>
     @*<style>
             .btn-success-custom {

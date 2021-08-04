@@ -64,7 +64,7 @@
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
-<div ng-controller="ResolveCallcenterCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+<div ng-controller="ResolveCallcenterCntrl" ng-cloak style="height:auto;zoom:0.8!important">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -95,8 +95,8 @@
                     <div class="col-12 col-lg-12">
                         <div class="card card-success card-outline">
                             @*<div class="card-header">
-                            <h3 class="card-title">Query by Person</h3>
-                        </div>*@
+                                    <h3 class="card-title">Query by Person</h3>
+                                </div>*@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 col-lg-3 mb-1">
@@ -160,7 +160,7 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" datepicker1 class="form-control form-control-sm" placeholder="">
+                                            <input type="text" class="form-control form-control-sm" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1">
@@ -308,7 +308,7 @@
                                             <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;New Booking Approval
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                             <div class="card-body">
@@ -465,7 +465,7 @@
 
                                         </table>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -1877,46 +1877,46 @@
                                                                     <td>
                                                                         <div style="background-color:#057a52!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">1. Claim Lodged</a>
-                                                                        </div>                                                                        
+                                                                        </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                       
+                                                                    <td>
                                                                         <div style="background-color:#057a528c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">2. Benefits Medical Examination</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                        
+                                                                    <td>
                                                                         <div style="background-color:#287dae!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">3. Medical Panel Assessment</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                        
+                                                                    <td>
                                                                         <div style="background-color:#7a65b0!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">4. Trust Certification</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                       
+                                                                    <td>
                                                                         <div style="background-color:#b8d75c!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">5. Mine Agent Review</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                        
+                                                                    <td>
                                                                         <div style="background-color:#53a898!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">6. Approval and Payment</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>                                                                        
+                                                                    <td>
                                                                         <div style="background-color:#5ac476!important;border-radius:5px!important;margin-bottom:3px!important;padding:5px!important;border-radius:5px!important">
                                                                             <a href="#" ng-click="showClaimDetails()" style="color:#fff!important">7. Ineligible Claim</a>
                                                                         </div>
@@ -2008,7 +2008,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                       
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-AssociatedClaims" role="tabpanel" aria-labelledby="custom-tabs-three-AssociatedClaims-tab">
                                         <div class="card card-gray border" style="width:30%!important;float:left!important">
@@ -2219,21 +2219,22 @@
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script>$(function () {
+<script>
+    $(function () {
         //alert();
         $.noConflict();/////
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $("#example2").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
-    $("#example3").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+        $("#example2").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+        $("#example3").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
     });</script>
 
 

@@ -96,7 +96,7 @@
                 <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
-                        <li class="breadcrumb-item active">Change Lodgement Booking</li>
+                        <li class="breadcrumb-item active">Change Lodgement/BME Booking</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -200,7 +200,62 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm" placeholder="">
+                                            <input type="text" datepicker2 class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking Type</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                                <option value="">-- Make a selection --</option>
+                                                <option value="BME Site">BME Site</option>
+                                                <option value="Lodgement Site">Lodgement Site</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Site</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control form-control-sm" name="site" ng-model="site">
+                                                <option value="">-- Make a selection --</option>
+                                                <option value="AURUM SEBOKENG">AURUM SEBOKENG</option>
+                                                <option value="HOME LODGEMENT">HOMELODGEMENT</option>
+                                                <option value="TEBA BRITS">TEBA BRITS</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking Start Date </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" datepicker2 class="form-control form-control-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-1">
+                                        <label>Booking End Date</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" datepicker2 class="form-control form-control-sm" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-3 mb-1 text-center">
@@ -210,7 +265,7 @@
                                             <button type="reset" class="btn btn-sm btn-danger-custom" style="width:100px!important"><i class="fa fa-times"></i>&nbsp;Clear</button>
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
 
@@ -237,11 +292,11 @@
                                             <td>1.</td>
                                             <td><a href="#">Z4806451</a></td>
                                             <td>8511015791088</td>
-                                            <td>                                                
+                                            <td>
                                             </td>
                                             <td>ABNER STORK THABISO</td>
                                             <td>SEREKEHO</td>
-                                            <td>1985-11-01</td>                                           
+                                            <td>1985-11-01</td>
                                         </tr>
                                         <tr>
                                             <td>2.</td>
@@ -275,7 +330,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>  
+                            </div>
                             <!-- /.card-body -->
                         </div>
                     </div>

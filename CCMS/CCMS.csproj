@@ -173,6 +173,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJs\controllers\AddDocumentsTicketsCtrl.js" />
     <Content Include="AngularJs\controllers\AddLodgementBookingCntrl.js" />
     <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
@@ -5796,9 +5797,9 @@
     <Content Include="Views\Home\Trust.cshtml" />
     <Content Include="Views\Home\ReceiveInboundCall.cshtml" />
     <Content Include="Views\Home\CallCenter.cshtml" />
-    <Content Include="Views\Home\Other_Login.cshtml" />
-    <Content Include="Views\Home\CCMS_Login.cshtml" />
-    <Content Include="Views\Home\CCMS_Roles.cshtml" />
+    <Content Include="Views\Home\Miner_Login.cshtml" />
+    <Content Include="Views\Home\CAS_Login.cshtml" />
+    <Content Include="Views\Home\CAS_Roles.cshtml" />
     <Content Include="Views\Home\DeceasedRegister.cshtml" />
     <Content Include="Views\Home\MaintainPersonDoc.cshtml" />
     <Content Include="Views\Home\UpdatePerson.cshtml" />
@@ -5808,6 +5809,7 @@
     <Content Include="Views\Home\PrepareClaim.cshtml" />
     <Content Include="Views\Home\ResolveCallcenterTicket.cshtml" />
     <Content Include="Views\Home\ViewLodgementBookings.cshtml" />
+    <Content Include="Views\Home\AddDocumentstoTickets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

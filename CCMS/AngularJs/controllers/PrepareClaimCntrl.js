@@ -17,7 +17,7 @@
         $timeout(function () {
             $scope.ShowIframe = false;
         }, 2000);
-    } 
+    }
 
     $scope.BacktoList = function () {
         $scope.ShowSearchDetails = true;
@@ -36,7 +36,7 @@
         $scope.ShowSearchDetails = false;
         $scope.ShowClaimantReviewDocuments = true;
         $scope.ShowPersonDetails = false;
-        
+
     }
     $scope.showDocument = function () {
         //$scope.ShowIframe = false;

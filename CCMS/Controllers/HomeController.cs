@@ -15,15 +15,15 @@ namespace CCMS.Controllers
         {
             return View();
         }
-           public ActionResult CCMS_Login()
+           public ActionResult CAS_Login()
         {
             return View();
         }
-           public ActionResult Other_Login()
+           public ActionResult Miner_Login()
         {
             return View();
         }
-           public ActionResult CCMS_Roles()
+           public ActionResult CAS_Roles()
         {
             return View();
         }
@@ -357,7 +357,11 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult AddDocumentstoTickets()
+        {
 
+            return View();
+        }
 
     }
 }

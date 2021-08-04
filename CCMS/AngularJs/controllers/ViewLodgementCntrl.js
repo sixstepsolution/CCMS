@@ -6,7 +6,7 @@
     $scope.ShowIframe = false;
     $scope.ShowReview = false;
     $scope.SearchbyPerson = function () {
-        $scope.ShowSearchDetails = false;
+        $scope.ShowSearchDetails = true;
         $scope.ShowPersonDetails = true;
     }
 

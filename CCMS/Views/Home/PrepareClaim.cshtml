@@ -8,8 +8,9 @@
     .breadcrumb-item a {
         color: #125e1d !important;
     }
+
     .customtd {
-    border:none!important;
+        border: none !important;
     }
 
     .nav-item a {
@@ -60,11 +61,12 @@
     .text-success-custom {
         color: #057a52 !important;
     }
+
     div.dataTables_wrapper div.dataTables_filter input {
         margin-left: 0.5em;
         display: inline-block;
         width: auto;
-        margin-top: 5px!important;
+        margin-top: 5px !important;
     }
 </style>
 <script src="~/AngularJs/controllers/PrepareClaimCntrl.js"></script>
@@ -79,13 +81,13 @@
         <div class="container-fluid">
             <div class="row m-b-0">
                 <div class="col-sm-9" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:10pt!important">
-                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
+                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
                     <span ng-show="ShowPersonDetails" style="font-weight:500">
                         <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;BME No:<b class="text-success"> CMS_000714191</b> &nbsp;First name: <b class="text-success">THABO SIMON</b> &nbsp;Surname: <b class="text-success">DLAMINI</b>&nbsp;Industry No: <b class="text-success">Z5068061</b>
                     </span>
-                    <a ng-show="ShowClaimantReviewDocuments" style="cursor:pointer!important" class="mr-2" ng-click="ShowPersonDetails1()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
+                    <a ng-show="ShowClaimantReviewDocuments" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="ShowPersonDetails1()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
                     <span ng-show="ShowClaimantReviewDocuments" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal"  style="cursor:pointer!important" />&nbsp;Surname: <b class="text-success">HLALAPHI</b>&nbsp;Name: <b class="text-success">EUNICE</b>&nbsp;Industry:<b class="text-success"> </b>  &nbsp;South African ID: <b class="text-success">5703160176081</b><br />
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;Surname: <b class="text-success">HLALAPHI</b>&nbsp;Name: <b class="text-success">EUNICE</b>&nbsp;Industry:<b class="text-success"> </b>  &nbsp;South African ID: <b class="text-success">5703160176081</b><br />
                         Passport: <b class="text-success"></b>&nbsp;Foreign ID: <b class="text-success"></b>&nbsp;Living Status: <b class="text-success">Live</b>&nbsp;BME Status: <b class="text-success">Trust Lodged</b>&nbsp;Birth Date: <b class="text-success">1957-03-16</b>&nbsp;Age: <b class="text-success">64</b>&nbsp;Claim No: <b class="text-success">CMS_000682397</b>&nbsp;
                     </span>
 
@@ -439,7 +441,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
@@ -453,7 +455,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
@@ -467,7 +469,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
@@ -481,7 +483,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
@@ -495,7 +497,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -533,7 +535,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
@@ -547,7 +549,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
@@ -561,7 +563,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
@@ -575,7 +577,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
@@ -589,7 +591,7 @@
                                                             <td><b class="text-red">Trust not segmented</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -627,7 +629,7 @@
                                                             <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
@@ -641,7 +643,7 @@
                                                             <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
@@ -655,7 +657,7 @@
                                                             <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
@@ -669,7 +671,7 @@
                                                             <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
@@ -683,7 +685,7 @@
                                                             <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -721,7 +723,7 @@
                                                             <td><b class="text-success">Tuberculosis Diagnosis </b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
@@ -735,7 +737,7 @@
                                                             <td><b class="text-success">Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
@@ -749,7 +751,7 @@
                                                             <td><b class="text-success">Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
@@ -763,7 +765,7 @@
                                                             <td><b class="text-success">Tuberculosis Diagnosis </b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
@@ -777,7 +779,7 @@
                                                             <td><b class="text-success">Tuberculosis Diagnosis </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -815,7 +817,7 @@
                                                             <td><b class="text-success">Normal</b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
@@ -829,7 +831,7 @@
                                                             <td><b class="text-success">Normal</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
@@ -843,7 +845,7 @@
                                                             <td><b class="text-success">Normal</b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
@@ -857,7 +859,7 @@
                                                             <td><b class="text-success">Normal</b></td>
                                                             <td>2020-06-26</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
@@ -871,7 +873,7 @@
                                                             <td><b class="text-success">Normal </b></td>
                                                             <td>2021-02-12</td>
                                                             <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
+                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View" ng-click="ShowClaimantReview()"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -893,13 +895,13 @@
                             <div class="card-header">
                                 <h5 class="text-center" style="font-size:13pt!important;color:#463f6b!important">Review Claimant Documents</h5>
                             </div>
-                            <div class="card-body">                                
+                            <div class="card-body">
                                 <div class="card card-gray border" style="width:35%!important;float:left!important">
                                     <div class="card-header">
                                         <h4 class="card-title text-center"><b>AP156292329</b></h4>
                                     </div>
                                     <div class="card-body" style="height:420px!important;overflow-x:hidden;overflow-y:auto!important">
-                                        <div class="row" ng-hide="ShowReview">
+                                        <div class="row">
                                             <div class="col-12 col-lg-12 mb-3">
                                                 <table id="Deceased" class="table table-bordered" width="100%">
                                                     <thead>
@@ -914,51 +916,58 @@
                                                         <tr>
                                                             <td>1.</td>
                                                             <td>Bank statement</td>
-                                                            <td>2020-06-26 12:46:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2.</td>
                                                             <td>Certified copy of ID/Passport document</td>
-                                                            <td>2020-06-26 11:28:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3.</td>
                                                             <td>Death Certificate</td>
-                                                            <td>2020-06-26 11:32:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4.</td>
                                                             <td>Trust Release Form</td>
-                                                            <td>2020-06-26 11:29:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>5.</td>
                                                             <td>Marriage Certificate</td>
-                                                            <td>2020-06-26 12:45:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>6.</td>
                                                             <td>Notice</td>
-                                                            <td>2020-06-26 12:00:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                         <tr>
                                                             <td>7.</td>
                                                             <td>Tshiamiso: Person Registration</td>
-                                                            <td>2020-06-26 12:00:00</td>
+                                                            <td>2020-06-26</td>
                                                             <td class="text-center"><button type="button" class="btn btn-sm btn-success-custom" ng-click="showDocument()">Review</button></td>
                                                         </tr>
                                                     </tbody>
-                                                </table>                                                
+                                                </table>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="card card-gray border" style="width:30%!important;float:left!important">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Review Details</h4>
+                                    </div>
+                                    <div class="card-body" style="height:420px!important">
                                         <div ng-show="ShowReview">
-                                            <a style="cursor:pointer!important" class="mr-2" ng-click="BackToReviewList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Review List</a>
+                                            @*<a style="cursor:pointer!important" class="mr-2" ng-click="BackToReviewList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Review List</a>*@
                                             <div class="row">
                                                 <div class="col-12 col-lg-12 mb-3">
                                                     <table class="table" border="0" width="100%">
@@ -999,7 +1008,8 @@
                                                             <td class="customtd"></td>
                                                         </tr>
                                                         <tr style="height:100px!important">
-                                                            <td colspan="2" class="text-center customtd"><br />
+                                                            <td colspan="2" class="text-center customtd">
+                                                                <br />
                                                                 <button type="button" class="btn btn-sm btn-success-custom"><i class="fa fa-save"></i>&nbsp;Accept</button>
                                                             </td>
                                                         </tr>
@@ -1009,7 +1019,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card card-gray border" style="width:65%!important;float:left!important">
+                                <div class="card card-gray border" style="width:35%!important;float:left!important">
                                     <div class="card-header">
                                         <h4 class="card-title">Document View</h4>
                                     </div>
@@ -1047,15 +1057,15 @@
                         <div class="col-12 col-lg-6 mb-1">
                             <img src="~/Content/dashboardNew/dist/img/avatar2.png" width="250" height="250" class="img-thumbnail" />
                         </div>
-                    </div>                        
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
                 </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
