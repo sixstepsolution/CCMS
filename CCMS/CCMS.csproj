@@ -175,6 +175,7 @@
   <ItemGroup>
     <Content Include="AngularJs\controllers\AddDocumentsTicketsCtrl.js" />
     <Content Include="AngularJs\controllers\AddLodgementBookingCntrl.js" />
+    <Content Include="AngularJs\controllers\ChangeLodgementBookingCntrl.js" />
     <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
     <Content Include="AngularJs\controllers\LogOutboundCall.js" />
@@ -186,6 +187,7 @@
     <Content Include="AngularJs\controllers\ResolveCallcenterCntrl.js" />
     <Content Include="AngularJs\controllers\UpdatePerson.js" />
     <Content Include="AngularJs\controllers\ViewLodgementCntrl.js" />
+    <Content Include="AngularJs\HTimeline.css" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
@@ -229,12 +231,21 @@
     <Content Include="Content\assets\fonts\iconfont\material-icons.css" />
     <Content Include="Content\assets\fonts\iconfont\MaterialIcons-Regular.svg" />
     <Content Include="Content\assets\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <Content Include="Content\assets\icons\icons8-1-key-50.png" />
     <Content Include="Content\assets\icons\address.png" />
     <Content Include="Content\assets\icons\add_lodge.png" />
     <Content Include="Content\assets\icons\allcontacts.png" />
     <Content Include="Content\assets\icons\BME_booking.png" />
     <Content Include="Content\assets\icons\change_lodge.png" />
     <Content Include="Content\assets\icons\contacts.png" />
+    <Content Include="Content\assets\icons\icons8-2-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-3-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-4-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-5-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-6-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-7-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-8-key-50.png" />
+    <Content Include="Content\assets\icons\icons8-9-key-50.png" />
     <Content Include="Content\assets\icons\inbond.png" />
     <Content Include="Content\assets\icons\log_outbond.png" />
     <Content Include="Content\assets\icons\query_person.png" />
@@ -934,6 +945,7 @@
     <Content Include="Content\assets\js\pages\widgets\widget.js" />
     <Content Include="Content\assets\js\table.min.js" />
     <Content Include="Content\assets\Tshiamiso_logo.svg" />
+    <Content Include="Content\assets\user_pic.png" />
     <Content Include="Content\autocomplete\angucomplete-alt.css" />
     <Content Include="Content\autocomplete\angucomplete-alt.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -4468,6 +4480,7 @@
     <Content Include="Content\dashboardNew\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\dashboardNew\plugins\toastr\toastr.js.map" />
     <Content Include="Content\assets\TRUST_REGISTER_DECEASED.PDF" />
+    <Content Include="AngularJs\test.scss" />
     <None Include="Content\dashboard\Scripts\_references.js" />
     <Content Include="Content\Timeline.css" />
     <Content Include="Content\toastr.css" />
@@ -5810,6 +5823,7 @@
     <Content Include="Views\Home\ResolveCallcenterTicket.cshtml" />
     <Content Include="Views\Home\ViewLodgementBookings.cshtml" />
     <Content Include="Views\Home\AddDocumentstoTickets.cshtml" />
+    <Content Include="Views\Home\UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

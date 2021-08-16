@@ -1,17 +1,13 @@
-﻿ccmsApp.controller('AddLodgementBookingCntrl', function ($scope, $timeout) {
+﻿ccmsApp.controller('ChangeLodgementBookingCntrl', function ($scope, $timeout) {
     $scope.IsShowSearchdata = false;
     $scope.ShowSearchDetails = true;
     $scope.SearchLoader = false;
-    $scope.ShowPersonDetails = true;
+    $scope.ShowPersonDetails = false;
     $scope.ShowInboxList = true;
     $scope.ShowPersonDetailsNew = false;
     $scope.ShowResolveCallcentreDetails = false;
     $scope.pdfModel = "";
     $scope.ShowIframe = false;
-
-    $scope.urlParams = new URLSearchParams(window.location.search);
-    $scope.myParam = $scope.urlParams.get('timeline');
-
     $scope.SearchbyPerson = function () {
         $scope.IsShowSearchdata = true;
     }
@@ -28,8 +24,8 @@
 
         $scope.ShowSearchDetails = false;
         //calendar.render();
-        $scope.ShowPersonDetails = false;
-        $scope.ShowPersonDetailsNew = true;
+        $scope.ShowPersonDetails = true;
+        $scope.ShowPersonDetailsNew = false;
         $scope.ShowResolveCallcentreDetails = false;
         $scope.IsShowSearchdata = false;
 
@@ -46,16 +42,11 @@
     }
 
     $scope.BacktoList = function () {
-        //alert($scope.myParam)
-        if ($scope.myParam) {
-            window.location.href = '../Home/QueryByPerson?timeline=true'
-        } else {
-            $scope.IsShowSearchdata = false;
-            $scope.ShowSearchDetails = true;
-            $scope.ShowPersonDetails = false;
-            $scope.ShowPersonDetailsNew = false;
-            $scope.ShowResolveCallcentreDetails = false;
-        }
+        $scope.IsShowSearchdata = false;
+        $scope.ShowSearchDetails = true;
+        $scope.ShowPersonDetails = false;
+        $scope.ShowPersonDetailsNew = false;
+        $scope.ShowResolveCallcentreDetails = false;
     }
     $scope.showDocument = function () {
         //$scope.ShowIframe = false;
@@ -68,15 +59,13 @@
     }
 
     $scope.LoadCalenderEventsNew = function () {
+        $scope.ShowPersonDetailsNew = true;
         $scope.SearchLoader = true;
         $timeout(function () {
             $scope.LoadCalenderEvents();
         }, 2000);
     }
-    if ($scope.myParam != null) {
 
-        $scope.ShowNewPersonDetails();
-    }
     $scope.LoadCalenderEvents = function () {
         $scope.SearchLoader = false;
         $(function () {
@@ -163,6 +152,21 @@
                     //    backgroundColor: '#f39c12', //yellow
                     //    borderColor: '#f39c12' //yellow
                     //},
+                    //{
+                    //    title: 'MOAHLOLI JACOB',
+                    //    start: new Date(y, m, d, 10, 30),
+                    //    allDay: true,
+                    //    backgroundColor: '#f39c12', //Blue
+                    //    borderColor: '#f39c12' //Blue
+                    //},
+                    //{
+                    //    title: 'THABANA ',
+                    //    start: new Date(y, m, d, 12, 0),
+                    //    end: new Date(y, m, d, 14, 0),
+                    //    allDay: true,
+                    //    backgroundColor: '#00a65a', //Info (aqua)
+                    //    borderColor: '#00a65a' //Info (aqua)
+                    //},
                     {
                         title: 'TEBA BRITS',
                         start: new Date(y, m, d, 12, 0),
@@ -170,7 +174,7 @@
                         allDay: true,
                         backgroundColor: '#00a65a', //Success (green)
                         borderColor: '#00a65a' //Success (green)
-                    },
+                    } ,
                     {
                         title: 'MOAHLOLI JACOB',
                         start: new Date(y, m, d + 4, 19, 0),
@@ -204,14 +208,6 @@
                         backgroundColor: '#00a65a', //Success (green)
                         borderColor: '#00a65a' //Success (green)
                     }
-                    //{
-                    //    title: 'TEBA BRITS',
-                    //    start: new Date(y, m, d + 1, 19, 0),
-                    //    end: new Date(y, m, d + 1, 22, 30),
-                    //    allDay: true,
-                    //    backgroundColor: '#f56954', //Success (green)
-                    //    borderColor: '#f56954' //Success (green)
-                    //}
                 ],
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!

@@ -1,22 +1,13 @@
 ﻿var ccmsApp = angular.module('ccmsApp', ['ngRoute', 'angucomplete-alt', 'ui.bootstrap']);
 //var ccmsApp = angular.module('ccmsApp', ['ngRoute', 'angucomplete-alt']);
-ccmsApp.run(function ($rootScope) {
-    //mainService.GetApplicationsAlertsWithCounts().then(function (result) {
-    //    console.log('load appplication alerts onload');
-    //    console.log(result.data);
-    //    var LeftMenuAlerts = result.data;
-    //    $rootScope.LeftMenuAlerts = LeftMenuAlerts;
-    //    $rootScope.RootInprogress = LeftMenuAlerts[1].count;
-    //    $rootScope.Rootcompleted = LeftMenuAlerts[2].count;
-    //    $rootScope.RootCancelled = LeftMenuAlerts[3].count;
-    //    //AuthenticationService.setApplicationCounts(result.data);
+//ccmsApp.run(function ($rootScope) {
+    
+//    $rootScope.isUSer = false;
+//}); 
 
-    //}, function (error) {
-    //    console.log(error.status)
-    //    console.log("Bad Request Process");
-    //});
-   
-}); 
+//ccmsApp.factory('UserService', function () {
+//    return { isUser:false}
+//});
 
 ccmsApp.filter('propsFilter', function () {
     return function (items, props) {

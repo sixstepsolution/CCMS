@@ -80,19 +80,23 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row m-b-0">
-                <div class="col-sm-9" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:10pt!important">
-                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
-                    <span ng-show="ShowPersonDetails" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;BME No:<b class="text-success"> CMS_000714191</b> &nbsp;First name: <b class="text-success">THABO SIMON</b> &nbsp;Surname: <b class="text-success">DLAMINI</b>&nbsp;Industry No: <b class="text-success">Z5068061</b>
-                    </span>
-                    <a ng-show="ShowClaimantReviewDocuments" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="ShowPersonDetails1()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
-                    <span ng-show="ShowClaimantReviewDocuments" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;Surname: <b class="text-success">HLALAPHI</b>&nbsp;Name: <b class="text-success">EUNICE</b>&nbsp;Industry:<b class="text-success"> </b>  &nbsp;South African ID: <b class="text-success">5703160176081</b><br />
-                        Passport: <b class="text-success"></b>&nbsp;Foreign ID: <b class="text-success"></b>&nbsp;Living Status: <b class="text-success">Live</b>&nbsp;BME Status: <b class="text-success">Trust Lodged</b>&nbsp;Birth Date: <b class="text-success">1957-03-16</b>&nbsp;Age: <b class="text-success">64</b>&nbsp;Claim No: <b class="text-success">CMS_000682397</b>&nbsp;
-                    </span>
-
+                <div class="col-sm-1" style="margin-top:-5px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back</a>
+                    <a ng-show="ShowClaimantReviewDocuments" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="ShowPersonDetails1()"><i class="fa fa-chevron-left"></i>&nbsp;Back</a>
                 </div><!-- /.col -->
-                <div class="col-sm-3">
+                <div class="col-sm-7" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
+                    <span ng-if="ShowPersonDetails==true" style="font-weight:500">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" /> &nbsp;BME No:<b class="text-success"> CMS_000714191</b> &nbsp;First name: <b class="text-success">THABO SIMON</b> &nbsp;Surname: <b class="text-success">DLAMINI</b>&nbsp;Industry No: <b class="text-success">Z5068061</b>
+                    </span>
+                    <div ng-show="ShowClaimantReviewDocuments" style="font-weight:500;">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important;float:left!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important;float:left!important" />&nbsp;
+                        <div style="margin-top: -10px !important">
+                            &nbsp;Surname: <b class="text-success">HLALAPHI</b>&nbsp;Name: <b class="text-success">EUNICE</b>&nbsp;Industry:<b class="text-success"> </b>  &nbsp;South African ID: <b class="text-success">5703160176081</b>
+                            Passport: <b class="text-success"></b>&nbsp;Foreign ID: <b class="text-success"></b>&nbsp;Living Status: <b class="text-success">Live</b>&nbsp;BME Status: <b class="text-success">Trust Lodged</b>&nbsp;Birth Date: <b class="text-success">1957-03-16</b>&nbsp;Age: <b class="text-success">64</b>&nbsp;Claim No: <b class="text-success">CMS_000682397</b>&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Trust</a></li>
                         <li class="breadcrumb-item active">Prepare Claim</li>
@@ -1051,10 +1055,12 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-12 col-lg-6 mb-1">
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b class="text-center">Home Affairs</b>
                             <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="250" height="250" class="img-thumbnail" />
                         </div>
-                        <div class="col-12 col-lg-6 mb-1">
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b>CCMS</b>
                             <img src="~/Content/dashboardNew/dist/img/avatar2.png" width="250" height="250" class="img-thumbnail" />
                         </div>
                     </div>

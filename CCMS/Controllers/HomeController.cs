@@ -362,6 +362,11 @@ namespace CCMS.Controllers
 
             return View();
         }
+        public ActionResult UserInfo()
+        {
+
+            return View();
+        }
 
     }
 }

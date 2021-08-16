@@ -10,12 +10,17 @@
     $scope.SearchbyPerson = function () {
         $scope.IsShowSearchdata = true;
     }
-
+    $(".timeline-wrapper .timeline-content-item > span").on("mouseenter mouseleave", function (e) {
+        $(".timeline-wrapper .timeline-content-item.active").removeClass("active");
+        $(this).parent().addClass("active");
+    });
+    
     $scope.ShowPersonDetails1 = function () {
         $scope.ShowPersonDetails = false;
         $scope.ShowPersonDetailsNew = false;
         $scope.ShowResolveCallcentreDetails = true;
         $scope.IsShowSearchdata = false;
+        
     }
 
     $scope.ShowNewPersonDetails = function () {
@@ -23,6 +28,7 @@
         $scope.ShowPersonDetailsNew = true;
         $scope.ShowResolveCallcentreDetails = false;
         $scope.IsShowSearchdata = false;
+         $scope.$parent.ParentMethod(true);
     }
 
     $scope.BacktoSearch = function () {
@@ -30,6 +36,8 @@
         $scope.ShowPersonDetails = true;
         $scope.ShowPersonDetailsNew = false;
         $scope.ShowResolveCallcentreDetails = false;
+        $scope.$parent.ParentMethod(false);
+
     }
 
     $scope.BacktoList = function () {
@@ -37,6 +45,9 @@
         $scope.ShowPersonDetails = true;
         $scope.ShowPersonDetailsNew = false;
         $scope.ShowResolveCallcentreDetails = false;
+        $scope.$parent.ParentMethod(false);
+
+       
     }
     $scope.showDocument = function (val) {
         $scope.DocumentName = val;

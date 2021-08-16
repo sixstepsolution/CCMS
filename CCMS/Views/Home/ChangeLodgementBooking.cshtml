@@ -70,21 +70,24 @@
         margin-top: 5px !important;
     }
 </style>
-<script src="~/AngularJs/controllers/PrepareClaimCntrl.js"></script>
+<script src="~/AngularJs/controllers/ChangeLodgementBookingCntrl.js"></script>
 <!-- DataTables -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/fontawesome-free/css/all.min.css">
+<!-- fullCalendar -->
+<link rel="stylesheet" href="~/Content/dashboardNew/plugins/fullcalendar/main.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">
-<div ng-controller="PrepareClaimCntrl" ng-cloak style="height:auto;zoom:0.9!important">
+<div ng-controller="ChangeLodgementBookingCntrl" ng-cloak style="height:auto;zoom:0.9!important">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row m-b-0">
                 <div class="col-sm-8" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:10pt!important">
-                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
+                    <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
                     <span ng-show="ShowPersonDetails" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;BME No:<b class="text-success"> CMS_000714191</b> &nbsp;First name: <b class="text-success">THABO SIMON</b> &nbsp;Surname: <b class="text-success">DLAMINI</b>&nbsp;Industry No: <b class="text-success">Z5068061</b>
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" /> &nbsp;BME No:<b class="text-success"> CMS_000714191</b> &nbsp;First name: <b class="text-success">THABO SIMON</b> &nbsp;Surname: <b class="text-success">DLAMINI</b>&nbsp;Industry No: <b class="text-success">Z5068061</b>
                     </span>
                     <a ng-show="ShowClaimantReviewDocuments" style="cursor:pointer!important" class="mr-2" ng-click="ShowPersonDetails1()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
                     <span ng-show="ShowClaimantReviewDocuments" style="font-weight:500">
@@ -211,7 +214,7 @@
                                                     <i class="fa fa-list"></i>
                                                 </span>
                                             </div>
-                                            <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                            <select class="form-control form-control-sm" name="id_type">
                                                 <option value="">-- Make a selection --</option>
                                                 <option value="BME Site">BME Site</option>
                                                 <option value="Lodgement Site">Lodgement Site</option>
@@ -275,58 +278,52 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered">
+                                <table class="table table-bordered" id="example1" width="100%" style="font-size:10pt!important">
                                     <thead>
-                                        <tr style="background:#057a528c!important">
+                                        <tr style="background:#057a528c!important;font-size:10pt!important">
                                             <th>#</th>
-                                            <th>Industry No</th>
-                                            <th>RSA ID No</th>
-                                            <th>Passport No</th>
-                                            <th>First names</th>
+                                            <th>First Name</th>
                                             <th>Surname</th>
-                                            <th>Date of birth</th>
+                                            <th>Mobile Number</th>
+                                            <th>Miner ID/Industry Number</th>
+                                            <th>Miner</th>
+                                            <th>Relationship to Miner</th>
+                                            <th>Miner Name</th>
+                                            <th>Miner Surname</th>
+                                            <th>Times</th>
+                                            <th>External Ref</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1.</td>
-                                            <td><a href="#">Z4806451</a></td>
-                                            <td>8511015791088</td>
-                                            <td>
-                                            </td>
-                                            <td>ABNER STORK THABISO</td>
+                                            <td><a href="#" ng-click="ShowNewPersonDetails()">CURA</a></td>
+                                            <td>TOR</td>
+                                            <td>27827787788</td>
+                                            <td>7109155795083</td>
+                                            <td>N</td>
+                                            <td>CURATOR</td>
+                                            <td>PHONE EPHRAIM</td>
                                             <td>SEREKEHO</td>
-                                            <td>1985-11-01</td>
+                                            <td>Morning (08:00 - 12:00)</td>
+                                            <td>C-ECE0E8E680B</td>
+                                            <td class="text-center"><b class="badge bg-green pb-1" style="width: 100px !important; font-size: 10pt !important">Booked</b></td>
+
                                         </tr>
                                         <tr>
                                             <td>2.</td>
-                                            <td><a href="#">Z5961158</a></td>
-                                            <td>8906065314080</td>
-                                            <td>
-                                            </td>
-                                            <td>BOITUMELO</td>
-                                            <td>SEREKEHO</td>
-                                            <td>1989-06-06</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td><a href="#">Z1827826</a></td>
-                                            <td>7911010373083</td>
-                                            <td>
-                                            </td>
-                                            <td>MAKI</td>
-                                            <td>SEREKEHO</td>
-                                            <td>1979-11-01</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4.</td>
-                                            <td><a href="#">Z3419477</a></td>
-                                            <td>8207305705082</td>
-                                            <td>
-                                            </td>
-                                            <td>MODUNGWA JONAS</td>
-                                            <td>SEREKEHO</td>
-                                            <td>1982-07-30</td>
+                                            <td><a href="#" ng-click="ShowNewPersonDetails()">EXEC</a></td>
+                                            <td>UTOR</td>
+                                            <td>27825556677</td>
+                                            <td>6311065940087</td>
+                                            <td>N</td>
+                                            <td>EXECUTOR</td>
+                                            <td>LIMO</td>
+                                            <td>DLALA</td>
+                                            <td>AFTERNOON (13:00 - 16:00)</td>
+                                            <td>C-ECE0F7804A2</td>
+                                            <td class="text-center"><b class="badge bg-green pb-1" style="width: 100px !important; font-size: 10pt !important">Booked</b></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -344,499 +341,326 @@
                             <div class="card-header p-0 pt-1 border-bottom-0">
                                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="custom-tabs-three-Summary-tab" data-toggle="pill" href="#custom-tabs-three-Summary" role="tab" aria-controls="custom-tabs-three-Summary" aria-selected="true">
-
-                                            <i class="fa fa-book-medical" style="color:#057A52"></i>&nbsp;Deceased
+                                        <a class="nav-link active" id="custom-tabs-three-CaptureCaller-tab" data-toggle="pill" href="#custom-tabs-three-CaptureCaller" role="tab" aria-controls="custom-tabs-three-CaptureCaller" aria-selected="true">
+                                            <i class="fa fa-headset" style="color:#057A52"></i>&nbsp;Capture Caller Information
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">
-                                            <i class="fa fa-notes-medical" style="color:#057A52"></i>&nbsp;No Medical Done
+                                            <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;Lodgement / BME Booking
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">
-                                            <i class="fa fa-hand-holding-heart" style="color:#057A52"></i>&nbsp;Medical Done, Silicosis
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-AllContacts-tab" data-toggle="pill" href="#custom-tabs-three-AllContacts" role="tab" aria-controls="custom-tabs-three-AllContacts" aria-selected="false">
-                                            <i class="fa fa-hand-holding-medical" style="color:#057A52"></i>&nbsp;Medical Done, Tuberculosis
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">
-                                            <i class="fa fa-laptop-medical" style="color:#057A52"></i>&nbsp;Other
+                                            <i class="fa fa-file" style="color:#057A52"></i>&nbsp;Required Documents
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-three-tabContent">
-                                    <div class="tab-pane fade show active" id="custom-tabs-three-Summary" role="tabpanel" aria-labelledby="custom-tabs-three-Summary-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-CaptureCaller" role="tabpanel" aria-labelledby="custom-tabs-three-CaptureCaller-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
                                         <div class="row">
-                                            <div class="col-12 col-lg-12 pt-1">
-                                                <table id="Deceased" class="table table-bordered" width="100%">
-                                                    <thead>
-                                                        <tr style="background:#057a528c!important">
-                                                            <th>#</th>
-                                                            <th>Submission No</th>
-                                                            <th>Source</th>
-                                                            <th>Surname</th>
-                                                            <th>Industry No</th>
-                                                            <th>RSA Id No</th>
-                                                            <th>Intial Segmentation</th>
-                                                            <th>Created Date</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-center">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000682397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714574</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000745333</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000716654</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div class="col-12 col-lg-12 mb-1">
+                                                <b style="text-align:justify;color:#1749b0">
+                                                    Please enter basic caller information below. For the mobile number, please capture the full mobile number (without the country code) and ensure there are no spaces or special characters; an example of a valid South African mobile number is 0825550000
+                                                </b>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Is the caller the miner?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option selected value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Is the miner living?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option selected value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>What is the caller's relationship with the miner? </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="Father">Father</option>
+                                                        <option value="Son">Son</option>
+                                                        <option value="Daughter">Daughter</option>
+                                                        <option selected value="Mother">Mother</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's first name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="AZAEL MADIBO">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's surname</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="PULUMA">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's preferred language</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="English" selected>English</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's nearest town</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-city"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="Welkom, Free State, South Africa">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Miner's mobile number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-mobile"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="+27 0723413200">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <b class="text-success">Alternative Contact Details</b>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>First Name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="MZWAKHE">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Surname</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="MSIBI">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Contact relationship?</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-list"></i>
+                                                        </span>
+                                                    </div>
+                                                    <select class="form-control form-control-sm">
+                                                        <option value="">-- Make a selection --</option>
+                                                        <option value="Father">Father</option>
+                                                        <option value="Son">Son</option>
+                                                        <option value="Daughter">Daughter</option>
+                                                        <option selected value="COUSIN">COUSIN</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Town</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="Welkom, Free State, South Africa">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <label>Mobile Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm" placeholder="" value="+27 012635187">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 mb-1">
+                                                <div class="pull-right">
+                                                    <button type="button" ng-click="SearchbyPerson()" style="width:100px!important" class="btn btn-sm btn-success-custom">Next >></button>&nbsp;
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Address" role="tabpanel" aria-labelledby="custom-tabs-three-Address-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-12">
-                                                <table id="Nomedical" class="table table-bordered" width="100%">
-                                                    <thead>
-                                                        <tr style="background:#057a528c!important">
-                                                            <th>#</th>
-                                                            <th>Submission No</th>
-                                                            <th>Source</th>
-                                                            <th>Surname</th>
-                                                            <th>Industry No</th>
-                                                            <th>RSA Id No</th>
-                                                            <th>Intial Segmentation</th>
-                                                            <th>Created Date</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-center">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000682397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714574</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000765544</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000789779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-red">Trust not segmented</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                        <div class="card card-gray border" style="width:30%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Bookings</h4>
+                                            </div>
+                                            <div class="card-body" style="height:600px!important">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12 mb-3">
+                                                        <table border="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Booking Type</td>
+                                                                    <td>
+                                                                        <select class="form-control form-control-sm" name="id_type" ng-model="id_type" ng-change="changeIDType(id_type)">
+                                                                            <option value="">-- Make a selection --</option>
+                                                                            <option value="BME Site">BME Site</option>
+                                                                            <option value="Lodgement Site">Lodgement Site</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Site</td>
+                                                                    <td>
+                                                                        <select class="form-control form-control-sm" name="site" ng-model="site">
+                                                                            <option value="">-- Make a selection --</option>
+                                                                            <option value="AURUM SEBOKENG">AURUM SEBOKENG</option>
+                                                                            <option value="HOME LODGEMENT">HOME LODGEMENT</option>
+                                                                            <option value="TEBA BRITS">TEBA BRITS</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Booking Start Date</td>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                            <input type="text" datepicker2 class="form-control form-control-sm" placeholder="">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Booking End Date</td>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                            <input type="text" datepicker2 class="form-control form-control-sm" placeholder="">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" class="text-center">
+                                                                        <br />
+                                                                        <button type="button" ng-click="LoadCalenderEventsNew()" class="btn btn-sm btn-success-custom"><i class="fa fa-calendar-check" ng-hide="SearchLoader"></i><i class="fa fa-spinner fa-spin" ng-show="SearchLoader"></i>&nbsp;Book Now</button>&nbsp;
+                                                                        <button type="reset" class="btn btn-sm btn-danger-custom"><i class="fa fa-print"></i>&nbsp;Print</button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-gray border" style="width:70%!important;float:left!important">
+                                            <div class="card-header">
+                                                <h4 class="card-title">View Bookings</h4>
+                                            </div>
+                                            <div class="card-body" style="height:600px!important;overflow-x:hidden;overflow-y:auto!important">
+                                                <div ng-show="ShowPersonDetailsNew" id="calendar"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-three-Contacts" role="tabpanel" aria-labelledby="custom-tabs-three-Contacts-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-12">
-                                                <table id="MedicalDone" class="table table-bordered" width="100%">
-                                                    <thead>
-                                                        <tr style="background:#057a528c!important">
-                                                            <th>#</th>
-                                                            <th>Submission No</th>
-                                                            <th>Source</th>
-                                                            <th>Surname</th>
-                                                            <th>Industry No</th>
-                                                            <th>RSA Id No</th>
-                                                            <th>Intial Segmentation</th>
-                                                            <th>Created Date</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-center">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000682397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714574</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000684536</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000718897</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Silicosis and Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                        <div class="card card-success card-outline">
+                                            <div class="card-header">
+                                                <div class="card-tools" style="float:left !important">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <h3 class="card-title ml-2 font-weight-bold" style="padding: 3px;">Required documents</h3>
+                                                <button type="button" class="btn btn-sm btn-success-custom float-right" data-toggle="modal" data-target="#addIdentityDocumentsModal"><i class="fa fa-plus"></i>&nbsp;Add</button>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-three-AllContacts" role="tabpanel" aria-labelledby="custom-tabs-three-AllContacts-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-12">
-                                                <table id="Tuberculosis" class="table table-bordered" width="100%">
+                                            <div class="card-body">
+                                                <table class="table table-bordered">
                                                     <thead>
                                                         <tr style="background:#057a528c!important">
-                                                            <th>#</th>
-                                                            <th>Submission No</th>
-                                                            <th>Source</th>
-                                                            <th>Surname</th>
-                                                            <th>Industry No</th>
-                                                            <th>RSA Id No</th>
-                                                            <th>Intial Segmentation</th>
-                                                            <th>Created Date</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-center">Action</th>
+                                                            <th>Document</th>
+                                                            <th>Load Date</th>
+                                                            <th>Usable</th>
+                                                            <th>View</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+
                                                         <tr>
-                                                            <td>1.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000682397</a></td>
-                                                            <td>Teba Welkom</td>
+                                                            <td>Document : Certified copy of I</td>
+                                                            <td>2021-07-30</td>
+                                                            <td>5601085713089</td>
                                                             <td>
-                                                                HLALAPHI
+                                                                <i class="fa fa-edit" data-toggle="modal" data-target="#addIdentityDocumentsModal"></i>
                                                             </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Tuberculosis Diagnosis </b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714574</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-success">Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000445397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Tuberculosis Diagnosis </b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000754474</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Tuberculosis Diagnosis </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-three-Documents" role="tabpanel" aria-labelledby="custom-tabs-three-Documents-tab" style="min-height:300px;overflow-x:hidden;overflow-y:auto;font-size:10pt!important">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-12">
-                                                <table id="Tuberculosis" class="table table-bordered" width="100%">
-                                                    <thead>
-                                                        <tr style="background:#057a528c!important">
-                                                            <th>#</th>
-                                                            <th>Submission No</th>
-                                                            <th>Source</th>
-                                                            <th>Surname</th>
-                                                            <th>Industry No</th>
-                                                            <th>RSA Id No</th>
-                                                            <th>Intial Segmentation</th>
-                                                            <th>Created Date</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-center">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000682397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Normal</b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714574</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Normal</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000714779</a></td>
-                                                            <td>Teba Klerksdorp</td>
-                                                            <td>
-                                                                VAN DER MERWE
-                                                            </td>
-                                                            <td>P2747348</td>
-                                                            <td>5303265006083</td>
-                                                            <td><b class="text-success">Normal</b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000445397</a></td>
-                                                            <td>Teba Welkom</td>
-                                                            <td>
-                                                                HLALAPHI
-                                                            </td>
-                                                            <td>R0940543</td>
-                                                            <td>5407076044082</td>
-                                                            <td><b class="text-success">Normal</b></td>
-                                                            <td>2020-06-26</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5.</td>
-                                                            <td><a href="#" ng-click="ShowClaimantReview()">CMS_000754474</a></td>
-                                                            <td>Teba Bizana</td>
-                                                            <td>
-                                                                DLAMINI
-                                                            </td>
-                                                            <td>W0263152</td>
-                                                            <td>5010155260080</td>
-                                                            <td><b class="text-success">Normal </b></td>
-                                                            <td>2021-02-12</td>
-                                                            <td class="text-center"><b class="badge bg-success pb-1 text-center" style="width:120px!important">Trust Lodged</b></td>
-                                                            <td class="text-center"><span class="fa fa-eye text-success" title="View"></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -847,6 +671,7 @@
                             </div>
                             <!-- /.card -->
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -1024,6 +849,244 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="addIdentityDocumentsModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Documents</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <fieldset style="margin-bottom: 10px;">
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-1">
+                                <label>Doc Type</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control  form-control-sm" id="DepartmentID" name="DepartmentID" ng-model="CreateNewUserData.DepartmentID"
+                                            ng-class="{error: showMsgs && CreateNewUserForm.DepartmentID.$error.required}" ng-required="capturePanel">
+                                        <option selected="selected" value="">--Select Document Type--</option>
+                                        <option ng-repeat="d in DepartmentsList" ng-value="d.DepartmentID">{{d.DepartmentName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-1">
+                                <label>Document description</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control   form-control-sm" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" style="margin-top:20px !important">
+                            <div class="col-lg-4">
+                                <div class="icheck-primary d-inline">
+                                    <label class="card-title ml-2" style="margin-left: -23px !important;">
+                                        Is this a passport?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="IdentityDocRadio1" name="IdentityDocRadio">
+                                    <label for="IdentityDocRadio1">
+                                        YES
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 mb-1">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="IdentityDocRadio2" name="IdentityDocRadio">
+                                    <label for="IdentityDocRadio2">
+                                        NO
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-1">
+                                <label>ID/Passport number</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control   form-control-sm" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-1">
+                                <label>Country of issue</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-sort-alpha-down"></i>
+                                        </span>
+                                    </div>
+
+                                    <select class="form-control form-control-sm" name="Nationality" ng-model="ModelData.Nationality">
+                                        <option ng-value="">Nationality</option>
+                                        <option value="1: BW" class="text-info"> Botswana </option>
+                                        <option value="2: SZ" class="text-info"> eSwatini </option>
+                                        <option value="3: LS" class="text-info"> Lesotho </option>
+                                        <option value="4: MW" class="text-info"> Malawi </option>
+                                        <option value="5: MZ" class="text-info"> Mozambique </option>
+                                        <option value="6: ZA" class="text-info"> South Africa </option>
+                                        <option value="7: TZ" class="text-info"> Tanzania </option>
+                                        <option value="8: ZM" class="text-info"> Zambia </option>
+                                        <option value="9: ZW" class="text-info"> Zimbabwe </option>
+                                        <option value="10: DZ"> Algeria </option>
+                                        <option value="11: AO"> Angola </option>
+                                        <option value="12: AU"> Australia </option>
+                                        <option value="13: AT"> Austria </option>
+                                        <option value="14: BD"> Bangladesh </option>
+                                        <option value="15: BE"> Belgium </option>
+                                        <option value="16: BR"> Brazil </option>
+                                        <option value="17: BF"> Burkina Faso </option>
+                                        <option value="18: CM"> Cameroon </option>
+                                        <option value="19: CA"> Canada </option>
+                                        <option value="20: CF"> Central African Republic </option>
+                                        <option value="21: TD"> Chad </option>
+                                        <option value="22: CN"> China </option>
+                                        <option value="23: CO"> Colombia </option>
+                                        <option value="24: CG"> Congo </option>
+                                        <option value="25: CR"> Costa Rica </option>
+                                        <option value="26: CD"> Democratic Republic of the Congo </option>
+                                        <option value="27: DK"> Denmark </option>
+                                        <option value="28: DJ"> Djibouti </option>
+                                        <option value="29: EG"> Egypt </option>
+                                        <option value="30: GQ"> Equatorial Guinea </option>
+                                        <option value="31: ER"> Eritrea </option>
+                                        <option value="32: ET"> Ethiopia </option>
+                                        <option value="33: FI"> Finland </option>
+                                        <option value="34: FR"> France </option>
+                                        <option value="35: GA"> Gabon </option>
+                                        <option value="36: GM"> Gambia </option>
+                                        <option value="37: DE"> Germany </option>
+                                        <option value="38: GH"> Ghana </option>
+                                        <option value="39: GR"> Greece </option>
+                                        <option value="40: GN"> Guinea </option>
+                                        <option value="41: HU"> Hungary </option>
+                                        <option value="42: IN"> India </option>
+                                        <option value="43: IL"> Israel </option>
+                                        <option value="44: IT"> Italy </option>
+                                        <option value="45: KE"> Kenya </option>
+                                        <option value="46: LR"> Liberia </option>
+                                        <option value="47: LY"> Libya </option>
+                                        <option value="48: MK"> Macedonia </option>
+                                        <option value="49: MG"> Madagascar </option>
+                                        <option value="50: MV"> Maldives </option>
+                                        <option value="51: ML"> Mali </option>
+                                        <option value="52: MR"> Mauritania </option>
+                                        <option value="53: MU"> Mauritius </option>
+                                        <option value="54: MA"> Morocco </option>
+                                        <option value="55: NA"> Namibia </option>
+                                        <option value="56: NL"> Netherlands </option>
+                                        <option value="57: NZ"> New Zealand </option>
+                                        <option value="58: NG"> Nigeria </option>
+                                        <option value="59: PK"> Pakistan </option>
+                                        <option value="60: PL"> Poland </option>
+                                        <option value="61: PT"> Portugal </option>
+                                        <option value="62: RE"> Reunion </option>
+                                        <option value="63: RW"> Rwanda </option>
+                                        <option value="64: SG"> Singapore </option>
+                                        <option value="65: SO"> Somalia </option>
+                                        <option value="66: GS"> South Georgia </option>
+                                        <option value="67: SS"> South Sudan </option>
+                                        <option value="68: ES"> Spain </option>
+                                        <option value="69: LK"> Sri Lanka </option>
+                                        <option value="70: SD"> Sudan </option>
+                                        <option value="71: TG"> Togo </option>
+                                        <option value="72: TO"> Tonga </option>
+                                        <option value="73: TN"> Tunisia </option>
+                                        <option value="74: TR"> Turkey </option>
+                                        <option value="75: UG"> Uganda </option>
+                                        <option value="76: UA"> Ukraine </option>
+                                        <option value="77: AE"> United Arab Emirates </option>
+                                        <option value="78: GB"> United Kingdom </option>
+                                        <option value="79: ZZ"> Unknown </option>
+                                        <option value="80: EH"> Western Sahara </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-10 mb-1">
+                                <label>Upload Documents</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-upload"></i>
+                                        </span>
+                                    </div>
+                                    <input type="file" style="padding: 2px;" id="Attachment" class="form-control  form-control-sm" placeholder="Attachment" name="Attachment" ng-model="Attachment">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-2 mb-1" style="margin-top:25px">
+                                <button type="button" id="loading-btn" class="btn btn-sm btn-success-custom" ng-click="UploadAttachment()"><i class="fa fa-spin spinner" ng-show="UploadAttachmentLoader"></i>&nbsp;Upload</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="col-lg-2" style="margin-top:20px"></div>
+
+                            <div class="col-lg-10">
+                                <label style="font-size :12px;font-weight :normal;font-style :italic;">File size should not be greater than 500 kb</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12" style="margin: 10px auto;">
+                            <div class="row">
+                                <div class="col-lg-4" style="margin-top: 10px;">
+                                    Uploaded Picture
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <table class="table table-striped table-bordered table-hover tabel-condensed">
+                                        <tbody id="AttachmentsList">
+                                            <tr ng-repeat="a in AttachmentFiles">
+                                                <td>
+                                                    {{a.name}}
+                                                </td>
+                                                <td style="width: 20px;">
+                                                    <a href="" ng-click="RemoveAttachment($index)"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="pull-right">
+                        <button type="button" id="loading-btn" class="btn btn-sm btn-success-custom" ng-click="SaveDocs()"><i class="fa fa-save" ng-show="imgLoader_Save"></i>Accept</button>
+                        <button type="button" id="loading-btn" class="btn btn-sm btn-danger-custom"><i class="fa fa-close" ng-show="imgLoader_Save"></i>Declain</button>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- DataTables  & Plugins -->
@@ -1042,34 +1105,45 @@
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="~/Content/dashboardNew/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script>
-    $(function () {
-        //alert();
-        $.noConflict();/////
-        $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $("#Deceased").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#Deceased_wrapper .col-md-6:eq(0)');
-        $("#Nomedical").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#Nomedical_wrapper .col-md-6:eq(0)');
-        $("#MedicalDone").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#MedicalDone_wrapper .col-md-6:eq(0)');
-        $("#Tuberculosis").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#Tuberculosis_wrapper .col-md-6:eq(0)');
-        //$("#MedicalDone").DataTable({
-        //    "responsive": true, "lengthChange": false, "autoWidth": false
-        //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
-</script>
+<!-- jQuery -->
+<script src="~/Content/dashboardNew/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+@*<script src="~/Content/dashboardNew/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+<!-- jQuery UI -->
+<script src="~/Content/dashboardNew/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Content/dashboardNew/dist/js/adminlte.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="~/Content/dashboardNew/plugins/moment/moment.min.js"></script>
+<script src="~/Content/dashboardNew/plugins/fullcalendar/main.js"></script>
+@*<script>
+        $(function () {
+            //alert();
+            $.noConflict();/////
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $("#Deceased").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#Deceased_wrapper .col-md-6:eq(0)');
+            $("#Nomedical").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#Nomedical_wrapper .col-md-6:eq(0)');
+            $("#MedicalDone").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#MedicalDone_wrapper .col-md-6:eq(0)');
+            $("#Tuberculosis").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#Tuberculosis_wrapper .col-md-6:eq(0)');
+            //$("#MedicalDone").DataTable({
+            //    "responsive": true, "lengthChange": false, "autoWidth": false
+            //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>*@
 
 

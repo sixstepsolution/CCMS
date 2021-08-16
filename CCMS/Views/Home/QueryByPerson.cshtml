@@ -56,8 +56,194 @@
     .text-success-custom {
         color: #057a52 !important;
     }
-    
 </style>
+@*<style>
+        .Timeline {
+            display: flex;
+            align-items: center;
+            height: 200px;
+        }
+
+        .event1,
+        .event2, .event3 {
+            position: relative;
+        }
+
+        .event1Bubble {
+            position: absolute;
+            background-color: rgba(158, 158, 158, 0.1);
+            width: 139px;
+            height: 60px;
+            top: -70px;
+            left: -15px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(158, 158, 158, 0.64)
+        }
+
+        .event2Bubble {
+            position: absolute;
+            background-color: rgba(158, 158, 158, 0.1);
+            width: 140px;
+            height: 60px;
+            left: -105px;
+            top: 33px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(158, 158, 158, 0.64)
+        }
+
+            .event1Bubble:after,
+            .event1Bubble:before,
+            .event2Bubble:after,
+            .event2Bubble:before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: transparent;
+                border-bottom: 0;
+            }
+
+        .event1Bubble:before {
+            bottom: -10px;
+            left: 13px;
+            border-top-color: rgba(222, 222, 222, 0.66);
+            border-width: 12px;
+        }
+
+        .event1Bubble:after {
+            bottom: -8px;
+            left: 13px;
+            border-top-color: #F6F6F6;
+            border-width: 12px;
+        }
+
+        .event2Bubble:before {
+            bottom: 59px;
+            left: 103px;
+            border-top-color: rgba(222, 222, 222, 0.66);
+            border-width: 12px;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .event2Bubble:after {
+            bottom: 57px;
+            left: 103px;
+            border-top-color: #F6F6F6;
+            border-width: 12px;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .eventTime {
+            display: flex;
+        }
+
+        .DayDigit {
+            font-size: 20px;
+            font-family: "Arial Black", Gadget, sans-serif;
+            margin-left: 10px;
+            color: #4C4A4A;
+        }
+
+        .Day {
+            font-size: 11px;
+            margin-left: 5px;
+            font-weight: bold;
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #4C4A4A;
+        }
+
+        .MonthYear {
+            font-weight: 600;
+            line-height: 10px;
+            color: #9E9E9E;
+            font-size: 9px;
+        }
+
+        .eventTitle {
+            font-family: "Arial Black", Gadget, sans-serif;
+            color: #a71930;
+            font-size: 11px;
+            text-transform: uppercase;
+            display: flex;
+            flex: 1;
+            align-items: center;
+            margin-left: 12px;
+            margin-top: -2px;
+        }
+
+        .time {
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 50px;
+            font-size: 8px;
+            margin-top: -3px;
+            margin-left: -5px;
+            color: #9E9E9E;
+        }
+
+        .eventAuthor {
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #9E9E9E;
+            font-size: 8px;
+            width: 100px;
+            top: -8px;
+            left: 40px;
+        }
+
+        .event2Author {
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #9E9E9E;
+            font-size: 8px;
+            width: 100px;
+            top: 96px;
+            left: -32px;
+        }
+
+        .time2 {
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 50px;
+            font-size: 8px;
+            margin-top: -31px;
+            margin-left: -5px;
+            color: #9E9E9E;
+        }
+
+        .now {
+            background-color: #004165;
+            color: white;
+            border-radius: 7px;
+            margin: 5px;
+            padding: 4px;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            font-weight: bold;
+            box-shadow: 0 0 0 2px #004165
+        }
+
+        .futureGray {
+            filter: grayscale(1);
+            -webkit-filter: grayscale(1);
+        }
+
+        .futureOpacity {
+            -webkit-filter: opacity(.3);
+            filter: opacity(.3);
+        }
+    </style>*@
 <script src="~/AngularJs/controllers/QuerybyPersonCntrl.js"></script>
 <!-- DataTables -->
 <link rel="stylesheet" href="~/Content/dashboardNew/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -72,7 +258,7 @@
                 <div class="col-sm-8" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:11pt!important">
                     <a ng-show="ShowPersonDetails" style="cursor:pointer!important" class="mr-2" ng-click="BacltoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>
                     <span ng-show="ShowPersonDetails" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;CCMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important" />&nbsp;CMS No:<b class="text-success"> AP005082543</b> &nbsp;First name: <b class="text-success">MACHASE</b> &nbsp;Surname: <b class="text-success">HOPO</b>&nbsp;Industry No: <b class="text-success">W1085979</b>
                     </span>
                 </div><!-- /.col -->
                 <div class="col-sm-4">
@@ -82,6 +268,248 @@
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
+            <!--<div ng-if="isTimeline" class="Timeline">
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke:#004165;stroke-width:5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event1">
+
+                    <div class="event1Bubble">
+                        <div class="eventTime">
+                            <div class="DayDigit">02</div>
+                            <div class="Day">
+                                Wednesday
+                                <div class="MonthYear">february 2021</div>
+                            </div>
+                        </div>
+                        <div class="eventTitle">Contact Made</div>
+                    </div>
+                    <div class="eventAuthor">by Youri Nelson</div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="#004165" />
+                    </svg>
+                    <div class="time">9 : 27 AM</div>
+
+                </div>
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke:#004165;stroke-width:5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event2">
+
+                    <div class="event2Bubble">
+                        <div class="eventTime">
+                            <div class="DayDigit">17</div>
+                            <div class="Day">
+                                Thursday
+                                <div class="MonthYear">April 2021</div>
+                            </div>
+                        </div>
+                        <div class="eventTitle">Appointmennt Booked</div>
+                    </div>
+                    <div class="event2Author">by Tom Eggleston</div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="#004165" />
+                    </svg>
+                    <div class="time2">1 : 32 PM</div>
+                </div>
+
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke:#004165;stroke-width:5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event1">
+
+                    <div class="event1Bubble">
+                        <div class="eventTime">
+                            <div class="DayDigit">02</div>
+                            <div class="Day">
+                                Wednesday
+                                <div class="MonthYear">May 2021</div>
+                            </div>
+                        </div>
+                        <div class="eventTitle">Claim Lodged</div>
+                    </div>
+                    <div class="eventAuthor">by Youri Nelson</div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="#004165" />
+                    </svg>
+                    <div class="time">9 : 27 AM</div>
+
+                </div>
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke:#004165;stroke-width:5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+
+                <div class="event2">
+
+                    <div class="event2Bubble">
+                        <div class="eventTime">
+                            <div class="DayDigit">05</div>
+                            <div class="Day">
+                                Thursday
+                                <div class="MonthYear">August 2021</div>
+                            </div>
+                        </div>
+                        <div class="eventTitle">Benifits Medical Examination</div>
+                    </div>
+                    <div class="event2Author"></div>
+
+                    <div class="time2"></div>
+                </div>
+                <div class="now">
+                    NOW
+                </div>
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event3 futureGray ">
+                    <div class="event1Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit"></div>
+                    <div class="Day">
+
+                        <div class="MonthYear"></div>
+                    </div>
+                        </div>
+                        <div class="eventTitle">Medical Panel Assessment</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+                    </svg>
+                </div>
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event2 futureGray">
+
+                    <div class="event2Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit"></div>
+                    <div class="Day">
+
+                        <div class="MonthYear"></div>
+                    </div>
+                        </div>
+                        <div class="eventTitle">Trust Certification</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+                    </svg>
+
+                </div>
+
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event3 futureGray ">
+                    <div class="event1Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit"></div>
+                    <div class="Day">
+
+                        <div class="MonthYear"></div>
+                    </div>
+                        </div>
+                        <div class="eventTitle">Mine Agent Review</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+                    </svg>
+                </div>
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event2 futureGray">
+
+                    <div class="event2Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit"></div>
+                    <div class="Day">
+
+                        <div class="MonthYear"></div>
+                    </div>
+                        </div>
+                        <div class="eventTitle">Approval and Payment</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+                    </svg>
+
+                </div>
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+
+                <div class="event3 futureGray ">
+                    <div class="event1Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit"></div>
+                    <div class="Day">
+
+                        <div class="MonthYear"></div>
+                    </div>
+                        </div>
+                        <div class="eventTitle">Ineligible</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+                    </svg>
+                </div>
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>-->
+            @*<div class="event2 futureGray">
+
+                    <div class="event2Bubble futureOpacity">
+                        <div class="eventTime">
+                            <div class="DayDigit">17</div>
+                            <div class="Day">
+                                Thursday
+                                <div class="MonthYear">April 2016</div>
+                            </div>
+                        </div>
+                        <div class="eventTitle">Phone Interview</div>
+                    </div>
+                    <svg height="20" width="20">
+                        <circle cx="10" cy="11" r="5" fill="#004165" />
+                    </svg>
+                    <div class="time2">1 : 32 PM</div>
+                </div>
+                <svg height="5" width="100">
+                    <line x1="0" y1="0" x2="200" y2="0" style="stroke: rgba(162, 164, 163, 0.37); stroke-width: 5" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>*@
+            @*<svg height="20" width="42">
+                    <line x1="1" y1="0" x2="1" y2="20" style="stroke:#004165;stroke-width:2" />
+                    <circle cx="11" cy="10" r="3" fill="#004165" />
+                    <circle cx="21" cy="10" r="3" fill="#004165" />
+                    <circle cx="31" cy="10" r="3" fill="#004165" />
+                    <line x1="41" y1="0" x2="41" y2="20" style="stroke:#004165;stroke-width:2" />
+                </svg>*@
+
+            <!--</div>-->
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -278,7 +706,7 @@
                                         </tr>
                                     </tbody>
 
-                                    
+
                                 </table>
                             </div>
                             <!-- /.card-body -->
@@ -298,24 +726,26 @@
 
                                             <i class="fa fa-book" style="color:#057A52"></i>&nbsp;Summary
                                         </a>
+
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Address-tab" data-toggle="pill" href="#custom-tabs-three-Address" role="tab" aria-controls="custom-tabs-three-Address" aria-selected="false">
-                                            <i class="fa fa-globe-africa"  style="color:#057A52"></i>&nbsp;Address
+                                            <i class="fa fa-globe-africa" style="color:#057A52"></i>&nbsp;Address
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Contacts-tab" data-toggle="pill" href="#custom-tabs-three-Contacts" role="tab" aria-controls="custom-tabs-three-Contacts" aria-selected="false">
-                                            <i class="fa fa-address-book"  style="color:#057A52"></i>&nbsp;Contacts</a>
+                                            <i class="fa fa-address-book" style="color:#057A52"></i>&nbsp;Contacts
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-AllContacts-tab" data-toggle="pill" href="#custom-tabs-three-AllContacts" role="tab" aria-controls="custom-tabs-three-AllContacts" aria-selected="false">
-                                            <i class="fa fa-address-card"  style="color:#057A52"></i>&nbsp;All Contacts
+                                            <i class="fa fa-address-card" style="color:#057A52"></i>&nbsp;All Contacts
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Documents-tab" data-toggle="pill" href="#custom-tabs-three-Documents" role="tab" aria-controls="custom-tabs-three-Documents" aria-selected="false">
-                                            <i class="fa fa-file-contract"  style="color:#057A52"></i>&nbsp;Documents
+                                            <i class="fa fa-file-contract" style="color:#057A52"></i>&nbsp;Documents
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -335,21 +765,30 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-ServiceHist-tab" data-toggle="pill" href="#custom-tabs-three-ServiceHist" role="tab" aria-controls="custom-tabs-three-ServiceHist" aria-selected="false">
-                                        <i class="fa fa-user-clock" style="color:#057A52"></i>&nbsp;
-                                        Service Hist</a>
+                                            <i class="fa fa-user-clock" style="color:#057A52"></i>&nbsp;
+                                            Service Hist
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-ServiceSummary-tab" data-toggle="pill" href="#custom-tabs-three-ServiceSummary" role="tab" aria-controls="custom-tabs-three-ServiceSummary" aria-selected="false">
-                                        <i class="fa fa-user-cog" style="color:#057A52"></i>&nbsp;
-                                        Service Summary</a>
+                                            <i class="fa fa-user-cog" style="color:#057A52"></i>&nbsp;
+                                            Service Summary
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-Claims-tab" data-toggle="pill" href="#custom-tabs-three-Claims" role="tab" aria-controls="custom-tabs-three-Claims" aria-selected="false">
-                                        <i class="fa fa-user-check" style="color:#057A52"></i>&nbsp;Claims</a>
+                                            <i class="fa fa-user-check" style="color:#057A52"></i>&nbsp;Claims
+                                        </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-three-PersonFlags-tab" data-toggle="pill" href="#custom-tabs-three-PersonFlags" role="tab" aria-controls="custom-tabs-three-PersonFlags" aria-selected="false">
-                                        <i class="fa fa-flag-checkered" style="color:#057A52"></i>&nbsp;Person Flags</a>
+                                            <i class="fa fa-flag-checkered" style="color:#057A52"></i>&nbsp;Person Flags
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-timeline-tab" data-toggle="pill" href="#custom-tabs-three-timeline" role="tab" aria-controls="custom-tabs-three-timeline" aria-selected="false">
+                                            <i class="fa fa-user-clock" style="color:#057A52"></i>&nbsp;Time Line
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -1102,8 +1541,8 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="row">
-                                                            <div class="col-12 col-lg-12">                                                                
-                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">                                                                  
+                                                            <div class="col-12 col-lg-12">
+                                                                <table class="table table-bordered" width="100%" style="margin-top:1px!important">
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>1985-05-23 to 1986-02-12 <b class="text-red">-266</b></td>
@@ -1235,7 +1674,7 @@
                                                                             <td>FREE STATE GEDULD MINE</td>
                                                                             <td>TEBA</td>
                                                                         </tr>
-                                                                    </tbody>                                                                   
+                                                                    </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -1455,6 +1894,167 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-timeline" role="tabpanel" aria-labelledby="custom-tabs-three-timeline-tab">
+                                        <div class="card card-gray border">
+                                            <div class="card-header">
+                                                <h4 class="card-title"><i class="fa fa-user-clock"></i>&nbsp;Time line</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <!-- The time line -->
+                                                        <div class="timeline" style="background:#ffffff !important">
+                                                            <!-- timeline time label -->
+                                                            <div class="time-label">
+                                                                <span class="bg-green">10 Feb. 1982</span>
+                                                            </div>
+                                                            <!-- /.timeline-label -->
+                                                            <!-- timeline item -->
+                                                            <!-- /.timeline-label -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-id-badge bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 12:05 pm</span>
+                                                                    <h3 class="timeline-header"><a href="#">Contact Made</a> Starting the career in Mine worker</h3>
+
+                                                                    <div class="timeline-body">
+                                                                        MOLAOA ABRAM JANYANA has Started the Career in Tshiamiso Trust Miner Worker. He was able to operate machinery and equipment to dig, load and transport gold and sand underground or in open-cut mines. It’s common for Miners to work in rural and remote locations, often living a fly-in/fly-out lifestyle. He was Installing lighting, cabling and pump services to the mine.
+                                                                    </div>
+                                                                    <div class="timeline-footer">
+                                                                        <a class="btn btn-primary btn-sm">Profile</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-chalkboard-teacher bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 1:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#" ng-click="LodgementBooking()">Lodgement Booking</a> 9 Jan, 1991</h3>
+                                                                    <div class="timeline-body">
+                                                                        MOLAOA ABRAM JANYANA has add Lodgement for Medical Assessment
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-injured bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 4:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#" ng-click="LodgementBooking()">BME Booking</a> 21 Jun, 1995</h3>
+                                                                    <div class="timeline-body">
+                                                                        MOLAOA ABRAM JANYANA has add BME Booking for Medical Examination
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-check bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 9:00 am</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Claim Lodged</a> 2 Feb, 2013</h3>
+                                                                    <div class="timeline-body">
+                                                                        MOLAOA ABRAM JANYANA has added in Deceased Register and adding Claim for Death Registery
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-md bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 1:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Benifits Medical Examination</a> 3 Feb, 2004</h3>
+                                                                    <div class="timeline-body">
+                                                                        To start the Medical Examination foor Death Benificiry. Molaoa Abram Nominne has claimed and follow the medical Examination Rules
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-md bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 11:00 am</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Benifits Medical Examination</a> 3 Feb, 2014</h3>
+                                                                    <div class="timeline-body">
+                                                                        Ananya Abram has reviwed for Medical Examination
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-users bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 1:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Medical Panel Assessment</a> 10 Feb, 2014</h3>
+                                                                    <div class="timeline-body">
+                                                                        Medical Panel members Assessed for Deceased Person Medical Reports and panel added in Benificiary Details and Bank details and Claimed
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-secret bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 1:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Mine Agent review</a> 1 Mar, 2014</h3>
+                                                                    <div class="timeline-body">
+                                                                        After Medical Panel Assessment team claim the deceased person details mine agent reviewd and send the details for tresury officer.
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline item -->
+                                                            <div>
+                                                                <i class="fas fa-user-shield bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 5:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Approval and Payment</a> 24 Mar, 2014</h3>
+                                                                    <div class="timeline-body">
+                                                                        Finally check the mine agent review and proceded to appove the miner person deceased records. once approved the tresury team Payment was transfered to Benificiay Account.
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END timeline item -->
+                                                            <!-- timeline time label -->
+                                                            <!-- /.timeline-label -->
+                                                            <div>
+                                                                <i class="fas fa-user-slash bg-green"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="fas fa-clock"></i> 1:00 pm</span>
+                                                                    <h3 class="timeline-header no-border"><a href="#">Closed Miner Record</a></h3>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="time-label">
+                                                                <span class="bg-green">29 Mar, 2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <i class="fas fa-clock bg-red"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -1465,6 +2065,39 @@
         </div>
     </section>
     <!-- /.content -->
+    <!-- /.content -->
+    <div class="modal" id="ClaimantImageModal">
+        <div class="modal-dialog" style="width:70%!important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Images</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b class="text-center">Home Affairs</b>
+                            <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b>CCMS</b>
+                            <img src="~/Content/dashboardNew/dist/img/avatar2.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- DataTables  & Plugins -->

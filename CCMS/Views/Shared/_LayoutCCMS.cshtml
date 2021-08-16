@@ -247,6 +247,10 @@
                 background-color: #fff;
                 border-color: #057a52 #057a52 #fff #057a52 !important;
             }
+        /*.*/navbar-expand .navbar-nav .nav-link {
+            padding-right: 1rem !important;
+            padding-left: 0rem !important;
+        }
     </style>
     @*<style>
             .btn-success-custom {
@@ -256,47 +260,133 @@
                 box-shadow: none;
             }
         </style>*@
+
 </head>
-<body class="hold-transition sidebar-mini skin-green">
+<body class="hold-transition sidebar-mini skin-green" ng-controller="homeCntrl" ng-cloak>
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-light" style="height:70px!important;background: #057a52!important">
             <!-- Left navbar links -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" ng-if="!isUser">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
                 </li>
+                
             </ul>
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link text-white" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user"></i>
+            
+            <ul class="navbar-nav" ng-if="isUser">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Contact Made" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-1-key-50.png" alt="Contact Made" width="30" />
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center border">
-                        <div class="dropdown-divider"></div>
-                        @if (Session["LoggedUserUsername"] != null)
-                        {
-                            <h5 class="p-5">Hello <br />@Session["LoggedUserUsername"].ToString()</h5>
-                        }
-                        else
-                        {
-                            <h5 class="p-5">Hello <br />Admin</h5>
-                        }
+                    <a class="text-white text-center" style="font-size:11px!important">Contact Made</a>
 
-                        <div class="dropdown-divider"></div>
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
 
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item dropdown-footer">
-                            <a href="../home/index" ng-click="logOut()" class="btn btn-warning" style="color:#000">
-                                Sign out
-                            </a>
-                        </div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Appointment Booked" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-2-key-50.png" alt="Appointment Booked" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Appointment Booked</a>
 
-                    </div>
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Claim Lodged" href="#" role="button">
+                        <i class="fa fa-2x fa-user-check text-white"></i>
+                        @*<img src="~/Content/assets/icons/icons8-3-key-50.png" alt="Claim Lodged" width="30" />*@
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Claim Lodged</a>
+
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Benifits Medical Examination" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-4-key-50.png" alt="Benifits Medical Examination" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Benifits Examination</a>
+
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Medical Panel Assessment" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-5-key-50.png" alt="Medical Panel Assessment" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Panel Assessment</a>
+
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Trust Certification" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-6-key-50.png" title="Trust Certification" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Trust Certification</a>
+
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Mine Agent Review" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-7-key-50.png" alt="Mine Agent Review" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Agent Review</a>
+
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Approval and Payment" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-8-key-50.png" alt="Approval and Payment" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Approval and Payment</a>
+                </li>
+                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Ineligible" href="#" role="button">
+                        <img src="~/Content/assets/icons/icons8-9-key-50.png" alt="Ineligible" width="30" />
+                    </a>
+                    <a class="text-white text-center" style="font-size:11px!important">Ineligible</a>
                 </li>
             </ul>
+            <!-- Right navbar links -->
+            <!--<ul class="navbar-nav ml-auto">-->
+            <!-- Messages Dropdown Menu -->
+            <!--<li class="nav-item dropdown">
+            <a class="nav-link text-white" data-toggle="dropdown" href="#">
+                <i class="fa fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center border">
+                <div class="dropdown-divider"></div>
+                @if (Session["LoggedUserUsername"] != null)
+                {
+                    <h5 class="p-5">Hello <br />@Session["LoggedUserUsername"].ToString()</h5>
+                }
+                else
+                {
+                    <h5 class="p-5">Hello <br />Admin</h5>
+                }
+
+                <div class="dropdown-divider"></div>
+
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item dropdown-footer">
+                    <a href="../home/index" ng-click="logOut()" class="btn btn-warning" style="color:#000">
+                        Sign out
+                    </a>
+                </div>
+
+            </div>
+        </li>
+    </ul>-->
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
@@ -314,7 +404,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="../Home/Dashboard" class="nav-link">
                                 <i class="nav-icon fa fa-tachometer-alt"></i>
@@ -496,8 +586,8 @@
                                         <i class="nav-icon fa fa-phone"></i>
                                         <p>
                                             Receive Inbound Calls-->
-                                            @*<i class="right"></i>*@
-                                        <!--</p>
+                        @*<i class="right"></i>*@
+                        <!--</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
@@ -584,7 +674,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="../Home/UserInfo" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
                                     User Info
@@ -592,7 +682,7 @@
                                 </p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="../home/index" class="nav-link">
                                 <i class="nav-icon fa fa-power-off"></i>
@@ -662,6 +752,11 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     @*<script src="~/Content/dashboardNew/dist/js/pages/dashboard.js"></script>*@
     @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 </html>
 

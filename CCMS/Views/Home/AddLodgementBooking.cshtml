@@ -75,20 +75,28 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row m-b-0">
-                <div class="col-sm-8" style="margin-top:-7px!important;margin-bottom:-11px!important;font-size:10pt!important">
-                    @*<a ng-show="ShowResolveCallcentreDetails" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoSearch()"><i class="fa fa-chevron-left"></i>&nbsp;Back to Search</a>*@
-                    <a ng-show="ShowPersonDetailsNew" style="cursor:pointer!important;font-size:10pt!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back to List</a>
-                    <span ng-show="ShowPersonDetailsNew" style="font-weight:500">
-                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" /> &nbsp;AP No:<b class="text-success"> AP116166013</b> &nbsp;First name: <b class="text-success">MOAHLOLI JACOB</b> &nbsp;Surname: <b class="text-success">THABANA</b>&nbsp;Industry No: <b class="text-success">R0924425</b>
-                        RSA ID No:<b class="text-success"> 6309145325089</b>&nbsp;Passport No:<b class="text-success"> 6844657</b> &nbsp;Living Status:<b class="text-success"> Living</b> &nbsp;Age:<b class="text-success"> 57</b> &nbsp;Date of Birth:<b class="text-success"> 1963-09-14</b> &nbsp;Claims:<b class="text-success"> 0</b> &nbsp;
-                    </span>
+                <div class="col-sm-1" style="margin-top:-5px!important;margin-bottom:-11px!important;font-size:11pt!important">
+                    <a ng-show="ShowPersonDetailsNew" style="cursor:pointer!important" class="mr-2 btn btn-sm btn-success-custom" ng-click="BacktoList()"><i class="fa fa-chevron-left"></i>&nbsp;Back</a>
+
                 </div><!-- /.col -->
+                <div class="col-sm-7" style="margin-top:-14px!important;margin-bottom:-11px!important;font-size:9pt!important">
+                    <div ng-show="ShowPersonDetailsNew" style="font-weight:500;">
+                        <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important;float:left!important" />&nbsp;<img src="~/Content/dashboardNew/dist/img/avatar2.png" width="50" height="50" class="img-thumbnail" data-toggle="modal" data-target="#ClaimantImageModal" style="cursor:pointer!important;float:left!important" />&nbsp;
+                        <div style="margin-top: -10px !important">
+                            &nbsp;AP No:<b class="text-success"> AP116166013</b> &nbsp;First name: <b class="text-success">MOAHLOLI JACOB</b> &nbsp;Surname: <b class="text-success">THABANA</b>&nbsp;Industry No: <b class="text-success">R0924425</b>
+                            RSA ID No:<b class="text-success"> 6309145325089</b>&nbsp;Passport No:<b class="text-success"> 6844657</b> &nbsp;Living Status:<b class="text-success"> Living</b> &nbsp;Age:<b class="text-success"> 57</b> &nbsp;Date of Birth:<b class="text-success"> 1963-09-14</b> &nbsp;Claims:<b class="text-success"> 0</b> &nbsp;
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" style="text-decoration:none!important"></i>&nbsp;Call Center</a></li>
                         <li class="breadcrumb-item active">Add Lodgement/BME Booking</li>
                     </ol>
                 </div><!-- /.col -->
+
+
+
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -497,7 +505,7 @@
                                             <div class="card-header">
                                                 <h4 class="card-title">Bookings</h4>
                                             </div>
-                                            <div class="card-body" style="height:400px!important">
+                                            <div class="card-body" style="height:600px!important">
                                                 <div class="row">
                                                     <div class="col-12 col-lg-12 mb-3">
                                                         <table border="0" width="100%">
@@ -566,7 +574,7 @@
                                             <div class="card-header">
                                                 <h4 class="card-title">View Bookings</h4>
                                             </div>
-                                            <div class="card-body" style="height:400px!important;overflow-x:hidden;overflow-y:auto!important">
+                                            <div class="card-body" style="height:600px!important;overflow-x:hidden;overflow-y:auto!important">
                                                 <div ng-show="ShowPersonDetailsNew" id="calendar"></div>
                                             </div>
                                         </div>
@@ -863,6 +871,38 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="ClaimantImageModal">
+        <div class="modal-dialog" style="width:70%!important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Images</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b class="text-center">Home Affairs</b>
+                            <img src="~/Content/dashboardNew/dist/img/avatar5.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                        <div class="col-12 col-lg-6 mb-1 text-center">
+                            <b>CCMS</b>
+                            <img src="~/Content/dashboardNew/dist/img/avatar2.png" width="250" height="250" class="img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- DataTables  & Plugins -->
@@ -897,7 +937,9 @@
 <!-- AdminLTE for demo purposes -->
 @*<script src="../dist/js/demo.js"></script>*@
 <!-- Page specific script -->
-@*<script>
+
+
+<script>
     $(function () {
         //alert();
         $.noConflict();/////
@@ -913,5 +955,5 @@
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
-    });</script>*@
+    });</script>
 
