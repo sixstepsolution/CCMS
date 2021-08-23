@@ -7,25 +7,19 @@ function serviceProviderMap() {
         zoom: 5,
     })
     setTimeout(() => { map.invalidateSize(true) }, 500);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
         attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            '&copy; <a href="https://www.openstreetmap.org/copyright">2021</a>',
         subdomains: ['a', 'b', 'c'],
     }).addTo(map)
+
 
     var myURL = jQuery('script[src$="leaf-T804.js"]')
         .attr('src')
         .replace('leaf-T804.js', '')
 
-    var myIcon = L.icon({
-        iconUrl: myURL + 'images/pin24.png',
-        iconRetinaUrl: myURL + 'images/pin48.png',
-        iconSize: [29, 24],
-        iconAnchor: [9, 21],
-        popupAnchor: [0, -14],
-    })
-
-    var markerClusters = L.markerClusterGroup()
+  
+    //var markerClusters = L.markerClusterGroup()
 
     //for (var i = 0; i < markers.length; ++i) {
     //  var popup =
@@ -80,16 +74,25 @@ function serviceProviderMap() {
                         '<br/><b>LONGITUDE:</b> ' +
                         res.result[i].Longitude
 
+                    var myIcon = L.icon({
+                        iconUrl: res.result[i].Site_Type === 'Lodgement Site' ? myURL + 'images/Google-Maps.png' : myURL + 'images/plus_red_marker.png',
+                        iconRetinaUrl: res.result[i].Site_Type === 'Lodgement Site' ? myURL + 'images/Google-Maps.png' : myURL + 'images/plus_red_marker.png' ,
+                        iconSize: [29, 24],
+                        iconAnchor: [9, 21],
+                        popupAnchor: [0, -14],
+                    })
 
                     var m = L.marker([res.result[i].Lodgement_Latitude, res.result[i].Longitude], { icon: myIcon }).bindPopup(popup);
 
-                    markerClusters.addLayer(m);
+                    //markerClusters.addLayer(m);
+                    map.addLayer(m);
+
                 }
             }
 
         }
     });
-    map.addLayer(markerClusters);
+    //map.addLayer(markerClusters);
 }
 
 serviceProviderMap();

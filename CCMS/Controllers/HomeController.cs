@@ -48,6 +48,12 @@ namespace CCMS.Controllers
 
             return View();
         }
+          public ActionResult DashboardNew()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
 
         public ActionResult CCMSDashboard()
         {

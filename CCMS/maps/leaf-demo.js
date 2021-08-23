@@ -7,9 +7,9 @@ function populationMap() {
         zoom: 5,
     })
     setTimeout(() => { map.invalidateSize(true) }, 500);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
         attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            '&copy; <a href="https://www.openstreetmap.org/copyright">2021</a>',
         subdomains: ['a', 'b', 'c'],
     }).addTo(map)
     var myURL = jQuery('script[src$="leaf-demo.js"]')
@@ -17,8 +17,8 @@ function populationMap() {
         .replace('leaf-demo.js', '')
 
     var myIcon = L.icon({
-        iconUrl: myURL + 'images/pin24.png',
-        iconRetinaUrl: myURL + 'images/pin48.png',
+        iconUrl: myURL + 'images/placeholder.png',
+        iconRetinaUrl: myURL + 'images/placeholder.png',
         iconSize: [29, 24],
         iconAnchor: [9, 21],
         popupAnchor: [0, -14],
@@ -82,13 +82,14 @@ function populationMap() {
 
                     var m = L.marker([res.result[i].LATITUDE, res.result[i].LONGITUDE], { icon: myIcon }).bindPopup(popup);
 
-                    markerClusters.addLayer(m);
+                    //markerClusters.addLayer(m);
+                    map.addLayer(m);
                 }
             }
 
         }
     });
-    map.addLayer(markerClusters);
+    //map.addLayer(markerClusters);
 }
 
 populationMap();

@@ -4503,10 +4503,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="maps\Control.FullScreen.css" />
     <Content Include="maps\Control.FullScreen.js" />
+    <Content Include="maps\images\Google-Maps.png" />
+    <Content Include="maps\images\gps.png" />
+    <Content Include="maps\images\green-pin-md.png" />
     <Content Include="maps\images\icon-fullscreen-2x.png" />
     <Content Include="maps\images\icon-fullscreen.png" />
+    <Content Include="maps\images\location-pin.png" />
+    <Content Include="maps\images\location-pinNew.png" />
     <Content Include="maps\images\pin24.png" />
     <Content Include="maps\images\pin48.png" />
+    <Content Include="maps\images\placeholder.png" />
+    <Content Include="maps\images\plek_marker_production.png" />
+    <Content Include="maps\images\plus_red_marker.png" />
     <Content Include="maps\leaf-T804.js" />
     <Content Include="maps\leaf-demo.js" />
     <Content Include="maps\markers.js" />
@@ -5824,6 +5832,7 @@
     <Content Include="Views\Home\ViewLodgementBookings.cshtml" />
     <Content Include="Views\Home\AddDocumentstoTickets.cshtml" />
     <Content Include="Views\Home\UserInfo.cshtml" />
+    <Content Include="Views\Home\DashboardNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

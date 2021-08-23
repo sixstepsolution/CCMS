@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+<script src="~/AngularJs/controllers/HomeCntrl.js"></script>
+@*<link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.min.css">*@
+
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css" />
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css" />
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+@*<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"
+    integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+    crossorigin="anonymous"></script>*@
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"></script>
+<script src="~/maps/Control.FullScreen.js"></script>
+<link href="~/maps/Control.FullScreen.css" rel="stylesheet" />
+@*<script src="https://cdn-webgl.eegeo.com/eegeojs/api/v0.1.780/eegeo.js"></script>*@
+<style>
+    .content-header {
+        padding: 5px 0.5rem !important;
+    }
+
+    .box-header {
+        padding: 0 !important;
+        padding-left: 10px !important
+    }
+</style>
+
+<div ng-controller="homeCntrl" ng-cloak style="zoom:0.9">
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                @*<h1 class="m-0">Dashboard</h1>*@
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div>
+    <!-- /.content-header -->
+    <hr style="margin-top:0 !important" />
+
+    <div class="container-fluid">
+
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">3D Map</h5>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>-->
+                        <!-- /.box-tools -->
+                    <!--</div>-->
+                    <!-- /.box-header -->
+                    <!--<div class="box-body" style="margin:0">
+                        <div id="map-three-d" style="width: 100% !important; height: 500px !important"></div>
+                    </div>-->
+                    <!-- /.box-body -->
+                <!--</div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Service Provider Sites</h5>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="margin:0">
+                        <div id="mapServiceProvidr" style="width: 100% !important; height: 500px !important"></div>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box card-success card-outline">
+                    <div class="box-header with-border">
+                        <h5 class="box-title" style="color: #28a745;">Claimant Population</h5>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="margin:0">
+                        <div id="map" style="width: 100% !important; height: 500px !important"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- /.box -->
+
+        @*<script>
+            var map = L.eeGeo.map("map-three-d", "683cb6d8760f355e11bc3d6aed7ac358", {
+                center: [51.517327, -0.120005],
+                zoom: 15
+            });
+            var myIcon = L.icon({
+                iconUrl: 'https://th.bing.com/th/id/OIP.mJMPC7BzwPoHjuzyeMG4WAHaHa?pid=ImgDet&rs=1',
+                iconRetinaUrl: 'https://th.bing.com/th/id/OIP.mJMPC7BzwPoHjuzyeMG4WAHaHa?pid=ImgDet&rs=1',
+                iconSize: [29, 24],
+                iconAnchor: [9, 21],
+                popupAnchor: [0, -14],
+            })
+
+            setTimeout(function () {
+                map.setView([51.514613, -0.081019], 16, { headingDegrees: 204.374, tiltDegrees: 15.0 });
+                L.marker([51.517327, -0.120005], { icon: myIcon }).addTo(map);
+
+            }, 10000);
+        </script>*@
+        <script type="text/javascript" src="~/maps/leaf-T804.js"></script>
+        <script type="text/javascript" src="~/maps/leaf-demo.js"></script>
+        @*<script type="text/javascript" src="~/maps/markers.js"></script>*@
+    </div>
+
+</div>
+
