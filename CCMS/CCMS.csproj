@@ -176,8 +176,9 @@
     <Content Include="AngularJs\controllers\AddDocumentsTicketsCtrl.js" />
     <Content Include="AngularJs\controllers\AddLodgementBookingCntrl.js" />
     <Content Include="AngularJs\controllers\ChangeLodgementBookingCntrl.js" />
-    <Content Include="AngularJs\controllers\Login.js" />
     <Content Include="AngularJs\controllers\HomeCntrl.js" />
+    <Content Include="AngularJs\controllers\Login.js" />
+    <Content Include="AngularJs\controllers\MapCntrl.js" />
     <Content Include="AngularJs\controllers\LogOutboundCall.js" />
     <Content Include="AngularJs\controllers\MaintainPersonDoc.js" />
     <Content Include="AngularJs\controllers\PrepareClaimCntrl.js" />
@@ -4510,11 +4511,15 @@
     <Content Include="maps\images\icon-fullscreen.png" />
     <Content Include="maps\images\location-pin.png" />
     <Content Include="maps\images\location-pinNew.png" />
+    <Content Include="maps\images\markerRed.png" />
     <Content Include="maps\images\pin24.png" />
     <Content Include="maps\images\pin48.png" />
     <Content Include="maps\images\placeholder.png" />
     <Content Include="maps\images\plek_marker_production.png" />
     <Content Include="maps\images\plus_red_marker.png" />
+    <Content Include="maps\images\red-pin-maps.svg.med.png" />
+    <Content Include="maps\images\red_marker.png" />
+    <Content Include="maps\images\red_marker1.png" />
     <Content Include="maps\leaf-T804.js" />
     <Content Include="maps\leaf-demo.js" />
     <Content Include="maps\markers.js" />

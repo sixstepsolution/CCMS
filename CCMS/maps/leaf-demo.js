@@ -52,7 +52,52 @@ function populationMap() {
 
 
 
+    $.ajax({
+        url: '/Home/GetTrusted804Data',
+        type: "post",
+        datatype: "json",
+        data: { searchKey: "" },
+        success: function (res) {
+            console.log(res)
+            /*..................Display Doctor Info.........................*/
+            if (res.success === true) {
+                for (i = 0; i < res.result.length; i++) {
+                    var popup =
+                        '<br/> <b>Lodgement Site:</b> ' +
+                        res.result[i].Lodgement_Site +
+                        '<br/> <b>City:</b> ' +
+                        res.result[i].City +
+                        '<br/><b>Province:</b> ' +
+                        res.result[i].Province +
+                        '<br/><b>Country:</b> ' +
+                        res.result[i].Country +
+                        '<br/><b>Site_Type:</b> ' +
+                        res.result[i].Site_Type +
+                        '<br/><b>LATITUDE:</b> ' +
+                        res.result[i].Lodgement_Latitude +
+                        '<br/><b>LONGITUDE:</b> ' +
+                        res.result[i].Longitude
 
+                    var myIcon = L.icon({
+                        iconUrl: res.result[i].Site_Type === 'Lodgement Site' ? myURL + 'images/Google-Maps.png' : myURL + 'images/plus_red_marker.png',
+                        iconRetinaUrl: res.result[i].Site_Type === 'Lodgement Site' ? myURL + 'images/Google-Maps.png' : myURL + 'images/plus_red_marker.png',
+                        iconSize: [29, 24],
+                        iconAnchor: [9, 21],
+                        popupAnchor: [0, -14],
+                    })
+
+                    var m = L.marker([res.result[i].Lodgement_Latitude, res.result[i].Longitude], { icon: myIcon }).bindPopup(popup);
+
+                    //markerClusters.addLayer(m);
+                    map.addLayer(m);
+
+                }
+            }
+
+        }
+    });
+
+    map.addLayer(markerClusters);
     $.ajax({
         url: '/Home/GetTrustedData',
         type: "post",
@@ -82,14 +127,16 @@ function populationMap() {
 
                     var m = L.marker([res.result[i].LATITUDE, res.result[i].LONGITUDE], { icon: myIcon }).bindPopup(popup);
 
-                    //markerClusters.addLayer(m);
-                    map.addLayer(m);
+                    markerClusters.addLayer(m);
+                    //map.addLayer(m);
                 }
             }
 
         }
     });
-    //map.addLayer(markerClusters);
+
+
+  
 }
 
 populationMap();
