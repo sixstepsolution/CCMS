@@ -4,89 +4,27 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TRUST_DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'TRUST_DATA.dbo.T804' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="T804">
-          <Property Name="Lodgment_Site_Code" Type="nvarchar" MaxLength="255" />
-          <Property Name="Lodgement_Site" Type="nvarchar" MaxLength="255" />
-          <Property Name="CITY_CD" Type="nvarchar" MaxLength="255" />
-          <Property Name="City" Type="nvarchar" MaxLength="255" />
-          <Property Name="Province" Type="nvarchar" MaxLength="255" />
-          <Property Name="Country" Type="nvarchar" MaxLength="255" />
-          <Property Name="Longitude" Type="nvarchar" MaxLength="255" />
-          <Property Name="Lodgement Latitude" Type="nvarchar" MaxLength="255" />
-          <Property Name="POSTAL_CODE" Type="nvarchar" MaxLength="255" />
-          <Property Name="IS_ACTIVE" Type="nvarchar" MaxLength="255" />
-          <Property Name="EFFECTIVE_D" Type="nvarchar" MaxLength="255" />
-          <Property Name="SITE_TYPE_CD" Type="nvarchar" MaxLength="255" />
-          <Property Name="Site Type" Type="nvarchar" MaxLength="255" />
-          <Property Name="Service Provider" Type="nvarchar" MaxLength="255" />
-          <Property Name="Region" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'TRUST_DATA.dbo.TRUST_DETAIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="TRUST_DETAIL">
-          <Key>
-            <PropertyRef Name="SRC_ID" />
-          </Key>
-          <Property Name="SRC_ID" Type="int" Nullable="false" />
-          <Property Name="SRC_ADDRESS_TYPE" Type="varchar(max)" />
-          <Property Name="SELECTED_COUNTRY" Type="varchar(max)" />
-          <Property Name="SOURCE_LINE" Type="varchar(max)" />
-          <Property Name="LATITUDE" Type="float" />
-          <Property Name="LONGITUDE" Type="float" />
-          <Property Name="TOWN_NAME" Type="varchar(max)" />
-          <Property Name="PROVINCE_CODE" Type="varchar(max)" />
-          <Property Name="MUNICIPALITY_NAME" Type="varchar(max)" />
-        </EntityType>
+    <Schema Namespace="TRUST_DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="Sp_Trusted_804_Data_Search_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="searchKeyWord" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="Sp_TrustedData_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Sp_TrustedData_Search_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="searchKeyWord" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="TRUST_DATAModelStoreContainer">
-          <EntitySet Name="TRUST_DETAIL" EntityType="Self.TRUST_DETAIL" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TRUST_DETAIL].[SRC_ID] AS [SRC_ID], 
-    [TRUST_DETAIL].[SRC_ADDRESS_TYPE] AS [SRC_ADDRESS_TYPE], 
-    [TRUST_DETAIL].[SELECTED_COUNTRY] AS [SELECTED_COUNTRY], 
-    [TRUST_DETAIL].[SOURCE_LINE] AS [SOURCE_LINE], 
-    [TRUST_DETAIL].[LATITUDE] AS [LATITUDE], 
-    [TRUST_DETAIL].[LONGITUDE] AS [LONGITUDE], 
-    [TRUST_DETAIL].[TOWN_NAME] AS [TOWN_NAME], 
-    [TRUST_DETAIL].[PROVINCE_CODE] AS [PROVINCE_CODE], 
-    [TRUST_DETAIL].[MUNICIPALITY_NAME] AS [MUNICIPALITY_NAME]
-    FROM [dbo].[TRUST_DETAIL] AS [TRUST_DETAIL]</DefiningQuery>
-          </EntitySet>
-        </EntityContainer>
+        <EntityContainer Name="TRUST_DATAModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TRUST_DATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TRUST_DETAIL">
-          <Key>
-            <PropertyRef Name="SRC_ID" />
-          </Key>
-          <Property Name="SRC_ID" Type="Int32" Nullable="false" />
-          <Property Name="SRC_ADDRESS_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="SELECTED_COUNTRY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="SOURCE_LINE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="LATITUDE" Type="Double" />
-          <Property Name="LONGITUDE" Type="Double" />
-          <Property Name="TOWN_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PROVINCE_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MUNICIPALITY_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityContainer Name="TRUST_DATAEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TRUST_DETAIL" EntityType="Self.TRUST_DETAIL" />
           <FunctionImport Name="Sp_TrustedData_Search_Info" ReturnType="Collection(TRUST_DATAModel.Sp_TrustedData_Search_Info_Result)">
           <Parameter Name="searchKeyWord" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Sp_Trusted_804_Data_Search_Info" ReturnType="Collection(TRUST_DATAModel.Sp_Trusted_804_Data_Search_Info_Result)">
           <Parameter Name="searchKeyWord" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="Sp_TrustedData_count" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <ComplexType Name="Sp_TrustedData_Search_Info_Result">
           <Property Type="Int32" Name="SRC_ID" Nullable="false" />
@@ -122,21 +60,6 @@ warning 6002: The table/view 'TRUST_DATA.dbo.TRUST_DETAIL' does not have a prima
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TRUST_DATAModelStoreContainer" CdmEntityContainer="TRUST_DATAEntities">
-          <EntitySetMapping Name="TRUST_DETAIL">
-            <EntityTypeMapping TypeName="TRUST_DATAModel.TRUST_DETAIL">
-              <MappingFragment StoreEntitySet="TRUST_DETAIL">
-                <ScalarProperty Name="SRC_ID" ColumnName="SRC_ID" />
-                <ScalarProperty Name="SRC_ADDRESS_TYPE" ColumnName="SRC_ADDRESS_TYPE" />
-                <ScalarProperty Name="SELECTED_COUNTRY" ColumnName="SELECTED_COUNTRY" />
-                <ScalarProperty Name="SOURCE_LINE" ColumnName="SOURCE_LINE" />
-                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
-                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
-                <ScalarProperty Name="TOWN_NAME" ColumnName="TOWN_NAME" />
-                <ScalarProperty Name="PROVINCE_CODE" ColumnName="PROVINCE_CODE" />
-                <ScalarProperty Name="MUNICIPALITY_NAME" ColumnName="MUNICIPALITY_NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Sp_TrustedData_Search_Info" FunctionName="TRUST_DATAModel.Store.Sp_TrustedData_Search_Info">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TRUST_DATAModel.Sp_TrustedData_Search_Info_Result">
@@ -173,6 +96,7 @@ warning 6002: The table/view 'TRUST_DATA.dbo.TRUST_DETAIL' does not have a prima
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_TrustedData_count" FunctionName="TRUST_DATAModel.Store.Sp_TrustedData_count" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

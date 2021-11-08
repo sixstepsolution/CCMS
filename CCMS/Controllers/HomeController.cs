@@ -10,71 +10,12 @@ namespace CCMS.Controllers
     public class HomeController : Controller
     {
         private TRUST_DATAEntities _db = new TRUST_DATAEntities();
-        //private CCMSEntities db = new CCMSEntities();
-        public ActionResult Index()
+        public ActionResult DashboardNew()
         {
             return View();
         }
-           public ActionResult CAS_Login()
+         public ActionResult MapBox()
         {
-            return View();
-        }
-           public ActionResult Miner_Login()
-        {
-            return View();
-        }
-           public ActionResult CAS_Roles()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Dashboard()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-          public ActionResult DashboardNew()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult CCMSDashboard()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        public ActionResult QueryByPerson()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        public ActionResult Trust()
-        {
-
-            return View();
-        }
-        public ActionResult CallCenter()
-        {
-
             return View();
         }
 
@@ -93,8 +34,13 @@ namespace CCMS.Controllers
             {
                 dct.Add("success", false);
             }
-            return Json(dct, JsonRequestBehavior.AllowGet);
+            var jsonResult = Json(dct, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = 500000000;
+            return jsonResult;
+            //return Json(dct, JsonRequestBehavior.AllowGet);
         }
+
+
 
         [HttpPost]
         public ActionResult GetTrusted804Data(string searchKey)
@@ -111,267 +57,53 @@ namespace CCMS.Controllers
             {
                 dct.Add("success", false);
             }
-            return Json(dct, JsonRequestBehavior.AllowGet);
-        }
-
-        //[HttpPost]
-        //public ActionResult UserLogin(tbl_Users user)
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Users.Where(u => u.Username == user.Username && u.Password == u.Password);
-        //    if (result.Count() > 0)
-        //    {
-        //        Session["LoggedUserId"] = result.FirstOrDefault().Id;
-        //        Session["LoggedUserEmail"] = result.FirstOrDefault().Email;
-        //        Session["LoggedUserUsername"] = result.FirstOrDefault().Username;
-        //        dct.Add("success", true);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-        //[HttpPost]
-        //public ActionResult SaveReceiveInBondCall(tbl_Person modal)
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    if (modal.First_Name == null)
-        //    {
-        //        dct.Add("success", false);
-        //        dct.Add("message", "Personal information cant not be empty!");
-        //        return Json(dct, JsonRequestBehavior.AllowGet);
-        //    }
-        //    try
-        //    {
-        //        DateTime dt = DateTime.UtcNow;
-        //        modal.Created_Date = dt;
-        //        modal.Modified_Date = dt;
-        //        modal.Created_By = Convert.ToInt32(Session["LoggedUserId"].ToString());
-        //        modal.Modified_By = Convert.ToInt32(Session["LoggedUserId"].ToString());
-        //        db.tbl_Person.Add(modal);
-        //        if (db.SaveChanges() > 0)
-        //        {
-        //            dct.Add("success", true);
-        //            dct.Add("message", "Saved successfully.");
-        //        }
-        //        else
-        //        {
-        //            dct.Add("success", false);
-        //            dct.Add("message", "Saved un-successfully.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        dct.Add("success", false);
-        //        dct.Add("message", ex.Message);
-        //    }
-
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-        //public ActionResult GetReceiveInbondingCall(ReceiveInbondingCallInputs inputs)
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-
-        //    //var gg = ModelState.IsValid;
-        //    //var result = db.tbl_Person.Where(x => x.ID_No.Contains(inputs.id_number)
-        //    //|| x.Bureau_Number.Contains(inputs.bureauId)
-        //    //|| x.First_Name.Contains(inputs.firstname)
-        //    //|| x.Surname.Contains(inputs.surname)
-        //    //).AsQueryable();
-
-        //    IQueryable<tbl_Person> result = db.tbl_Person;
-
-        //    if (!string.IsNullOrEmpty(inputs.id_number))
-        //        result = result.Where(app => app.ID_No.ToLower().Contains(inputs.id_number.ToLower()));
-
-        //    if (!string.IsNullOrEmpty(inputs.bureauId))
-        //        result = result.Where(app => app.Bureau_Number.ToLower().Contains(inputs.bureauId.ToLower()));
-
-        //    if (!string.IsNullOrEmpty(inputs.firstname))
-        //        result = result.Where(app => app.First_Name.ToLower().Contains(inputs.firstname.ToLower()));
-
-        //    if (!string.IsNullOrEmpty(inputs.surname))
-        //        result = result.Where(app => app.Surname.ToLower().Contains(inputs.surname.ToLower()));
-
-          
-        //    if (inputs.dob != null)
-        //    {
-        //        result = result.Where(x => DateTime.Compare(x.Date_Of_Birth.Value, inputs.dob.Value) == 0);
-        //    }
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-        //public ActionResult GetIndustries()
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Industry.ToList();
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-        //public ActionResult GetBureaus()
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Bureau.ToList();
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-        //public ActionResult GetPassports()
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Passport_Number.ToList();
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-        //public ActionResult GetIdentityNumbers()
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Identity_Number.ToList();
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-
-        //public ActionResult GetForeignIdentityNumbers()
-        //{
-        //    Dictionary<string, object> dct = new Dictionary<string, object>();
-
-        //    var result = db.tbl_Foreign_Identity_Number.ToList();
-        //    if (result.Count() > 0)
-        //    {
-        //        dct.Add("success", true);
-        //        dct.Add("result", result);
-        //    }
-        //    else
-        //    {
-        //        dct.Add("success", false);
-        //    }
-        //    return Json(dct, JsonRequestBehavior.AllowGet);
-        //}
-
-
-
-
-        public ActionResult ReceiveInboundCall()
-        {
-
-            return View();
+            var jsonResult = Json(dct, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = 500000000;
+            return jsonResult;
+           // return Json(dct, JsonRequestBehavior.AllowGet);
         }
 
 
-        public ActionResult DeceasedRegister()
+        [HttpGet]
+        public ActionResult GetTrusted804Data1(string searchKey)
         {
+            Dictionary<string, object> dct = new Dictionary<string, object>();
 
-            return View();
+            var result = _db.Sp_Trusted_804_Data_Search_Info(searchKey).ToList();
+            if (result.Count() > 0)
+            {
+                dct.Add("success", true);
+                dct.Add("result", result);
+            }
+            else
+            {
+                dct.Add("success", false);
+            }
+            var jsonResult = Json(dct, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = 500000000;
+            return jsonResult;
+            //return Json(dct, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult MaintainPersonDoc()
+
+        [HttpGet]
+        public ActionResult GetTrustedDataCount()
         {
+            Dictionary<string, object> dct = new Dictionary<string, object>();
 
-            return View();
-        }
-        public ActionResult UpdatePerson()
-        {
-
-            return View();
-        }
-        public ActionResult LogOutboundCall()
-        {
-
-            return View();
-        }
-
-        public ActionResult AddLodgementBooking()
-        {
-
-            return View();
-        }
-        public ActionResult ChangeLodgementBooking()
-        {
-
-            return View();
-        }
-        public ActionResult ViewLodgementBookings()
-        {
-
-            return View();
-        }
-        public ActionResult ResolveCallcenterTicket()
-        {
-
-            return View();
-        }
-        public ActionResult PrepareClaim()
-        {
-
-            return View();
-        }
-        public ActionResult AddDocumentstoTickets()
-        {
-
-            return View();
-        }
-        public ActionResult UserInfo()
-        {
-
-            return View();
+            var result = _db.Sp_TrustedData_count().ToList();
+            if (result.Count() > 0)
+            {
+                dct.Add("success", true);
+                dct.Add("result", result[0]);
+            }
+            else
+            {
+                dct.Add("success", false);
+            }
+            var jsonResult = Json(dct, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = 500000000;
+            return jsonResult;
+            //return Json(dct, JsonRequestBehavior.AllowGet);
         }
 
     }

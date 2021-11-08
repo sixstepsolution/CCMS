@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CAS</title>
+    <title>Tshiamiso</title>
     <link rel="icon" href="../Content/assets/images/Tshiamiso_logo.svg" type="image/x-icon">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -11,9 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/fontawesome-free/css/all.min.css">
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    @*@Styles.Render("~/Content/css")*@
-    @*@Scripts.Render("~/bundles/modernizr")*@
+  
     <script src="~/Scripts/angular.min.js"></script>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -21,20 +19,8 @@
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    @*<link rel="stylesheet" href="~/Content/dashboardNew/plugins/jqvmap/jqvmap.min.css">*@
-    <!-- Theme style -->
-    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
-
-    @*<link href="~/Content/dashboardNew/dist/AdminLTE.css" rel="stylesheet" />*@
+  
     <link rel="stylesheet" href="~/Content/dashboardNew/dist/css/adminlte.css">
-    @*<link href="../Content/dashboardNew/dist/css/skins/_all-skins.min.css" rel="stylesheet" />*@
-
-    @*<link href="../Content/dashboardNew/plugins/select2/select2.min.css" rel="stylesheet" />*@
-
-    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-        <script src="~/Scripts/bootstrap.min.js"></script>*@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="~/Content/dashboardNew/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -55,8 +41,6 @@
     <link href="~/Content/toastr.css" rel="stylesheet" />
     <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/AngularJs/ccmsApp.js"></script>
-    <script src="~/AngularJs/controllers/HomeCntrl.js"></script>
-    <script src="~/AngularJs/services/MasterService.js"></script>
 
     <script>
         toastr.options = {
@@ -78,105 +62,17 @@
         }
     </script>
     <style>
-        .bg-green-custom {
-            background-color: #057a52 !important
-        }
-
-        .skin-green .main-header .logo {
-            background-color: #057a52 !important;
-            color: #fff;
-            border-bottom: 0 solid transparent;
-        }
-
-        .skin-green .sidebar-menu > li:hover > a, .skin-green .sidebar-menu > li.active > a {
-            color: #ccc !important;
-            background: #1e282c;
-            border-left-color: #00a65a;
-        }
-
-        .btn-green-custom {
-            background-color: #1E8449 !important
-        }
-
-        .sidebar-dark-success .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-success .nav-sidebar > .nav-item > .nav-link.active {
-            background-color: #a8ce38 !important;
-            color: #fff;
-        }
-
-            .sidebar-dark-success .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-success .nav-sidebar > .nav-item > .nav-link.active a:hover {
-                /*background-color: #a8ce38 !important;*/
-                color: #fff !important;
-            }
+      
 
         .brand-link {
             display: block;
             font-size: 1.25rem;
             line-height: 1.5;
-            padding: .1rem .5rem;
+            /*padding: .1rem .5rem;*/
             transition: width .3s ease-in-out;
             white-space: nowrap;
         }
-        /*.nav-sidebar .nav-icon .nav-link p {
-            display: inline-block;
-            margin: 0;
-            color: #fff !important;
-        }
-            .nav-sidebar .nav-icon .nav-link p:hover {
-                display: inline-block;
-                margin: 0;
-                color: #fff !important;
-            }*/
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-            color: #3c3e3d !important;
-            background: rgba(213, 239, 137, 0.48) !important;
-        }
-
-        .nav-pills .nav-link:not(.active):hover {
-            background: rgba(213, 239, 137, 0.48) !important;
-            color: #b8d75c !important;
-        }
-
-        .main-sidebar .brand-text, .main-sidebar .logo-xl, .main-sidebar .logo-xs, .sidebar .nav-link p, .sidebar .user-panel .info {
-            transition: margin-left .3s linear,opacity .3s ease,visibility .3s ease;
-            color: #3c3e3d !important
-        }
-
-        /*[class*=sidebar-dark-] .sidebar a {
-            color: #3c3e3d;
-        }
-
-            [class*=sidebar-dark-] .sidebar a:hover {
-                color: #3c3e3d !important;
-            }*/
-        [class*=sidebar-dark-] {
-            background-color: #b8d75c !important;
-            color: #3c3e3d !important;
-        }
-
-        [class*=sidebar-dark] .brand-link {
-            border-bottom: 0px solid #9c1225;
-        }
-
-        .nav-icon {
-            color: #3c3e3d !important;
-        }
-
-        .card-header {
-            padding: 5px !important;
-            font-size: 11pt !important;
-        }
-
-        .card-gray:not(.card-outline) > .card-header {
-            background-color: #6c757de6;
-        }
-
-        .card-body {
-            -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-            min-height: 1px;
-            padding: 0.5rem !important;
-            font-size: 11pt !important
-        }
+     
     </style>
     <style>
         .btn-success-custom {
@@ -252,460 +148,29 @@
             padding-left: 0rem !important;
         }
     </style>
-    @*<style>
-            .btn-success-custom {
-                color: #fff;
-                background-color: #28a745;
-                border-color: #28a745;
-                box-shadow: none;
-            }
-        </style>*@
-
+  
 </head>
-<body class="hold-transition sidebar-mini skin-green" ng-controller="homeCntrl" ng-cloak>
+<body class="hold-transition sidebar-collapse skin-green" ng-cloak>
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-light" style="height:70px!important;background: #057a52!important">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav" ng-if="!isUser">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
-                </li>
-                
-            </ul>
-            
-            <ul class="navbar-nav" ng-if="isUser">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Contact Made" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-1-key-50.png" alt="Contact Made" width="30" />
+        <nav class="main-header navbar navbar-expand " style="height: 70px !important; background-color: #19212f !important ">
+            <div class="col-lg-12">
+                <!--<div class="col-lg-2 float-left">
+                    <a href="../Home/MapBox" class="brand-link logo" style="background-color:#057a52 !important;height:70px!important">-->
+                        @*<span class="logo-mini" style="font-size:15px;z-index:99999!important;border:1px solid red"><img src="~/Content/assets/images/Tshiamiso_logo.svg" /></span>*@
+                        <!-- logo for regular state and mobile devices -->
+                        <!--<span class="logo-lg" style="z-index: 99999!important;border:0px solid red;"><img src="~/Content/assets/images/Tshiamiso_logo.svg" height="65" style="margin-top: -10px !important" /></span>
                     </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Contact Made</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Appointment Booked" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-2-key-50.png" alt="Appointment Booked" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Appointment Booked</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Claim Lodged" href="#" role="button">
-                        <i class="fa fa-2x fa-user-check text-white"></i>
-                        @*<img src="~/Content/assets/icons/icons8-3-key-50.png" alt="Claim Lodged" width="30" />*@
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Claim Lodged</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Benifits Medical Examination" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-4-key-50.png" alt="Benifits Medical Examination" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Benifits Examination</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Medical Panel Assessment" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-5-key-50.png" alt="Medical Panel Assessment" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Panel Assessment</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Trust Certification" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-6-key-50.png" title="Trust Certification" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Trust Certification</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Mine Agent Review" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-7-key-50.png" alt="Mine Agent Review" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Agent Review</a>
-
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Approval and Payment" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-8-key-50.png" alt="Approval and Payment" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Approval and Payment</a>
-                </li>
-                <hr style="border: 1px solid white; width:2rem;margin-top: 20px;" />
-
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Ineligible" href="#" role="button">
-                        <img src="~/Content/assets/icons/icons8-9-key-50.png" alt="Ineligible" width="30" />
-                    </a>
-                    <a class="text-white text-center" style="font-size:11px!important">Ineligible</a>
-                </li>
-            </ul>
-            <!-- Right navbar links -->
-            <!--<ul class="navbar-nav ml-auto">-->
-            <!-- Messages Dropdown Menu -->
-            <!--<li class="nav-item dropdown">
-            <a class="nav-link text-white" data-toggle="dropdown" href="#">
-                <i class="fa fa-user"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center border">
-                <div class="dropdown-divider"></div>
-                @if (Session["LoggedUserUsername"] != null)
-                {
-                    <h5 class="p-5">Hello <br />@Session["LoggedUserUsername"].ToString()</h5>
-                }
-                else
-                {
-                    <h5 class="p-5">Hello <br />Admin</h5>
-                }
-
-                <div class="dropdown-divider"></div>
-
-                <div class="dropdown-divider"></div>
-                <div class="dropdown-item dropdown-footer">
-                    <a href="../home/index" ng-click="logOut()" class="btn btn-warning" style="color:#000">
-                        Sign out
-                    </a>
+                </div>-->
+                <div class="col-lg-12" style="text-align:center;color:white;padding:10px">
+                    <h1>LODGEMENT AND BME SITES</h1>
                 </div>
-
             </div>
-        </li>
-    </ul>-->
+
+
+
         </nav>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-success">
-            <!-- Brand Logo -->
-            <a href="../Home/Dashboard" class="brand-link logo" style="background-color:#057a52 !important;height:70px!important">
-                @*<span class="logo-mini" style="font-size:15px;z-index:99999!important;border:1px solid red"><img src="~/Content/assets/images/Tshiamiso_logo.svg" /></span>*@
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg" style="z-index: 99999!important;border:0px solid red;"><img src="~/Content/assets/images/Tshiamiso_logo.svg" height="65" width="100%" style="margin-top: -10px !important" /></span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="../Home/Dashboard" class="nav-link">
-                                <i class="nav-icon fa fa-tachometer-alt"></i>
-                                <p>
-                                    Dashbord 1
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                        </li>  
-                        <li class="nav-item">
-                            <a href="../Home/DashboardNew" class="nav-link">
-                                <i class="nav-icon fa fa-tachometer-alt"></i>
-                                <p>
-                                    Dashbord 2
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-handshake"></i>
-                                <p>
-                                    Trust
-                                    <i class="fa fa-angle-down right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-question-circle"></i>
-                                        <p>
-                                            Query
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/QueryByPerson" class="nav-link">
-                                                <i class="nav-icon fa fa-user-cog"></i>
-                                                <p>
-                                                    Query by Person
-                                                    @*<i class="fa fa-angle-right right"></i>*@
-                                                </p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-user-circle"></i>
-                                        <p>
-                                            Person
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/DeceasedRegister" class="nav-link">
-                                                <i class="nav-icon fa fa-user-injured"></i>
-                                                <p>Deceased Register</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="../Home/MaintainPersonDoc" class="nav-link">
-                                                <i class="nav-icon fa fa-users-cog"></i>
-                                                <p>Maintain Peson Doc</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="../Home/UpdatePerson" class="nav-link">
-                                                <i class="nav-icon fa fa-user-edit"></i>
-                                                <p>Update Person</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-user-tie"></i>
-                                        <p>
-                                            Administrator
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/PrepareClaim" class="nav-link">
-                                                <i class="nav-icon fa fa-clipboard-list"></i>
-                                                <p>Prepare Claim</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="../Home/ResolveCallcenterTicket" class="nav-link">
-                                                <i class="nav-icon fa fa-cog"></i>
-                                                <p>Resolve Call Center Ticket</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-certificate"></i>
-                                        <p>
-                                            Certification
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/Trust" class="nav-link">
-                                                <i class="nav-icon fa fa-book-medical"></i>
-                                                <p>BME Booking</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-hand-holding-heart"></i>
-                                <p>
-                                    Trust Lodgement
-                                    <i class="fa fa-angle-down right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-question-circle"></i>
-                                        <p>
-                                            Query
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/QueryByPerson" class="nav-link">
-                                                <i class="nav-icon fa fa-user-cog"></i>
-                                                <p>Query by Person</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-user-circle"></i>
-                                        <p>
-                                            Person
-                                            <i class="fa fa-angle-down right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="../Home/DeceasedRegister" class="nav-link">
-                                                <i class="nav-icon fa fa-user-injured"></i>
-                                                <p>Deceased Register</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="../Home/MaintainPersonDoc" class="nav-link">
-                                                <i class="nav-icon fa fa-users-cog"></i>
-                                                <p>Maintain Person Doc</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="../Home/UpdatePerson" class="nav-link">
-                                                <i class="nav-icon fa fa-user-edit"></i>
-                                                <p>Update Person</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!--<li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa fa-headset"></i>
-                                <p>
-                                    Call Center
-                                    <i class="fa fa-angle-down right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="background-color: rgba(213, 239, 137, 0.48) !important;">
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/ReceiveInnbondCall" class="nav-link">
-                                        <i class="nav-icon fa fa-phone"></i>
-                                        <p>
-                                            Receive Inbound Calls-->
-                        @*<i class="right"></i>*@
-                        <!--</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-phone"></i>
-                                        <p>
-                                            Log on Outbond Calls
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-address-card"></i>
-                                        <p>
-                                            Add Lodgement Booking
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-edit"></i>
-                                        <p>
-                                            Change Lodgement Booking
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-street-view"></i>
-                                        <p>
-                                            View Lodgement Booking
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-file-pdf"></i>
-                                        <p>
-                                            Add Documents to Ticket
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/Trust" class="nav-link">
-                                        <i class="nav-icon fa fa-book-medical"></i>
-                                        <p>
-                                            BME Booking
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:#000!important;border-bottom:1px dashed #a2c149!important">
-                                    <a href="../Home/QueryByPerson" class="nav-link">
-                                        <i class="nav-icon fa fa-user-cog"></i>
-                                        <p>
-                                            Query by Person
-                                            <i class="right"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>-->
-                        <li class="nav-item">
-                            <a href="../Home/CallCenter" class="nav-link">
-                                <i class="nav-icon fa fa-headset"></i>
-                                <p>
-                                    Call Center
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-chart-line"></i>
-                                <p>
-                                    Reports
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../Home/UserInfo" class="nav-link">
-                                <i class="nav-icon fa fa-user"></i>
-                                <p>
-                                    User Info
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../home/index" class="nav-link">
-                                <i class="nav-icon fa fa-power-off"></i>
-                                <p>
-                                    Signout
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
+       
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="background:#ffffff">
@@ -713,17 +178,13 @@
         </div>
         <!-- /.content-wrapper -->
         @*<footer class="main-footer">
-                <strong>Copyright &copy; 2021 <a href="#">CCMS</a>.</strong>
-                All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 0.01
-                </div>
-            </footer>*@
+            <strong>Copyright &copy; 2021 <a href="#">CCMS</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 0.01
+            </div>
+        </footer>*@
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->

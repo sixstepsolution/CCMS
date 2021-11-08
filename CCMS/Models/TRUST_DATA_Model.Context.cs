@@ -27,7 +27,6 @@ namespace CCMS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TRUST_DETAIL> TRUST_DETAIL { get; set; }
     
         public virtual ObjectResult<Sp_TrustedData_Search_Info_Result> Sp_TrustedData_Search_Info(string searchKeyWord)
         {
@@ -45,6 +44,11 @@ namespace CCMS.Models
                 new ObjectParameter("searchKeyWord", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sp_Trusted_804_Data_Search_Info_Result>("Sp_Trusted_804_Data_Search_Info", searchKeyWordParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Sp_TrustedData_count()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Sp_TrustedData_count");
         }
     }
 }

@@ -167,34 +167,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TRUST_DATA_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\TRUST_DETAIL.cs">
-      <DependentUpon>TRUST_DATA_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AngularJs\controllers\AddDocumentsTicketsCtrl.js" />
-    <Content Include="AngularJs\controllers\AddLodgementBookingCntrl.js" />
-    <Content Include="AngularJs\controllers\ChangeLodgementBookingCntrl.js" />
-    <Content Include="AngularJs\controllers\HomeCntrl.js" />
-    <Content Include="AngularJs\controllers\Login.js" />
+    <Content Include="AngularJs\controllers\MapBoxCntrl.js" />
     <Content Include="AngularJs\controllers\MapCntrl.js" />
-    <Content Include="AngularJs\controllers\LogOutboundCall.js" />
-    <Content Include="AngularJs\controllers\MaintainPersonDoc.js" />
-    <Content Include="AngularJs\controllers\PrepareClaimCntrl.js" />
-    <Content Include="AngularJs\controllers\QuerybyPersonCntrl.js" />
-    <Content Include="AngularJs\controllers\DeceaseRegisterCntrl.js" />
-    <Content Include="AngularJs\controllers\ReceiveInbondCntrl.js" />
-    <Content Include="AngularJs\controllers\ResolveCallcenterCntrl.js" />
-    <Content Include="AngularJs\controllers\UpdatePerson.js" />
-    <Content Include="AngularJs\controllers\ViewLodgementCntrl.js" />
     <Content Include="AngularJs\HTimeline.css" />
     <Content Include="AngularJs\select.css" />
     <Content Include="AngularJs\select.js" />
     <Content Include="AngularJs\ccmsApp.js" />
-    <Content Include="AngularJs\services\ReceiveInbondService.js" />
-    <Content Include="AngularJs\services\MasterService.js" />
-    <Content Include="AngularJs\services\LoginService.js" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />
@@ -4504,11 +4485,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="maps\Control.FullScreen.css" />
     <Content Include="maps\Control.FullScreen.js" />
+    <Content Include="maps\images\coloredIcon.png" />
     <Content Include="maps\images\Google-Maps.png" />
     <Content Include="maps\images\gps.png" />
     <Content Include="maps\images\green-pin-md.png" />
     <Content Include="maps\images\icon-fullscreen-2x.png" />
     <Content Include="maps\images\icon-fullscreen.png" />
+    <Content Include="maps\images\lightblue-dot.png" />
     <Content Include="maps\images\location-pin.png" />
     <Content Include="maps\images\location-pinNew.png" />
     <Content Include="maps\images\markerRed.png" />
@@ -4517,6 +4500,7 @@
     <Content Include="maps\images\placeholder.png" />
     <Content Include="maps\images\plek_marker_production.png" />
     <Content Include="maps\images\plus_red_marker.png" />
+    <Content Include="maps\images\purple-dot.png" />
     <Content Include="maps\images\red-pin-maps.svg.med.png" />
     <Content Include="maps\images\red_marker.png" />
     <Content Include="maps\images\red_marker1.png" />
@@ -5811,35 +5795,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Shared\_LayoutCCMS.cshtml" />
-    <Content Include="Views\Home\CCMSDashboard.cshtml" />
-    <Content Include="Views\Home\QueryByPerson.cshtml" />
     <Content Include="Uploads\Inspection.pdf" />
-    <Content Include="Views\Home\Trust.cshtml" />
-    <Content Include="Views\Home\ReceiveInboundCall.cshtml" />
-    <Content Include="Views\Home\CallCenter.cshtml" />
-    <Content Include="Views\Home\Miner_Login.cshtml" />
-    <Content Include="Views\Home\CAS_Login.cshtml" />
-    <Content Include="Views\Home\CAS_Roles.cshtml" />
-    <Content Include="Views\Home\DeceasedRegister.cshtml" />
-    <Content Include="Views\Home\MaintainPersonDoc.cshtml" />
-    <Content Include="Views\Home\UpdatePerson.cshtml" />
-    <Content Include="Views\Home\LogOutboundCall.cshtml" />
-    <Content Include="Views\Home\AddLodgementBooking.cshtml" />
-    <Content Include="Views\Home\ChangeLodgementBooking.cshtml" />
-    <Content Include="Views\Home\PrepareClaim.cshtml" />
-    <Content Include="Views\Home\ResolveCallcenterTicket.cshtml" />
-    <Content Include="Views\Home\ViewLodgementBookings.cshtml" />
-    <Content Include="Views\Home\AddDocumentstoTickets.cshtml" />
-    <Content Include="Views\Home\UserInfo.cshtml" />
     <Content Include="Views\Home\DashboardNew.cshtml" />
+    <Content Include="Views\Home\MapBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AngularJs\services\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

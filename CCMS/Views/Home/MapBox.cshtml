@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutCCMS.cshtml";
+}
+<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+<script src="~/AngularJs/controllers/MapBoxCntrl.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 70px;
+        bottom: 0;
+        width: 100%;
+    }
+    .leaflet-top .leaflet-control {
+        margin-top: 10px;
+    }
+
+</style>
+<style>
+    pre.ui-coordinates {
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: 11px;
+        line-height: 18px;
+        border-radius: 3px;
+        max-height: 240px;
+        overflow: auto;
+        width: 100px;
+    }
+</style>
+<style>
+    .content-header {
+        padding: 5px 0.5rem !important;
+    }
+
+    .box-header {
+        padding: 0 !important;
+        padding-left: 10px !important
+    }
+</style>
+<style>
+    .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        display: none;
+    }
+
+    .marker-cluster-small {
+        background-color: #d4e9bc;
+        opacity: 0.2 !important
+    }
+
+        .marker-cluster-small div {
+            background-color: #d4e9bc;
+        }
+
+    .marker-cluster-medium {
+        background-color: #fee5c5;
+        opacity: 0.2 !important
+    }
+
+        .marker-cluster-medium div {
+            background-color: #fee5c5;
+        }
+
+    .marker-cluster-large {
+        background-color: #d2bdce;
+        opacity: 0.2 !important
+    }
+
+        .marker-cluster-large div {
+            background-color: #d2bdce;
+        }
+    .marker-cluster span {
+        font-weight: 900;
+    }
+</style>
+<style>
+    #menu {
+        position: absolute;
+        background: #efefef;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+
+
+    #pac-input {
+        position: absolute;
+        bottom: 5%;
+        left: 10px;
+        z-index: 900;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 11px 11px 0 13px;
+        text-overflow: ellipsis;
+          height:100px;
+        -webkit-box-shadow: 1px 1px 1px 1px #000000;
+        box-shadow: 1px 1px 1px 1px #000000;
+        background-clip: padding-box;
+        background-color: #fff;
+        border: 1px solid #999;
+        border-color: rgba(0,0,0,.4);
+        border-radius: 3px;
+        box-shadow: none;
+    }
+    .pac-input b{
+        font-size:15px
+    }
+
+
+   
+</style>
+<script src="https://docs.mapbox.com/mapbox.js/assets/data/realworld.388.js"></script>
+<div ng-controller="MapBoxCntrl" ng-cloak>
+    @*<input id="pac-input"
+           class="controls"
+           type="text"
+           placeholder="Search Box" />*@
+
+    <div id="pac-input">
+        <b>Claimant Population : {{ClaimantPopulationCount}}</b>
+        <br />
+        <b><img src="../maps/images/lightblue-dot.png" width="20" height="20" /> Total Logement site : {{LodgementCount}}</b>
+        <br />
+        <b><img src="../maps/images/purple-dot.png" width="20" height="20" /> Total BME Sites : {{BmisitesCount}}</b>
+    </div>
+
+    <div id='map'>
+    </div>
+    <!--<div id="menu">
+        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">-->
+    <!-- See a list of Mapbox-hosted public styles at -->
+    <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+    <!--<label for="satellite-v9">satellite</label>
+        <input id="light-v10" type="radio" name="rtoggle" value="light">
+        <label for="light-v10">light</label>
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+        <label for="dark-v10">dark</label>
+        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+        <label for="streets-v11">streets</label>
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+        <label for="outdoors-v11">outdoors</label>
+    </div>-->
+    @*<pre id='coordinates' class='ui-coordinates'></pre>*@
+
+</div>
+
